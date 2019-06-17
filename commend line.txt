@@ -1,0 +1,5 @@
+project commend lines
+
+1- php artisan make:migrate
+2-php artisan db:seed --class=PermissionTableSeeder
+3-php artisan db:seed --class=RolesTableSeeder
