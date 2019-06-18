@@ -340,7 +340,7 @@
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{url('admin/product/Category')}}">الأقسام الرئيسية</a></li>
                                 <li><a href="{{url('admin/product/SubCategory')}}">الأقسام الفرعية</a></li>
-                                <li><a href="{{url('/')}}">  الاقسام الفرعية  للاقسام الفرعية</a></li>
+                                <li><a href="{{url('admin/product/SubtwoCategory')}}">  الاقسام الفرعية  للاقسام الفرعية</a></li>
                                 <li><a href="{{route('Manufactor.index')}}">المصنعين</a></li>
                                 <li><a href="{{route('Product.index')}}">المنتجات</a></li>
                             </ul>
@@ -350,8 +350,8 @@
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{url('admin/video/Category')}}">الأقسام الرئيسية</a></li>
                                 <li><a href="{{url('admin/video/SubCategory')}}">الأقسام الفرعية</a></li>
-                                <li><a href="{{url('/')}}">  الاقسام الفرعية  للاقسام الفرعية</a></li>
-                                <li><a href="{{route('Product.index')}}">المنتجات</a></li>
+                                <li><a href="{{url('admin/video/SubtwoCategory')}}">  الاقسام الفرعية  للاقسام الفرعية</a></li>
+                                <li><a href="{{route('Video.index')}}">المنتجات</a></li>
                             </ul>
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
@@ -359,8 +359,8 @@
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{url('admin/training/Category')}}">الأقسام الرئيسية</a></li>
                                 <li><a href="{{url('admin/training/SubCategory')}}">الأقسام الفرعية</a></li>
-                                <li><a href="{{url('/')}}">  الاقسام الفرعية  للاقسام الفرعية</a></li>
-                                <li><a href="{{route('Product.index')}}">المنتجات</a></li>
+                                <li><a href="{{url('admin/training/SubtwoCategory')}}">  الاقسام الفرعية  للاقسام الفرعية</a></li>
+                                <li><a href="{{route('training.index')}}">المنتجات</a></li>
                             </ul>
                         </li>
                         <!-- <li> <a class=" waves-effect waves-dark" href="{{route('Comments')}}" aria-expanded="false"><i
@@ -372,8 +372,8 @@
                                 <li><a href="{{route('News.index')}}">الأخبار</a></li>
                             </ul>
                         </li>
-                        <li> <a class=" waves-effect waves-dark" href="#" aria-expanded="false"><i
-                                    class="ti-shopping-cart"></i><span class="hide-menu">المبيعات</span></a></li>
+                        <li> <a class=" waves-effect waves-dark" href="{{route('Service.index')}}" aria-expanded="false"><i
+                                    class="ti-shopping-cart"></i><span class="hide-menu">الخدمات</span></a></li>
                         <!-- <li> <a class=" waves-effect waves-dark" href="{{route('Shipping.index')}}" aria-expanded="false"><i
                                     class="ti-truck"></i><span class="hide-menu"> الشحن </span></a></li> -->
                         <!-- <li> <a class=" waves-effect waves-dark" href="{{route('Payment.index')}}" aria-expanded="false"><i
@@ -387,8 +387,7 @@
                                 <!-- <li><a href="{{route('Ads.index')}}">الإعلانات</a></li> -->
                                 <li><a href="{{route('setting.index')}}">الإعدادات الرئيسية</a></li>
                                 <li><a href="{{route('socialmedia')}}">اعدادات السوشيال ميديا</a></li>
-                                <!-- <li><a href="{{route('Cities.index')}}">المدن</a></li>
-                                <li><a href="{{route('Countries.index')}}">المناطق</a></li> -->
+
                             </ul>
                         </li>
                         <!-- <li> <a class=" waves-effect waves-dark" href="{{route('Coupon.index')}}" aria-expanded="false"><i

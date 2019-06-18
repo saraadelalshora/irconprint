@@ -23,7 +23,7 @@
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <div class="row">
-                    <div class="col-lg-9">
+                    <div class="col-lg-12">
                         <div class="card">
                                 <div class="card-header">
                                         <h4 class="card-title m-b-0">قائمة المنتجات</h4>
@@ -36,7 +36,6 @@
                                             <th data-field="state" data-checkbox="true"></th>
                                             <th data-field="name">أسم المنتج</th>
                                             <th data-field="catname">أسم القسم</th>
-                                            <th data-field="qnty">الكمية</th>
                                             <th data-field="status">الحالة</th>
 
                                             <th data-field="edit">تعديل</th>
@@ -48,7 +47,6 @@
                                             <td data-field="state" data-checkbox="true"></td>
                                             <td data-field="name"> {{$value->name_ar}}</td>
                                             <td data-field="catname">{{$value->subcategory->category->name_ar}} => {{$value->subcategory->name_ar}}</td>
-                                            <td data-field="qnty">{{$value->quantity}}</td>
 
                                              <td data-field="status">@if($value->status == 1) مفعل @else غير مفعل @endif</td>
                         
@@ -67,7 +65,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <!-- <div class="col-lg-3">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">فلتر البحث</h4>
@@ -78,14 +76,6 @@
                                             <input type="text" class="form-control" id="searchword" name="searchword" placeholder="البحث">
                                         </div>
                     
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">السعر</label>
-                                            <input type="text" class="form-control" id="price"  name="price"  placeholder="السعر">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">الكمية</label>
-                                            <input type="text" class="form-control" id="quantity"  name="quantity" placeholder="الكمية">
-                                        </div>
                                         <div class="form-group">
                                             <label class="control-label">الحالة</label>
                                             <select class="form-control custom-select" id="status" data-placeholder="Choose a Category" name="status" tabindex="1">
@@ -102,7 +92,7 @@
                                 
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                
 

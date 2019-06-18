@@ -10,8 +10,8 @@
     <div class="col-md-7 align-self-center text-right">
         <div class="d-flex justify-content-end align-items-center">
             <a href="{{ route('Product.create')}}"><button type="button"
-                    class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> إضافة
-                    جديد</button></a>
+                    class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> تعديل المنتج
+                    </button></a>
 
         </div>
     </div>
@@ -43,10 +43,6 @@
                                     class="hidden-sm-up"><i class="fa fa-folder-o"></i></span> <span
                                     class="hidden-xs-down"> البيانات </span></a> </li>
 
-
-                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#home4" role="tab"><span
-                                    class="hidden-sm-up"><i class="fa  fa-star-o"></i></span> <span
-                                    class="hidden-xs-down"> مميزات </span></a> </li>
 
                         <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#home5" role="tab"><span
                                     class="hidden-sm-up"><i class="fa fa-file-image-o"></i></span> <span
@@ -85,9 +81,8 @@
                                                 <div class="form-group">
                                                     <div class="input-group-prepend">
                                                         <input type="text" id="AR" class="form-control"
-                                                            placeholder=" اسم المنتج" name="name_ar"
-                                                            value="{{$product->name_ar}}" required
-                                                            data-validation-required-message="هذا الحقل مطلوب">
+                                                            placeholder=" اسم المنتج" name="name_ar" required
+                                                            data-validation-required-message="هذا الحقل مطلوب" value="{{$product->name_ar}}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -96,8 +91,7 @@
                                                 <label for="textarea_ar">وصف المنتج <span
                                                         class="text-danger">*</span></label>
                                                 <div class="form-group">
-                                                    <textarea class="summernote" name="description_ar">
-                                                                    {!!$product->description_ar!!}
+                                                    <textarea class="summernote" name="description_ar"> {!!$product->description_ar!!}
 
                                                                     </textarea>
                                                 </div>
@@ -111,8 +105,7 @@
                                                 <div class="form-group">
                                                     <div class="input-group-prepend">
                                                         <input type="" id="AR" class="form-control"
-                                                            placeholder="اسم القسم" name="name_en"
-                                                            value="{{$product->name_en}}">
+                                                            placeholder="اسم القسم" name="name_en" value="{{$product->name_en}}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -120,8 +113,7 @@
                                             <div>
                                                 <label for="textarea_ar"> وصف المنتج </label>
                                                 <div class="form-group">
-                                                    <textarea class="summernote" name="description_en">
-                                                                    {!!$product->description_en!!}
+                                                    <textarea class="summernote" name="description_en">{!!$product->description_en!!}
                                                                     </textarea>
                                                 </div>
                                             </div>
@@ -142,7 +134,7 @@
                                         @if(isset($categories))
                                         @foreach($categories as $category)
                                         <option value="{{$category->id}}" @if($product->subcategory->category->id ==
-                                            $category->id) selected @endif>{{$category->name_ar}}</option>
+                                            $category->id) selected @endif >{{$category->name_ar}}</option>
                                         @endforeach
                                         @endif
                                     </select>
@@ -152,89 +144,22 @@
                                     <label class="control-label">القسم الفرعي<span class="text-danger">*</span> </label>
                                     <select name="subcategory" id="subcategory"
                                         class="form-control m-b-10 select2-multiplel" required
-                                        data-validation-required-message="هذا الحقل مطلوب">
-                                      
+                                        data-validation-required-message="هذا الحقل مطلوب"> 
                                         <option value="{{$product->subcategory_id}}" selected>
                                             {{$product->subcategory ->name_ar}}</option>
-                                      
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">الفلتر<span class="text-danger">*</span> </label>
-                                    <select name="filter_id" id="filter" class="form-control m-b-10 select2-multiplel"
-                                        required data-validation-required-message="هذا الحقل مطلوب">
-                                       
+                                    <label class="control-label">تصنفيات الاقسام الفرعية<span
+                                            class="text-danger">*</span> </label>
+                                    <select name="subsubcategory" id="filter"
+                                        class="form-control m-b-10 select2-multiplel" required
+                                        data-validation-required-message="هذا الحقل مطلوب">
+
+                                        <option value="{{$product->subtwocategory_id}}" selected>
+                                            {{$product->subtwocategory ->name_ar}}</option>
+
                                     </select>
-                                </div>
-                                <div class="form-group">
-                                @if($productspecification!= null)
-                               
-                                    @foreach($productspecification as $specifications)
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label class="control-label">خصائص<span class="text-danger">*</span>
-                                            </label>
-                                            <select name="specification_id" id="specification"
-                                                class="form-control m-b-10 select2-multiplel" required
-                                                data-validation-required-message="هذا الحقل مطلوب">
-
-                                               
-                                                <option value="{{$specifications->specification}}" selected>
-                                                    {{$specifications->specification}}</option>
-                                               
-                                            </select>
-                                        </div>
-
-                                        <div class="col-md-6">
-
-                                            <label class="control-label">التفاصيل<span class="text-danger">*</span>
-                                            </label>
-                                            <select name="specification_details_id[]" id="specification_details"
-                                                class="select2 form-control m-b-10 select2-multiple" style="width: 100%"
-                                                multiple="multiple" data-placeholder="Choose" required
-                                                data-validation-required-message="هذا الحقل مطلوب">
-
-                                                @if($specifications->specification_deltails != null)
-                                                @php 
-                                                 $deatils = explode (",", $specifications->specification_deltails);  
-                                                @endphp
-                                                @foreach($deatils as $key => $specifi)
-                                                @if($specifi != null)
-                                                <option value="{{$specifi}}" selected>{{$specifi}}</option>
-                                                @endif
-                                                @endforeach
-                                                @endif
-                                            </select>
-                                        </div>
-
-                                    </div>
-                                    @endforeach
-                                    @else
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label class="control-label">خصائص<span class="text-danger">*</span>
-                                            </label>
-                                            <select name="specification_id" id="specification"
-                                                class="form-control m-b-10 select2-multiplel" required
-                                                data-validation-required-message="هذا الحقل مطلوب">
-
-                                            </select>
-                                        </div>
-
-                                        <div class="col-md-6">
-
-                                            <label class="control-label">التفاصيل<span class="text-danger">*</span>
-                                            </label>
-                                            <select name="specification_details_id[]" id="specification_details"
-                                                class="select2 form-control m-b-10 select2-multiple" style="width: 100%"
-                                                multiple="multiple" data-placeholder="Choose" required
-                                                data-validation-required-message="هذا الحقل مطلوب">
-
-                                            </select>
-                                        </div>
-
-                                    </div>
-                                   @endif
                                 </div>
 
                             </div>
@@ -246,33 +171,18 @@
                                     <select name="manufact_id" class=" form-control m-b-10 select2-multiple">
                                         @if(isset($manufact))
                                         @foreach($manufact as $manufactor)
-                                        <option value="{{$manufactor->id}}" @if($product->manufactor_id==
-                                            $manufactor->id) selected @endif>{{$manufactor->name_ar}}</option>
+                                        <option value="{{$manufactor->id}}">{{$manufactor->name_ar}}</option>
                                         @endforeach
                                         @endif
 
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">السعر<span class="text-danger">*</span> </label>
-                                    <input type="number" value="{{$product->price}}" class="form-control" name="price"
-                                        min="1" required data-validation-required-message="هذا الحقل مطلوب">
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">الكميه <span class="text-danger">*</span> </label>
-                                    <input type="number" value="{{$product->quantity}}" class="form-control"
-                                        name="quentity" min="1" required
-                                        data-validation-required-message="هذا الحقل مطلوب">
+                                    <label class="control-label">الكود </label>
+                                    <input type="text" class="form-control" name="code" 
+                                        data-validation-required-message="هذا الحقل مطلوب" value="{{$product->code}}">
                                 </div>
 
-                                <div class="form-group">
-                                    <label class="control-label"> تخضع للضريبة </label>
-                                    <select name="taxes" class="form-control">
-                                        <option value="1" @if($product->texes==1) selected @endif>نعم</option>
-                                        <option value="0" @if($product->texes==0) selected @endif>لا</option>
-                                    </select>
-                                </div>
-                                <!-- special -->
                                 <div class="form-group">
                                     <label class="control-label">الحالة </label>
                                     <select name="status" class="form-control">
@@ -281,40 +191,11 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">مميز </label>
+                                    <label class="control-label">متاح </label>
                                     <select name="special" class="form-control">
-                                    <option value="0" @if($product->special==0)selected @endif >لا</option>
-                                    <option value="1" @if($product->special==1)selected @endif >نعم</option>
-                                        
+                                        <option value="1" @if($product->availbale == 1)selected @endif >نعم</option>
+                                        <option value="0" @if($product->availbale == 0)selected @endif >لا</option>
                                     </select>
-                                </div>
-                            </div>
-
-
-                            <div class="tab-pane" id="home4" role="tabpanel">
-                                <div class="table-responsive">
-                                    <table class="table text-center">
-                                        <thead>
-                                            <tr>
-                                                <td>السعر</td>
-                                                <td>من</td>
-                                                <td>الي</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td> <input type="number" class="form-control"
-                                                        placeholder="السعر بعد الخصم" name="discount_price"
-                                                        value="{{$product->discount_price}}" /> </td>
-                                                <td> <input type="text" class="form-control" placeholder="yyyy-dd-mm"
-                                                        id="fdate" name="datefrom"
-                                                        value="{{$product->discount_from}}" /> </td>
-                                                <td> <input type="text" class="form-control" placeholder="yyyy-dd-mm"
-                                                        id="tdate" name="dateto" value="{{$product->discount_to}}" />
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
                                 </div>
                             </div>
 
@@ -331,7 +212,7 @@
                                             </fieldset>
                                             <div class="form-group">
 
-                                                <div class="preview-images-zone">
+                                                 <div class="preview-images-zone">
                                                     @foreach($product->images as $image)
                                                     <div class="preview-image preview-show-{{$image->id}}">
 
@@ -348,7 +229,7 @@
                                                         </div>
                                                     </div>
                                                     @endforeach
-                                                </div>
+                                                </div> 
                                             </div>
                                         </div>
 
@@ -386,8 +267,8 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i
                                                             class="flag-icon flag-icon-eg"></i></span>
-                                                    <input type="text" data-role="tagsinput"
-                                                        value="{{$product->tag_ar}}" name="tag_ar" class="form-control">
+                                                    <input type="text" data-role="tagsinput" name="tag_ar"
+                                                      value="{{$product->tag_ar}}"    class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -401,8 +282,8 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i
                                                             class="flag-icon flag-icon-us"></i></span>
-                                                    <input type="text" class="form-control" value="{{$product->tag_en}}"
-                                                        name="tag_en" data-role="tagsinput">
+                                                    <input type="text" class="form-control" name="tag_en"
+                                                        data-role="tagsinput"  value="{{$product->tag_en}}" >
                                                 </div>
                                             </div>
                                         </div>
@@ -430,7 +311,6 @@
 </div>
 
 
-
 <!-- ============================================================== -->
 <!-- End PAge Content -->
 <!-- ============================================================== -->
@@ -439,9 +319,7 @@
     $('#Category').change(function () {
         $("#subcategory").empty();
         $("#filter").empty();
-        $("#specification").empty();
-        $("#specification_details").empty();
-
+      
         var countryID = $(this).val();
         if (countryID) {
 
@@ -465,15 +343,12 @@
         } else {
             $("#subcategory").empty();
             $("#filter").empty();
-            $("#specification").empty();
-            $("#specification_details").empty();
-
+           
         }
     });
     $('#subcategory').on('change', function () {
         $("#filter").empty();
-        $("#specification").empty();
-        $("#specification_details").empty();
+     
         var stateID = $(this).val();
         if (stateID) {
             $.ajax({
@@ -497,69 +372,11 @@
             });
         } else {
             $("#filter").empty();
-            $("#specification").empty();
-            $("#specification_details").empty();
+          ;
         }
 
     });
-    // specificationdetails
-    $('#filter').on('change', function () {
-        $("#specification").empty();
-        $("#specification_details").empty();
-        var filterID = $(this).val();
-        if (filterID) {
-            $.ajax({
-                type: "GET",
-                //    specification-list?filter_id
-                url: "{{url('admin/specification-list')}}?filter_id=" + filterID,
-                success: function (res) {
-                    if (res) {
-                        $("#specification").empty();
-                        $("#specification").append('<option>Select</option>');
-                        $.each(res, function (key, value) {
-                            $("#specification").append('<option value="' + value + '">' +
-                                value + '</option>');
-                        });
-
-                    } else {
-                        $("#specification").empty();
-                    }
-                }
-            });
-        } else {
-            $("#specification").empty();
-            $("#specification_details").empty();
-        }
-
-    });
-    $('#specification').on('change', function () {
-        $("#specification_details").empty();
-
-        var specificationID = $(this).val();
-        if (specificationID) {
-            $.ajax({
-                type: "GET",
-                //    specification-list?filter_id
-                url: "{{url('admin/specificationdetails-list')}}?specification_id=" + specificationID,
-                success: function (res) {
-                    if (res) {
-                        $("#specification_details").empty();
-                        $("#specification_details").append('<option>Select</option>');
-                        $.each(res, function (key, value) {
-                            $("#specification_details").append('<option value="' + value +
-                                '">' + value + '</option>');
-                        });
-
-                    } else {
-                        $("#specification_details").empty();
-                    }
-                }
-            });
-        } else {
-            $("#specification_details").empty();
-        }
-
-    });
+  
 </script>
 <script>
     $(document).ready(function () {

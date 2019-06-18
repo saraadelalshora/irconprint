@@ -40,15 +40,27 @@ Route::resource('User','Admin\UserController');
 Route::resource('Countries','Admin\CountryController');
 Route::resource('product/Category','Admin\product\CategoryController');
 Route::resource('product/SubCategory','Admin\product\SubCategoryController');
+Route::resource('product/SubtwoCategory','Admin\product\SubtwoCategoryController');
+Route::resource('Product','Admin\product\ProductController');
+Route::get('subcategory-list','Admin\product\ProductController@getSubcategory');
+Route::get('filter-list','Admin\product\ProductController@getFilter');
 
 Route::resource('video/Category','Admin\video\CategoryController');
 Route::resource('video/SubCategory','Admin\video\SubCategoryController');
+Route::resource('video/SubtwoCategory','Admin\video\SubtwoCategoryController');
+Route::resource('Video','Admin\video\VideoController');
+Route::get('video/subcategory-list','Admin\video\VideoController@getSubcategory');
+Route::get('video/filter-list','Admin\video\VideoController@getFilter');
 
 Route::resource('training/Category','Admin\training\CategoryController');
 Route::resource('training/SubCategory','Admin\training\SubCategoryController');
+Route::resource('training/SubtwoCategory','Admin\training\SubtwoCategoryController');
+Route::resource('training','Admin\training\TrainingController');
+Route::get('subcategory-list','Admin\training\TrainingController@getSubcategory');
+Route::get('filter-list','Admin\training\TrainingController@getFilter');
 
 Route::resource('CategoriesNews','Admin\CategoryNewController');
-Route::resource('Cities','Admin\CityController');
+Route::resource('Service','Admin\ServiceController');
 Route::resource('Shipping','Admin\Shipping_ZoneController');
 Route::resource('Spacification','Admin\SpacificationController');
 Route::resource('Filter','Admin\FilterController');
@@ -56,11 +68,9 @@ Route::resource('Payment','Admin\PaymentController');
 Route::resource('Customer','Admin\CustomerController');
 Route::resource('Slider','Admin\SliderController');
 Route::resource('Page','Admin\PageController');
-Route::resource('Product','Admin\ProductController');
 
 Route::post('filter','Admin\ProductController@filter');
-Route::get('subcategory-list','Admin\ProductController@getSubcategory');
-Route::get('filter-list','Admin\ProductController@getFilter');
+
 Route::get('specification-list','Admin\ProductController@getSpecification');
 Route::get('specificationdetails-list','Admin\ProductController@getSpecificationdetealis');
 Route::resource('News','Admin\NewSiteController');

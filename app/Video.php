@@ -10,7 +10,7 @@ class Video extends Model
     protected $fillable =[
         'name_ar', 'name_en', 'tag_ar', 'tag_en', 'image', 'slogen_ar', 'slogen_en', 'status', 
          'category_id', 'subcategory_id',
-        'subtwocategory_id' 
+        'subtwocategory_id' ,'type'
     ];
 
     public function subtwocategory(){

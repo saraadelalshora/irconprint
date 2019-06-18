@@ -41,6 +41,7 @@ class CategoryController extends Controller
     public function index()
     {
         //
+        
         $all=Category::where('type','product')->orderBy('id', 'desc')->get();
         // dd($all);
         return view('Admin.products.categories.index',compact('all'));
