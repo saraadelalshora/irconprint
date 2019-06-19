@@ -22,7 +22,7 @@ class CategoryNewController extends Controller
         // Make alphanumeric (removes all other characters)
         // this makes the string safe especially when used as a part of a URL
         // this keeps latin characters and arabic charactrs as well
-        $string = preg_replace("/[^a-z0-9_\s-ءاأإآؤئبتثجحخدذرزسشصضطظعغفقكلمنهويةى]/u", "", $string);
+        $string = preg_replace("/^[a-z0-9]([0-9a-z_\-\s])[ءاأإآؤئبتثجحخدذرزسشصضطظعغفقكلمنهويةى]+$/i", "", $string);
 
         // Remove multiple dashes or whitespaces
         $string = preg_replace("/[\s-]+/", " ", $string);
@@ -40,7 +40,7 @@ class CategoryNewController extends Controller
     public function index()
     {
         //
-        $all_category_news=CategoryNew::all();
+        $all_category_news=CategoryNew::orderBy('id', 'desc')->get();
         return view('Admin.categoriesnews.index',compact('all_category_news'));
     }
 

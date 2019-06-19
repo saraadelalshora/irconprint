@@ -6,7 +6,7 @@ return [
     'home' => 'Home',
     'contact'=>'Contact',
     'address'=>'Address',
-    'phone'=>'Phone',
+    'phone'=>'Call us',
     'email'=>'Email',
     'ar'=>'Arabic',
     'en'=>'English',

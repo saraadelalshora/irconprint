@@ -18,7 +18,7 @@ class NewSiteController extends Controller
     public function index()
     {
         //
-        $all=NewSite::all();
+        $all=NewSite::orderBy('id', 'desc')->get();
         return view('Admin.news.index',compact('all'));
     }
 
@@ -211,7 +211,7 @@ class NewSiteController extends Controller
         // Make alphanumeric (removes all other characters)
         // this makes the string safe especially when used as a part of a URL
         // this keeps latin characters and arabic charactrs as well
-        $string = preg_replace("/[^a-z0-9_\s-ءاأإآؤئبتثجحخدذرزسشصضطظعغفقكلمنهويةى]/u", "", $string);
+        $string = preg_replace("/^[a-z0-9]([0-9a-z_\-\s])[ءاأإآؤئبتثجحخدذرزسشصضطظعغفقكلمنهويةى]+$/i", "", $string);
 
         // Remove multiple dashes or whitespaces
         $string = preg_replace("/[\s-]+/", " ", $string);

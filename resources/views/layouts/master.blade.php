@@ -363,8 +363,6 @@
                                 <li><a href="{{route('training.index')}}">المنتجات</a></li>
                             </ul>
                         </li>
-                        <!-- <li> <a class=" waves-effect waves-dark" href="{{route('Comments')}}" aria-expanded="false"><i
-                                    class="ti-files"></i><span class="hide-menu"> التعليقات</span></a></li> -->
                         <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
                                     class="ti-world"></i><span class="hide-menu">الأخبار</span></a>
                             <ul aria-expanded="false" class="collapse">
@@ -374,17 +372,20 @@
                         </li>
                         <li> <a class=" waves-effect waves-dark" href="{{route('Service.index')}}" aria-expanded="false"><i
                                     class="ti-shopping-cart"></i><span class="hide-menu">الخدمات</span></a></li>
-                        <!-- <li> <a class=" waves-effect waves-dark" href="{{route('Shipping.index')}}" aria-expanded="false"><i
-                                    class="ti-truck"></i><span class="hide-menu"> الشحن </span></a></li> -->
-                        <!-- <li> <a class=" waves-effect waves-dark" href="{{route('Payment.index')}}" aria-expanded="false"><i
-                                    class="ti-direction-alt"></i><span class="hide-menu">طرق الدفع</span></a></li> -->
-                        <li> <a class=" waves-effect waves-dark" href="{{route('Customer.index')}}" aria-expanded="false"><i
-                                    class="ti-user"></i><span class="hide-menu">العملاء</span></a></li>
+
+                        <li> <a class=" waves-effect waves-dark" href="{{route('Page.index')}}" aria-expanded="false"><i
+                                    class="ti-user"></i><span class="hide-menu">الصفحات</span></a></li>
+                                    <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
+                                    class="ti-direction-alt"></i><span class="hide-menu">من نحن</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="{{route('About.index')}}">من نحن </a></li>
+                                <li><a href="{{route('Section.index')}}">اقسام من نحن </a></li>
+                            </ul>
+                        </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
                                     class="ti-settings"></i><span class="hide-menu">الضبط</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{route('Slider.index')}}">معرض الصور</a></li>
-                                <!-- <li><a href="{{route('Ads.index')}}">الإعلانات</a></li> -->
                                 <li><a href="{{route('setting.index')}}">الإعدادات الرئيسية</a></li>
                                 <li><a href="{{route('socialmedia')}}">اعدادات السوشيال ميديا</a></li>
 
@@ -392,8 +393,8 @@
                         </li>
                         <!-- <li> <a class=" waves-effect waves-dark" href="{{route('Coupon.index')}}" aria-expanded="false"><i
                                     class="ti-ticket"></i><span class="hide-menu">الكوبونات</span></a></li> -->
-                        <li> <a class=" waves-effect waves-dark" href="#" aria-expanded="false"><i
-                                    class="ti-files"></i><span class="hide-menu"> التقارير</span></a></li>
+                        <!-- <li> <a class=" waves-effect waves-dark" href="#" aria-expanded="false"><i
+                                    class="ti-files"></i><span class="hide-menu"> التقارير</span></a></li> -->
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation  -->

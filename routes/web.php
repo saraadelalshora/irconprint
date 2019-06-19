@@ -68,6 +68,8 @@ Route::resource('Payment','Admin\PaymentController');
 Route::resource('Customer','Admin\CustomerController');
 Route::resource('Slider','Admin\SliderController');
 Route::resource('Page','Admin\PageController');
+Route::resource('About','Admin\AboutController');
+Route::resource('Section','Admin\SectionController');
 
 Route::post('filter','Admin\ProductController@filter');
 

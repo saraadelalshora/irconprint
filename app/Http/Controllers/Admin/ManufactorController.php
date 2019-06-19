@@ -15,7 +15,7 @@ class ManufactorController extends Controller
     public function index()
     {
         //
-        $all_manufactor=Manufactor::all();
+        $all_manufactor=Manufactor::orderBy('id', 'desc')->get();
         return view('Admin.manufactores.index',compact('all_manufactor'));
     }
 

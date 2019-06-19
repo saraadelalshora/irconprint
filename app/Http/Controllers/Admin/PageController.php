@@ -17,8 +17,8 @@ class PageController extends Controller
      */
     public function index()
     {
-        //
-        $all=Page::all();
+       
+        $all=Page::whereIn('type',['4','2','3'])->orderBy('id', 'desc')->get();
         return view('Admin.pages.index',compact('all'));
     }
 
@@ -42,62 +42,8 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        // dd($request->all());
-    //     if($request->description_ar != null){
-    //     $detail=$request->description_ar;
-    //     $dom = new \domdocument();
-    //     // loadHTML(mb_convert_encoding($profile, 'HTML-ENTITIES', 'UTF-8'))
-    //     $dom->loadHtml(mb_convert_encoding($detail, 'HTML-ENTITIES', 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-    //     $images = $dom->getelementsbytagname('img');
- 
-    //     //loop over img elements, decode their base64 src and save them to public folder,
-    //     //and then replace base64 src with stored image URL.
-    //     foreach($images as $k => $img){
-    //         $data = $img->getattribute('src');
-          
-    //         list($type, $data) = explode(';', $data);
-    //         list(, $data)      = explode(',', $data);
- 
-    //         $data = base64_decode($data);
-    //         $image_name= time().$k.'ar.png';
-    //         $path=public_path('page/' .$image_name);
- 
-    //         file_put_contents($path, $data);
- 
-    //         $img->removeattribute('src');
-    //         $img->setattribute('src', asset('page/' .$image_name));
-    //     }
- 
-    //     $detail = $dom->savehtml();
-    //     // dd($detail);
-    // }
-    //     if($request->description_en != null){
-    //     $detail2=$request->description_en;
-    //     $dom = new \domdocument();
-    //     $dom->loadHtml(mb_convert_encoding($detail2, 'HTML-ENTITIES', 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-    //     $images = $dom->getelementsbytagname('img');
- 
-    //     //loop over img elements, decode their base64 src and save them to public folder,
-    //     //and then replace base64 src with stored image URL.
-    //     foreach($images as $k => $img){
-    //         $data = $img->getattribute('src');
-         
-    //         list($type, $data) = explode(';', $data);
-    //         list(, $data)      = explode(',', $data);
- 
-    //         $data = base64_decode($data);
-    //         $image_name= time().$k.'en.png';
-    //         $path=public_path('page/' .$image_name);
- 
-    //         file_put_contents($path, $data);
- 
-    //         $img->removeattribute('src');
-    //         $img->setattribute('src', asset('page/' .$image_name));
-    //     }
- 
-    //     $detail2 = $dom->savehtml();
-    // }
+
+
         $page=new Page;
         $page->title_ar=$request->ar_name;
         if($request->description_ar != null){
@@ -122,6 +68,8 @@ class PageController extends Controller
         }
         $page->slogen_ar=$this->make_slug($request->input('ar_name'));
         $page->slogen_en=$this->make_slug($request->input('en_name'));
+        $page->type=$request->type;
+
         $page->save();
         return  redirect('admin/Page')->with('success','تم اضافة الصفحة   بنجاح');
     }
@@ -186,6 +134,7 @@ class PageController extends Controller
             }
             $page->slogen_ar=$this->make_slug($request->input('ar_name'));
             $page->slogen_en=$this->make_slug($request->input('en_name'));
+            $page->type=$request->type;
             $page->save();
             return  redirect('admin/Page')->with('success','تم تعديل الصفحة بنجاح');
     }
@@ -199,8 +148,8 @@ class PageController extends Controller
     public function destroy($id)
     {
         //
-        // Page::find($id)->delete();
-        // return  redirect('admin/Page')->with('success','تم حذف الصفحة   بنجاح');
+        Page::find($id)->delete();
+        return  redirect('admin/Page')->with('success','تم حذف الصفحة   بنجاح');
     }
 
     public function make_slug($string = null, $separator = "-") {
@@ -217,7 +166,8 @@ class PageController extends Controller
         // Make alphanumeric (removes all other characters)
         // this makes the string safe especially when used as a part of a URL
         // this keeps latin characters and arabic charactrs as well
-        $string = preg_replace("/[^a-z0-9_\s-ءاأإآؤئبتثجحخدذرزسشصضطظعغفقكلمنهويةى]/u", "", $string);
+        // /[^a-z0-9_\s-ءاأإآؤئبتثجحخدذرزسشصضطظعغفقكلمنهويةى]/u
+        $string = preg_replace("/^[a-z0-9]([0-9a-z_\-\s])[ءاأإآؤئبتثجحخدذرزسشصضطظعغفقكلمنهويةى]+$/i", "", $string);
 
         // Remove multiple dashes or whitespaces
         $string = preg_replace("/[\s-]+/", " ", $string);

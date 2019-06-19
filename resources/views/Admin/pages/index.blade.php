@@ -1,5 +1,7 @@
 @extends('layouts.master')
-
+@section('meta')
+<title>الصفحات</title>
+@endsection
 @section('content')
             <!-- ============================================================== -->
                 <!-- Bread crumb and right sidebar toggle -->

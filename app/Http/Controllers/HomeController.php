@@ -40,30 +40,10 @@ class HomeController extends Controller
         // $subcategories=Sub_Category::where('status','1')->get()->random(6);;
         $subcategories=Category::where('status','1')->get()->take(6);
         $lastproduct=Product::where('status','1')->orderBy('created_at', 'desc')->get()->take(10);
-        $specialproduct=Product::where([['status','1'],['special','1']])->orderBy('created_at', 'desc')->get();
+        $specialproduct=Product::where([['status','1']])->orderBy('created_at', 'desc')->get();
         $brands=Manufactor::where('status','1')->get()->take(10);
-        $orderproduc=Order_product::latest()->get();
-        if($orderproduc->isEmpty() == true){
-          if($product->count() >= 6){
-               $bestsellerproduct=Product::where('status','1')->orderBy('created_at', 'desc')->get()->random(6);
-            }
-          else{
-            $bestsellerproduct=Product::where('status','1')->get()->take(10);
-            }
-        }
-        else{
-        if($orderproduc->count() >= 6){
-          $order_product=$orderproduc->pluck('product_id');
-          $bestsellerproduct= Product::whereIn('id', $order_product)->get()->unique('id'); 
-          $bestsellerproduct=$bestsellerproduct->random(6);
-         }else{
-          $order_product=$orderproduc->pluck('product_id');
-           $bestsellerproduct= Product::whereIn('id', $order_product)->get()->unique('id'); 
-          $bestsellerproduct=$bestsellerproduct->take(10);
-         }
-        }
-
-        return view('home',compact('sliders','ads','subcategories','lastproduct','specialproduct','brands','bestsellerproduct'));
+        
+        return view('home',compact('sliders','ads','subcategories','lastproduct','specialproduct','brands'));
     }
    
     public function search(){

@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('meta')
+<title>الصفحات</title>
+@endsection
 @section('content')
 
 <!-- ============================================================== -->
@@ -64,7 +67,7 @@
                                             </div>
                                             <hr>
                                             <div>
-                                                <label for="textarea_ar">وصف المقالة <span class="text-danger">*</span>
+                                                <label for="textarea_ar">وصف الصفحة <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="form-group">
                                                     <textarea class="summernote" name="description_ar">
@@ -79,6 +82,14 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
+                                                <label class="control-label">نوع الصفحة</label>
+                                                <select name="type" class="form-control">
+                                                    <option value="2">Eshop</option>
+                                                    <option value="3">Security</option>
+                                                    <option value="4">Page</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
                                                 <label class="control-label">اضف صورة الخبر</label>
                                                 <p>20x20</p>
                                                 <br>
@@ -89,7 +100,7 @@
                                     <div class="tab-pane" id="lang_en" role="tabpanel">
                                         <div class="form-group">
                                             <div>
-                                                <label for="AR" class="control-label">اسم المقالة </label>
+                                                <label for="AR" class="control-label">اسم الصفحة </label>
                                                 <div class="form-group">
                                                     <div class="input-group-prepend">
                                                         <input type="text" id="AR" class="form-control"
@@ -99,7 +110,7 @@
                                             </div>
                                             <hr>
                                             <div>
-                                                <label for="textarea_ar"> وصف المقالة </label>
+                                                <label for="textarea_ar"> وصف الصفحة </label>
                                                 <div class="form-group">
                                                     <textarea class="summernote" name="description_en">
                                                                     </textarea>

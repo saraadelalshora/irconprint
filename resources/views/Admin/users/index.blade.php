@@ -55,7 +55,8 @@
                                             <td data-field="edit">
                                             <button type="button" class="btn btn-sm btn-success btn-rounded m-l-15" ><i class="fa fa-check"></i><a href="{{route('User.edit',$user->id)}}" style="color: #ffffff;"> تعديل</a></button>
                                               <button type="button" class="btn btn-sm btn btn-info btn-rounded m-l-15" ><i class="fa fa-eye"></i><a href="{{route('User.show',$user->id)}}" style="color: #ffffff;"> عرض</a></button>
-                                               @if($user->email != "admin@admin.com")
+                                              @if($user->email != "admin@admin.com" )
+                                              @if(!Auth::user()->email)
                                               <form  action="{{ route('User.destroy',$user->id) }}"  style="display: inline;"  method="POST" accept-charset="utf-8">
                                                   {{csrf_field()}}
                                                   {{method_field('DELETE')}}
@@ -63,6 +64,7 @@
                                               <button  class="btn btn-sm btn-danger btn-rounded m-l-15" type="submit" onclick="return confirm('Do You Want To delete ?')"><i class="fa fa-times"></i> حذف</button>
 
                                                </form>    
+                                               @endif
                                                @endif
                                             </td>
                                         </tr>

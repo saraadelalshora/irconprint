@@ -23,7 +23,7 @@ class CategoryController extends Controller
         // Make alphanumeric (removes all other characters)
         // this makes the string safe especially when used as a part of a URL
         // this keeps latin characters and arabic charactrs as well
-        $string = preg_replace("/[^a-z0-9_\s-ءاأإآؤئبتثجحخدذرزسشصضطظعغفقكلمنهويةى]/u", "", $string);
+        $string = preg_replace("/^[a-z0-9]([0-9a-z_\-\s])[ءاأإآؤئبتثجحخدذرزسشصضطظعغفقكلمنهويةى]+$/i", "", $string);
 
         // Remove multiple dashes or whitespaces
         $string = preg_replace("/[\s-]+/", " ", $string);
@@ -82,6 +82,15 @@ class CategoryController extends Controller
 
         );
         //'tag_ar', 'tag_en', 'image', 'slogen_ar', 'slogen_en', 'status',
+        $last_id=Category::latest()->get()->first();
+    
+        if($last_id){
+            $code_slug=explode('-',$last_id->slogen_ar);
+            $slug_id=++$code_slug[0];
+    
+        }else{
+          $slug_id=500001;
+        }
         $category=new Category;
         $category->name_ar=$request->ar_name;
         $category->name_en=$request->en_name;
@@ -164,6 +173,14 @@ class CategoryController extends Controller
         );
         //'tag_ar', 'tag_en', 'image', 'slogen_ar', 'slogen_en', 'status',
         $category=Category::find($id);
+        if($category){
+            $code_slug=explode('-',$category->slogen_ar);
+            $slug_id=$code_slug[0];
+    
+        }else{
+          $slug_id=500001;
+        }
+ 
         $category->name_ar=$request->ar_name;
         $category->name_en=$request->en_name;
         $category->description_ar=$request->ar_description;
