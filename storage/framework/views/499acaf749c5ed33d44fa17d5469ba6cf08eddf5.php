@@ -1,15 +1,14 @@
-@extends('layouts.master')
-@section('meta')
+<?php $__env->startSection('meta'); ?>
 <title>الصفحات</title>
-@endsection
-@section('content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
 
 <!-- ============================================================== -->
 <!-- Bread crumb and right sidebar toggle -->
 <!-- ============================================================== -->
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
-        <h4 class="text-themecolor">الصفحات</h4>
+        <h4 class="text-themecolor">من نحن</h4>
     </div>
     <div class="col-md-7 align-self-center text-right">
         <div class="d-flex justify-content-end align-items-center">
@@ -23,18 +22,21 @@
 <!-- End Bread crumb and right sidebar toggle -->
 <!-- ============================================================== -->
 <!-- ============================================================== -->
-<!-- Start Page Content -->
+<!-- Start About Content -->
 <!-- ============================================================== -->
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-wight m-b-0">اضف صفحة جديدة</h4>
+                <h4 class="card-wight m-b-0">تعديل الصفحة </h4>
             </div>
             <div class="card-body">
                 <div class="form-group">
-                    <form class="p-t-20" method="POST" action="{{route('Page.store')}}" enctype="multipart/form-data">
-                        {{csrf_field()}}
+                    <form class="p-t-20" method="POST" action="<?php echo e(route('About.update',$page->id)); ?>" enctype="multipart/form-data">
+                        <?php echo e(csrf_field()); ?>
+
+                        <?php echo e(method_field('PATCH')); ?>
+
                         <div class="tab-content">
                             <div class="tab-pane active" id="home1" role="tabpanel">
                                 <div class="col-md-12 form-group">
@@ -54,66 +56,64 @@
                                     <div class="tab-pane active" id="lang_ar" role="tabpanel">
                                         <div class="form-group">
                                             <div>
-                                                <label for="AR" class="control-label">عنوان الصفحة <span
-                                                        class="text-danger">*</span>
+                                                <label for="AR" class="control-label">عنوان الصفحة <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="form-group">
                                                     <div class="input-group-prepend">
                                                         <input type="text" id="AR" class="form-control"
-                                                            placeholder="اضف عنوان مناسب للصفحة" required
-                                                            name="ar_name">
+                                                            placeholder="اضف عنوان مناسب للصفحة"
+                                                            value="<?php echo e($page->title_ar); ?>" required name="ar_name">
                                                     </div>
                                                 </div>
                                             </div>
                                             <hr>
                                             <div>
-                                                <label for="textarea_ar">وصف الصفحة <span class="text-danger">*</span>
-                                                </label>
+                                                <label for="textarea_ar">وصف المقالة</label>
                                                 <div class="form-group">
                                                     <textarea class="summernote" name="description_ar">
+                                                                    <?php echo $page->description_ar; ?>
+
                                                                     </textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label">الحالة</label>
                                                 <select name="status" class="form-control">
-                                                    <option value="1">تفعيل</option>
-                                                    <option value="0">ايقاف</option>
+                                                    <option value="1"
+                                                        <?php echo e($page->status == 1 ? 'selected="selected"' : ''); ?>>تفعيل
+                                                    </option>
+                                                    <option value="0"
+                                                        <?php echo e($page->status == 0 ? 'selected="selected"' : ''); ?>>ايقاف
+                                                    </option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label">نوع الصفحة</label>
-                                                <select name="type" class="form-control">
-                                                    <option value="4">Page</option>
-                                                    <option value="2">Eshop</option>
-                                                    <option value="3">Security</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label">اضف صورة الخبر</label>
-                                                <p>20x20</p>
-                                                <br>
-                                                <input type="file" id="input-file-now" name="img" class="dropify" />
-                                            </div>
+                                        <label class="control-label">اضف صورة الخبر</label>
+                                        <p>555x263</p>
+                                        <br>
+                                        <input type="file" id="input-file-now" name="img"  <?php if(!empty($page->img)): ?> data-default-file="<?php echo e(asset($page->img)); ?>" <?php endif; ?> class="dropify" />
+                                    </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="lang_en" role="tabpanel">
                                         <div class="form-group">
                                             <div>
-                                                <label for="AR" class="control-label">اسم الصفحة </label>
+                                                <label for="AR" class="control-label">اسم المقالة </label>
                                                 <div class="form-group">
                                                     <div class="input-group-prepend">
                                                         <input type="text" id="AR" class="form-control"
-                                                            placeholder="اضف عنوان مناسب للمقالة" name="en_name">
+                                                            placeholder="اضف عنوان مناسب للمقالة" name="en_name" value="<?php echo e($page->title_en); ?>">
                                                     </div>
                                                 </div>
                                             </div>
                                             <hr>
                                             <div>
-                                                <label for="textarea_ar"> وصف الصفحة </label>
+                                                <label for="textarea_ar"> وصف المقالة </label>
                                                 <div class="form-group">
                                                     <textarea class="summernote" name="description_en">
-                                                                    </textarea>
+                                                    <?php echo $page->description_en; ?>
+
+                                                    </textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -130,7 +130,7 @@
                                         </span>&nbsp&nbspحفظ</button>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="{{route('Page.index')}}" class="btn btn-rounded btn-danger">
+                                    <a href="<?php echo e(route('About.index')); ?>" class="btn btn-rounded btn-danger">
                                         <span class="fa fa-sign-out"> </span> &nbsp&nbspالعوده </a>
                                 </div>
                             </div>
@@ -148,4 +148,5 @@
 
 <!-- this js validate img form -->
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,8 +1,7 @@
-@extends('layouts.master')
-@section('meta')
+<?php $__env->startSection('meta'); ?>
 <title>الصفحات</title>
-@endsection
-@section('content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
 
 <!-- ============================================================== -->
 <!-- Bread crumb and right sidebar toggle -->
@@ -33,8 +32,9 @@
             </div>
             <div class="card-body">
                 <div class="form-group">
-                    <form class="p-t-20" method="POST" action="{{route('Page.store')}}" enctype="multipart/form-data">
-                        {{csrf_field()}}
+                    <form class="p-t-20" method="POST" action="<?php echo e(route('Page.store')); ?>" enctype="multipart/form-data">
+                        <?php echo e(csrf_field()); ?>
+
                         <div class="tab-content">
                             <div class="tab-pane active" id="home1" role="tabpanel">
                                 <div class="col-md-12 form-group">
@@ -84,9 +84,9 @@
                                             <div class="form-group">
                                                 <label class="control-label">نوع الصفحة</label>
                                                 <select name="type" class="form-control">
-                                                    <option value="4">Page</option>
                                                     <option value="2">Eshop</option>
                                                     <option value="3">Security</option>
+                                                    <option value="4">Page</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
@@ -130,7 +130,7 @@
                                         </span>&nbsp&nbspحفظ</button>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="{{route('Page.index')}}" class="btn btn-rounded btn-danger">
+                                    <a href="<?php echo e(route('Page.index')); ?>" class="btn btn-rounded btn-danger">
                                         <span class="fa fa-sign-out"> </span> &nbsp&nbspالعوده </a>
                                 </div>
                             </div>
@@ -148,4 +148,5 @@
 
 <!-- this js validate img form -->
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

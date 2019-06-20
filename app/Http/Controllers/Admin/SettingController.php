@@ -38,7 +38,7 @@ class SettingController extends Controller
         }
         $image_resize = Image::make($file->getRealPath());
         $image_resize->save(public_path('setting/' .$imageName));
-        $setting->store_img='setting/'.$imageName;
+        $setting->log_img_en='setting/'.$imageName;
     }
     if ($request->hasFile('logo_img')) {
         $file = $request->file('logo_img');
@@ -99,7 +99,7 @@ class SettingController extends Controller
         }
         $image_resize = Image::make($file->getRealPath());
         $image_resize->save(public_path('setting/' .$imageName));
-        $setting->store_img='setting/'.$imageName;
+        $setting->log_img_en='setting/'.$imageName;
     }
     if ($request->hasFile('logo_img')) {
         $file = $request->file('logo_img');

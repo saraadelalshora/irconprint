@@ -2,7 +2,7 @@
 
 return [
 
-  
+    //   header
     'home' => 'Home',
     'contact'=>'Contact',
     'address'=>'Address',
@@ -10,6 +10,9 @@ return [
     'email'=>'Email',
     'ar'=>'Arabic',
     'en'=>'English',
+    'Security Printing'=>'Security Printing',
+    'News & Events'=>'News & Events',
+    'Projects'=>'Projects',
     'copyright'=>'Copyright © 2018 Designed and Developed by 3Hand.',
     '3hand'=>'3Hand',
     'Follow'=>'Follow us on',
@@ -30,12 +33,19 @@ return [
     'Categories'=>'Categories',
     'Search'=>'Search',
     'Favorites'=>'Favorites',
+    // contact
+    'Get Directions'=>'Get Directions',
+    'Send a Message'=>'Send a Message',
     'fname'=>'First Name',
     'lname'=>'Last Name',
     'email'=>'Email',
     'title'=>'Subject',
     'massege'=>'Massege',
     'send'=>'Send',
+    // section , page
+    'Read More'=>'Read More',
+    'President`s word'=>'President`s word',
+
     'Edit'=>'Edit',
     'Country'=>'Country',
     'zip code'=>'zip code',

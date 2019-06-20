@@ -1,20 +1,19 @@
-@extends('layouts.front.master')
-@section('content')
+<?php $__env->startSection('content'); ?>
 <section id="page-title" class="page-title bg-overlay bg-overlay-dark bg-parallax">
         <div class="bg-section">
-            <img src="{{asset('/')}}/assetfront/images/sliders/slide-bg/8.jpg" alt="Background"/>
+            <img src="<?php echo e(asset('/')); ?>/assetfront/images/sliders/slide-bg/8.jpg" alt="Background"/>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
                     <div class="title title-6 text-center">
                         <div class="title--heading">
-                            <h1>@lang('massege.contact')</h1>
+                            <h1><?php echo app('translator')->getFromJson('massege.contact'); ?></h1>
                         </div>
                         <div class="clearfix"></div>
                         <ol class="breadcrumb d-flex justify-content-center">
-                            <li class="breadcrumb-item"><a href="{{url('/')}}">@lang('massege.home')</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">@lang('massege.contact')</li>
+                            <li class="breadcrumb-item"><a href="<?php echo e(url('/')); ?>"><?php echo app('translator')->getFromJson('massege.home'); ?></a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><?php echo app('translator')->getFromJson('massege.contact'); ?></li>
                         </ol>
                     </div><!-- .title end -->
                 </div><!-- .col-md-12 end -->
@@ -47,22 +46,23 @@
             </div>
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-10 offset-lg-1">
-                <form action="{{route('contactus.store')}}" method="POST">
-                                    {{ csrf_field() }}
+                <form action="<?php echo e(route('contactus.store')); ?>" method="POST">
+                                    <?php echo e(csrf_field()); ?>
+
                         <div class="row">
                             <div class="col-sm-12 col-md-4 col-lg-4">
-                                 <input type="text"  name="fname" class="form-control" placeholder="@lang('massege.fname')" />
+                                 <input type="text"  name="fname" class="form-control" placeholder="<?php echo app('translator')->getFromJson('massege.fname'); ?>" />
                             </div>
                             <div class="col-sm-12 col-md-4 col-lg-4">
-                                 <input type="text" name="lname" class="form-control" placeholder="@lang('massege.lname')" />
+                                 <input type="text" name="lname" class="form-control" placeholder="<?php echo app('translator')->getFromJson('massege.lname'); ?>" />
                             </div>
                             <div class="col-sm-12 col-md-4 col-lg-4">
-                                 <input type="text"  name="email"class="form-control" placeholder="@lang('massege.email')" />
+                                 <input type="text"  name="email"class="form-control" placeholder="<?php echo app('translator')->getFromJson('massege.email'); ?>" />
                             </div>
                         </div>
                         <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-12">
-                                 <textarea class="form-control" name="massege" style="height: auto;" rows="5" placeholder="@lang('massege.massege')"></textarea>
+                                 <textarea class="form-control" name="massege" style="height: auto;" rows="5" placeholder="<?php echo app('translator')->getFromJson('massege.massege'); ?>"></textarea>
                             </div>
                         </div>
                         <div class="row">
@@ -93,25 +93,25 @@
             <div class="row">
                 <div class="col-sm-12 col-md-4 col-lg-4">
                     <div class="contact--info">
-                        <h3>{{trans('massege.address')}}</h3>
-                        <p>{{$setting->address}}</p>
-                        <a class="link--styled" href="#mapsection">@lang('massege.Get Directions')</a>
+                        <h3><?php echo e(trans('massege.address')); ?></h3>
+                        <p><?php echo e($setting->address); ?></p>
+                        <a class="link--styled" href="#mapsection"><?php echo app('translator')->getFromJson('massege.Get Directions'); ?></a>
                     </div>
                 </div>
                 <!-- .col-lg-4 end -->
                 <div class="col-sm-12 col-md-4 col-lg-4">
                     <div class="contact--info">
-                        <h3>{{trans('massege.email')}}</h3>
-                        <p>{{$setting->email}}</p>
-                        <a class="link--styled" href="mailto:{{$setting->email}}">@lang('massege.Send a Message')</a>
+                        <h3><?php echo e(trans('massege.email')); ?></h3>
+                        <p><?php echo e($setting->email); ?></p>
+                        <a class="link--styled" href="mailto:<?php echo e($setting->email); ?>"><?php echo app('translator')->getFromJson('massege.Send a Message'); ?></a>
                     </div>
                 </div>
                 <!-- .col-lg-4 end -->
                 <div class="col-sm-12 col-md-4 col-lg-4">
                     <div class="contact--info">
-                        <h3>{{trans('massege.phone')}}</h3>
-                        <p>{{$setting->phone}}</p>
-                        <a class="link--styled" href="tel:{{$setting->phone}}">@lang('massege.Waiting Your Call')</a>
+                        <h3><?php echo e(trans('massege.phone')); ?></h3>
+                        <p><?php echo e($setting->phone); ?></p>
+                        <a class="link--styled" href="tel:<?php echo e($setting->phone); ?>"><?php echo app('translator')->getFromJson('massege.Waiting Your Call'); ?></a>
                     </div>
                 </div>
                 <!-- .col-lg-4 end -->
@@ -123,4 +123,5 @@
     <!-- #contactInfo end -->
     
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.front.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

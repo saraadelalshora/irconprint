@@ -53,7 +53,9 @@
                                          <td data-field="status">@if($value->status == 1) مفعل @else غير مفعل @endif</td>
                      
                                          <td data-field="edit"><button type="button" class="btn btn-sm btn-success btn-rounded m-l-15" ><i class="fa fa-check"></i><a href="{{route('About.edit',$value->id)}}" style="color: #ffffff;"> تعديل</a></button>
+                                         @if($value->type != 1)
                                          <button type="button" class="btn btn-sm btn btn-info btn-rounded m-l-15" ><i class="fa fa-eye"></i><a href="{{route('Section.index')}}" style="color: #ffffff;"> اقسام  من نحن</a></button>
+                                        @endif
                                          <!-- <form  action="{{ route('About.destroy',$value->id) }}"  style="display: inline;"  method="POST" accept-charset="utf-8">
                                              {{csrf_field()}}
                                              {{method_field('DELETE')}}

@@ -4,46 +4,46 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('/')}}//assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo e(asset('/')); ?>//assets/images/favicon.png">
     <title>3Hand</title>
-    <link href="{{asset('/')}}/assets/node_modules/wizard/steps.css" rel="stylesheet">
-    <link href="{{asset('/')}}/assets/node_modules/bootstrap-table/dist/bootstrap-table.min.css" rel="stylesheet" type="text/css" />
-    <link href="{{asset('/')}}/assets/node_modules/bootstrap-switch/bootstrap-switch.min.css" rel="stylesheet">
+    <link href="<?php echo e(asset('/')); ?>/assets/node_modules/wizard/steps.css" rel="stylesheet">
+    <link href="<?php echo e(asset('/')); ?>/assets/node_modules/bootstrap-table/dist/bootstrap-table.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo e(asset('/')); ?>/assets/node_modules/bootstrap-switch/bootstrap-switch.min.css" rel="stylesheet">
     <!-- This page CSS -->
-    <link href="{{asset('/')}}/assets/node_modules/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
+    <link href="<?php echo e(asset('/')); ?>/assets/node_modules/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
 
-    <link href="{{asset('/')}}/assets/node_modules/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
-    <link href="{{asset('/')}}/assets/node_modules/switchery/dist/switchery.min.css" rel="stylesheet" />
+    <link href="<?php echo e(asset('/')); ?>/assets/node_modules/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo e(asset('/')); ?>/assets/node_modules/switchery/dist/switchery.min.css" rel="stylesheet" />
 
-    <link href="{{asset('/')}}/assets/node_modules/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
-    <link href="{{asset('/')}}/assets/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
-    <link href="{{asset('/')}}/assets/node_modules/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
+    <link href="<?php echo e(asset('/')); ?>/assets/node_modules/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="<?php echo e(asset('/')); ?>/assets/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link href="<?php echo e(asset('/')); ?>/assets/node_modules/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
 
-    <link href="{{asset('/')}}/assets/node_modules/multiselect/css/multi-select.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo e(asset('/')); ?>/assets/node_modules/multiselect/css/multi-select.css" rel="stylesheet" type="text/css" />
      <!-- This page CSS -->
     <!-- chartist CSS -->
-    <link href="{{asset('/')}}/assets/node_modules/morrisjs/morris.css" rel="stylesheet">
+    <link href="<?php echo e(asset('/')); ?>/assets/node_modules/morrisjs/morris.css" rel="stylesheet">
     <!--Toaster Popup message CSS -->
-    <link href="{{asset('/')}}/assets/node_modules/toast-master/css/jquery.toast.css" rel="stylesheet">
+    <link href="<?php echo e(asset('/')); ?>/assets/node_modules/toast-master/css/jquery.toast.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="{{asset('/')}}/assets/dist/css/style.min.css" rel="stylesheet">
+    <link href="<?php echo e(asset('/')); ?>/assets/dist/css/style.min.css" rel="stylesheet">
    <!-- ads page link -->
    
-   <link rel="stylesheet" href="{{asset('/')}}/assets/node_modules/dropify/dist/css/dropify.min.css">
-    <link href="{{asset('/')}}/assets/node_modules/summernote/dist/summernote.css" rel="stylesheet" />
-    <link href="{{asset('/')}}/assets/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
-    <link href="{{asset('/')}}/assets/node_modules/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
-    <link href="{{asset('/')}}/assets/node_modules/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+   <link rel="stylesheet" href="<?php echo e(asset('/')); ?>/assets/node_modules/dropify/dist/css/dropify.min.css">
+    <link href="<?php echo e(asset('/')); ?>/assets/node_modules/summernote/dist/summernote.css" rel="stylesheet" />
+    <link href="<?php echo e(asset('/')); ?>/assets/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link href="<?php echo e(asset('/')); ?>/assets/node_modules/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo e(asset('/')); ?>/assets/node_modules/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
    
     <!-- Dashboard 1 Page CSS -->
-    <link href="{{asset('/')}}/assets/dist/css/pages/dashboard1.css" rel="stylesheet">
-    <link href="{{asset('/')}}/assets/dist/css/pages/bootstrap-switch.css" rel="stylesheet">
+    <link href="<?php echo e(asset('/')); ?>/assets/dist/css/pages/dashboard1.css" rel="stylesheet">
+    <link href="<?php echo e(asset('/')); ?>/assets/dist/css/pages/bootstrap-switch.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -52,7 +52,7 @@
 
 <![endif]-->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<link href="{{url('/')}}/assets/node_modules/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+<link href="<?php echo e(url('/')); ?>/assets/node_modules/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
 <style>
     .preview-images-zone {
     width: 100%;
@@ -206,9 +206,9 @@
                         <!--End Logo icon -->
                         <!-- Logo text --><span>
                             <!-- dark Logo text -->
-                            <img src="{{asset('/')}}//assets/images/logoarr-2.png" alt="homepage" class="dark-logo" />
+                            <img src="<?php echo e(asset('/')); ?>//assets/images/logoarr-2.png" alt="homepage" class="dark-logo" />
                             <!-- Light Logo text -->
-                            <img src="{{asset('/')}}//assets/images/logoarr-2.png" class="light-logo" alt="homepage" /></span>
+                            <img src="<?php echo e(asset('/')); ?>//assets/images/logoarr-2.png" class="light-logo" alt="homepage" /></span>
                     </a>
                 </div>
                 <!-- ============================================================== -->
@@ -243,16 +243,16 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown u-pro">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false"><img src="{{asset('/')}}//assets/images/users/1.jpg" alt="user"
+                                aria-haspopup="true" aria-expanded="false"><img src="<?php echo e(asset('/')); ?>//assets/images/users/1.jpg" alt="user"
                                     class=""> <span class="hidden-md-down">الادمن &nbsp;<i class="fa fa-angle-down"></i></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right animated flipInY">
                             
-                               <a href="{{url('/')}}" class="dropdown-item"><i class="icon-screen-desktop"></i> الموقع</a>
+                               <a href="<?php echo e(url('/')); ?>" class="dropdown-item"><i class="icon-screen-desktop"></i> الموقع</a>
                                  <!-- text-->
                                  <div class="dropdown-divider"></div>
                                 <!-- text-->
-                                <a href="{{route('User.show',Auth::user()->id)}}" class="dropdown-item"><i class="ti-user"></i> حسابي</a>
+                                <a href="<?php echo e(route('User.show',Auth::user()->id)); ?>" class="dropdown-item"><i class="ti-user"></i> حسابي</a>
                                  <!-- text-->
                                  <div class="dropdown-divider"></div>
                                 <!-- text-->
@@ -260,18 +260,19 @@
                                 <!-- text-->
                                 <div class="dropdown-divider"></div>
                                 <!-- text-->
-                                <a href="{{route('User.edit',Auth::user()->id)}}" class="dropdown-item"><i class="ti-settings"></i> ضبط الحساب</a>
+                                <a href="<?php echo e(route('User.edit',Auth::user()->id)); ?>" class="dropdown-item"><i class="ti-settings"></i> ضبط الحساب</a>
                                 <!-- text-->
                                 <div class="dropdown-divider"></div>
                                 <!-- text-->
-                                <a href="{{ route('logout') }}" class="dropdown-item"
+                                <a href="<?php echo e(route('logout')); ?>" class="dropdown-item"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                        <i class="fa fa-power-off"></i>
                                         تسجيل خروج
                                 </a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
+                                        <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+                                            <?php echo e(csrf_field()); ?>
+
                                         </form>
                             
                                 <!-- text-->
@@ -299,23 +300,24 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="user-pro"> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                                aria-expanded="false"><img src="{{asset('/')}}//assets/images/users/1.jpg" alt="user-img" class="img-circle"><span
+                                aria-expanded="false"><img src="<?php echo e(asset('/')); ?>//assets/images/users/1.jpg" alt="user-img" class="img-circle"><span
                                     class="hide-menu">مدير الموقع</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <!-- <li><a href="javascript:void(0)"><i class="ti-user"></i> الصفحة الشخصية</a></li> -->
                                 <li>
-                                <a href="{{ route('logout') }}" class="dropdown-item"
+                                <a href="<?php echo e(route('logout')); ?>" class="dropdown-item"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                        <i class="fa fa-power-off"></i>
                                         تسجيل خروج
                                 </a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
+                                        <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+                                            <?php echo e(csrf_field()); ?>
+
                                         </form>
                                 </li>
                                 <li>
-                                <a href="{{ url('/') }}" class="dropdown-item">
+                                <a href="<?php echo e(url('/')); ?>" class="dropdown-item">
                                        <i class="icon-screen-desktop"></i>
                                        الموقع
                                 </a>
@@ -323,70 +325,70 @@
                                 </li>
                             </ul>
                         </li>
-                        <meta name="csrf-token" content="{{ csrf_token() }}">
+                        <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
                         <li class="nav-small-cap">--- لوحة التحكم</li>
-                        <li> <a href="{{route('admin')}}"><i class="icon-speedometer"></i><span class="hide-menu">الرئيسية
+                        <li> <a href="<?php echo e(route('admin')); ?>"><i class="icon-speedometer"></i><span class="hide-menu">الرئيسية
                                 </span></a></li>
                         <li> <a class=" has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
                                     class="ti-user"></i><span class="hide-menu">الاعضاء</span></a>
                                     <ul aria-expanded="false" class="collapse">
                               
-                                <li><a href="{{route('User.index')}}">الادمن</a></li>
+                                <li><a href="<?php echo e(route('User.index')); ?>">الادمن</a></li>
                                
                             </ul> 
                         <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
                                     class="ti-layout-grid2"></i><span class="hide-menu">المنتجات</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{url('admin/product/Category')}}">الأقسام الرئيسية</a></li>
-                                <li><a href="{{url('admin/product/SubCategory')}}">الأقسام الفرعية</a></li>
-                                <li><a href="{{url('admin/product/SubtwoCategory')}}">  الاقسام الفرعية  للاقسام الفرعية</a></li>
-                                <li><a href="{{route('Manufactor.index')}}">المصنعين</a></li>
-                                <li><a href="{{route('Product.index')}}">المنتجات</a></li>
+                                <li><a href="<?php echo e(url('admin/product/Category')); ?>">الأقسام الرئيسية</a></li>
+                                <li><a href="<?php echo e(url('admin/product/SubCategory')); ?>">الأقسام الفرعية</a></li>
+                                <li><a href="<?php echo e(url('admin/product/SubtwoCategory')); ?>">  الاقسام الفرعية  للاقسام الفرعية</a></li>
+                                <li><a href="<?php echo e(route('Manufactor.index')); ?>">المصنعين</a></li>
+                                <li><a href="<?php echo e(route('Product.index')); ?>">المنتجات</a></li>
                             </ul>
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
                                     class="fa fa-file-video-o"></i><span class="hide-menu">الفيديو</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{url('admin/video/Category')}}">الأقسام الرئيسية</a></li>
-                                <li><a href="{{url('admin/video/SubCategory')}}">الأقسام الفرعية</a></li>
-                                <li><a href="{{url('admin/video/SubtwoCategory')}}">  الاقسام الفرعية  للاقسام الفرعية</a></li>
-                                <li><a href="{{route('Video.index')}}">المنتجات</a></li>
+                                <li><a href="<?php echo e(url('admin/video/Category')); ?>">الأقسام الرئيسية</a></li>
+                                <li><a href="<?php echo e(url('admin/video/SubCategory')); ?>">الأقسام الفرعية</a></li>
+                                <li><a href="<?php echo e(url('admin/video/SubtwoCategory')); ?>">  الاقسام الفرعية  للاقسام الفرعية</a></li>
+                                <li><a href="<?php echo e(route('Video.index')); ?>">المنتجات</a></li>
                             </ul>
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
                                     class="ti-write"></i><span class="hide-menu">التدريبات</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{url('admin/training/Category')}}">الأقسام الرئيسية</a></li>
-                                <li><a href="{{url('admin/training/SubCategory')}}">الأقسام الفرعية</a></li>
-                                <li><a href="{{url('admin/training/SubtwoCategory')}}">  الاقسام الفرعية  للاقسام الفرعية</a></li>
-                                <li><a href="{{route('training.index')}}">المنتجات</a></li>
+                                <li><a href="<?php echo e(url('admin/training/Category')); ?>">الأقسام الرئيسية</a></li>
+                                <li><a href="<?php echo e(url('admin/training/SubCategory')); ?>">الأقسام الفرعية</a></li>
+                                <li><a href="<?php echo e(url('admin/training/SubtwoCategory')); ?>">  الاقسام الفرعية  للاقسام الفرعية</a></li>
+                                <li><a href="<?php echo e(route('training.index')); ?>">المنتجات</a></li>
                             </ul>
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
                                     class="ti-world"></i><span class="hide-menu">الأخبار</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{route('CategoriesNews.index')}}">أقسام الأخبار</a></li>
-                                <li><a href="{{route('News.index')}}">الأخبار</a></li>
+                                <li><a href="<?php echo e(route('CategoriesNews.index')); ?>">أقسام الأخبار</a></li>
+                                <li><a href="<?php echo e(route('News.index')); ?>">الأخبار</a></li>
                             </ul>
                         </li>
-                        <li> <a class=" waves-effect waves-dark" href="{{route('Service.index')}}" aria-expanded="false"><i
+                        <li> <a class=" waves-effect waves-dark" href="<?php echo e(route('Service.index')); ?>" aria-expanded="false"><i
                                     class="ti-shopping-cart"></i><span class="hide-menu">الخدمات</span></a></li>
 
-                        <li> <a class=" waves-effect waves-dark" href="{{route('Page.index')}}" aria-expanded="false"><i
+                        <li> <a class=" waves-effect waves-dark" href="<?php echo e(route('Page.index')); ?>" aria-expanded="false"><i
                                     class="ti-user"></i><span class="hide-menu">الصفحات</span></a></li>
                                     <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
                                     class="ti-direction-alt"></i><span class="hide-menu">من نحن</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{route('About.index')}}">من نحن </a></li>
-                                <li><a href="{{route('Section.index')}}">اقسام من نحن </a></li>
+                                <li><a href="<?php echo e(route('About.index')); ?>">من نحن </a></li>
+                                <li><a href="<?php echo e(route('Section.index')); ?>">اقسام من نحن </a></li>
                             </ul>
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
                                     class="ti-settings"></i><span class="hide-menu">الضبط</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{route('Slider.index')}}">معرض الصور</a></li>
-                                <li><a href="{{route('setting.index')}}">الإعدادات الرئيسية</a></li>
-                                <li><a href="{{route('socialmedia')}}">اعدادات السوشيال ميديا</a></li>
+                                <li><a href="<?php echo e(route('Slider.index')); ?>">معرض الصور</a></li>
+                                <li><a href="<?php echo e(route('setting.index')); ?>">الإعدادات الرئيسية</a></li>
+                                <li><a href="<?php echo e(route('socialmedia')); ?>">اعدادات السوشيال ميديا</a></li>
 
                             </ul>
                         </li>
@@ -411,9 +413,9 @@
                 <!-- ============================================================== -->
                 <!-- Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
-                @include('flash-massege')               
+                <?php echo $__env->make('flash-massege', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>               
 
-                @yield('content')
+                <?php echo $__env->yieldContent('content'); ?>
 
              
                  <!-- ============================================================== -->
@@ -472,44 +474,44 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="{{asset('/')}}/assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
-    <script src="{{asset('/')}}/assets/node_modules/jqueryui/jquery-ui.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/jqueryui/jquery-ui.js"></script>
     <!-- Bootstrap popper Core JavaScript -->
-    <script src="{{asset('/')}}/assets/node_modules/popper/popper.min.js"></script>
-    <script src="{{asset('/')}}/assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/popper/popper.min.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="{{asset('/')}}/assets/dist/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/dist/js/perfect-scrollbar.jquery.min.js"></script>
     <!--Wave Effects -->
-    <script src="{{asset('/')}}/assets/dist/js/waves.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/dist/js/waves.js"></script>
     <!--Menu sidebar -->
-    <script src="{{asset('/')}}/assets/dist/js/sidebarmenu.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
-    <!-- <script src="{{asset('/')}}/assets/dist/js/custom.min.js"></script> -->
+    <!-- <script src="<?php echo e(asset('/')); ?>/assets/dist/js/custom.min.js"></script> -->
     <!-- ============================================================== -->
     <!-- This page plugins -->
     <!-- ============================================================== -->
     <!--morris JavaScript -->
-    <script src="{{asset('/')}}/assets/node_modules/raphael/raphael-min.js"></script>
-    <script src="{{asset('/')}}/assets/node_modules/morrisjs/morris.min.js"></script>
-    <script src="{{asset('/')}}/assets/node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
-    <script src="{{asset('/')}}/assets/dist/js/custom.min.js"></script>
-    <script src="{{asset('/')}}/assets/dist/js/pages/validation.js"></script>
-    <script src="{{asset('/')}}/assets/node_modules/bootstrap-table/dist/bootstrap-table.min.js"></script>
-    <script src="{{asset('/')}}/assets/node_modules/bootstrap-table/dist/bootstrap-table.ints.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/raphael/raphael-min.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/morrisjs/morris.min.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/dist/js/custom.min.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/dist/js/pages/validation.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/bootstrap-table/dist/bootstrap-table.ints.js"></script>
     <!-- Popup message jquery -->
     <!-- Chart JS -->
-    <script src="{{asset('/')}}/assets/dist/js/dashboard1.js"></script>
-    <script src="{{asset('/')}}/assets/node_modules/toast-master/js/jquery.toast.js"></script>
-    <script src="{{asset('/')}}/assets/node_modules/switchery/dist/switchery.min.js"></script>
-    <script src="{{asset('/')}}/assets/node_modules/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
-    <script src="{{asset('/')}}/assets/node_modules/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
-    <script src="{{asset('/')}}/assets/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
-    <script src="{{asset('/')}}/assets/node_modules/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js" type="text/javascript"></script>
-    <script type="text/javascript" src="{{asset('/')}}/assets/node_modules/multiselect/js/jquery.multi-select.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/dist/js/dashboard1.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/toast-master/js/jquery.toast.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/switchery/dist/switchery.min.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js" type="text/javascript"></script>
+    <script type="text/javascript" src="<?php echo e(asset('/')); ?>/assets/node_modules/multiselect/js/jquery.multi-select.js"></script>
      <!-- bt-switch -->
-     <!-- <script src="{{asset('/')}}/assets/node_modules/bootstrap-switch/bootstrap-switch.min.js"></script> -->
+     <!-- <script src="<?php echo e(asset('/')); ?>/assets/node_modules/bootstrap-switch/bootstrap-switch.min.js"></script> -->
          <!-- This is data table -->
-    <script src="{{asset('/')}}/assets/node_modules/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/datatables/jquery.dataTables.min.js"></script>
     <!-- start - This is for export functionality only -->
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
@@ -519,19 +521,19 @@
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
 
-    <script src="{{asset('/')}}/assets/node_modules/moment/min/moment.min.js"></script>
-  <script src="{{asset('/')}}/assets/node_modules/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/moment/min/moment.min.js"></script>
+  <script src="<?php echo e(asset('/')); ?>/assets/node_modules/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
 
-    <script src="{{asset('/')}}/assets/node_modules/wizard/jquery.steps.min.js"></script>
-    <script src="{{asset('/')}}/assets/node_modules/wizard/jquery.validate.min.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/wizard/jquery.steps.min.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/wizard/jquery.validate.min.js"></script>
      <!-- Sweet-Alert  -->
-    <script src="{{asset('/')}}/assets/node_modules/sweetalert/sweetalert.min.js"></script>
-    <script src="{{asset('/')}}/assets/node_modules/wizard/steps.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/sweetalert/sweetalert.min.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/wizard/steps.js"></script>
   <!--Wave Effects -->
 
-    <script src="{{asset('/')}}/assets/node_modules/bootstrap-switch/bootstrap-switch.min.js"></script>
-    <script src="{{asset('/')}}/assets/node_modules/dropify/dist/js/dropify.min.js"></script>
-    <script src="{{asset('/')}}/assets/node_modules/summernote/dist/summernote.min.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/bootstrap-switch/bootstrap-switch.min.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/dropify/dist/js/dropify.min.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assets/node_modules/summernote/dist/summernote.min.js"></script>
   
 
 <script type="text/javascript">
@@ -703,7 +705,7 @@
      $('#fdate').bootstrapMaterialDatePicker({ weekStart: 0, time: false ,minDate : new Date()});
     $('#tdate').bootstrapMaterialDatePicker({ weekStart: 0, time: false,minDate : new Date() });
     </script>
-@yield('js')
+<?php echo $__env->yieldContent('js'); ?>
 </body>
 
 </html>

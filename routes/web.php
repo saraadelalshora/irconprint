@@ -37,13 +37,14 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 Route::group(['prefix' => 'admin', 'middleware'=>'Admin'],function () {
 Route::get('/', 'Admin\AdminController@index')->name('admin');
 Route::resource('User','Admin\UserController');
-Route::resource('Countries','Admin\CountryController');
+
 Route::resource('product/Category','Admin\product\CategoryController');
 Route::resource('product/SubCategory','Admin\product\SubCategoryController');
 Route::resource('product/SubtwoCategory','Admin\product\SubtwoCategoryController');
 Route::resource('Product','Admin\product\ProductController');
 Route::get('subcategory-list','Admin\product\ProductController@getSubcategory');
 Route::get('filter-list','Admin\product\ProductController@getFilter');
+Route::delete('image/', 'Admin\product\ProductController@deleteimage')->name('image');
 
 Route::resource('video/Category','Admin\video\CategoryController');
 Route::resource('video/SubCategory','Admin\video\SubCategoryController');
@@ -61,45 +62,31 @@ Route::get('filter-list','Admin\training\TrainingController@getFilter');
 
 Route::resource('CategoriesNews','Admin\CategoryNewController');
 Route::resource('Service','Admin\ServiceController');
-Route::resource('Shipping','Admin\Shipping_ZoneController');
-Route::resource('Spacification','Admin\SpacificationController');
-Route::resource('Filter','Admin\FilterController');
-Route::resource('Payment','Admin\PaymentController');
-Route::resource('Customer','Admin\CustomerController');
+
 Route::resource('Slider','Admin\SliderController');
 Route::resource('Page','Admin\PageController');
 Route::resource('About','Admin\AboutController');
 Route::resource('Section','Admin\SectionController');
 
-Route::post('filter','Admin\ProductController@filter');
 
-Route::get('specification-list','Admin\ProductController@getSpecification');
-Route::get('specificationdetails-list','Admin\ProductController@getSpecificationdetealis');
 Route::resource('News','Admin\NewSiteController');
-// Route::resource('SubCategory','Admin\SubCategoryController');
 Route::resource('Manufactor','Admin\ManufactorController');
 Route::resource('Ads','Admin\AdsController');
 Route::resource('permissions','Admin\PermissionController');
 Route::resource('Roles','Admin\RoleController');
 Route::resource('setting', 'Admin\SettingController');
-Route::get('comment','Admin\CommentController@index')->name('Comments');
-Route::get('/approvecomment/{id}','Admin\CommentController@approved')->name('approved');
 Route::get('social','Admin\SettingController@getsocail')->name('socialmedia');
 Route::match(['put', 'patch'],'social/{social}','Admin\SettingController@social')->name('updatesocial');
 Route::post('addsocial','Admin\SettingController@addsocial')->name('savesocial');
 
-Route::delete('image/', 'Admin\ProductController@deleteimage')->name('image');
-Route::resource('Coupon','Admin\CouponController');
-Route::resource('Coupon','Admin\CouponController');
-Route::resource('Order','Admin\OrderController');
-Route::get('admin/{id}','Admin\CustomerController@admin')->name('useradmin');
+
+// Route::get('admin/{id}','Admin\CustomerController@admin')->name('useradmin');
 Route::get('unadmin/{id}','Admin\UserController@unadmin')->name('userunadmin');
-// 
-Route::post('ajax-close', ['as' => 'ajax-close', 'uses' => 'Admin\Shipping_ZoneController@OpenClose']);
+
 });
 //redirect to defult lang from yourdomain.com to yourdomain.com/en, 
 //getcities
-Route::get('City-list','Admin\CustomerController@getcities');
+// Route::get('City-list','Admin\CustomerController@getcities');
 // set_lang
 // Route::get('/', function () {
 //     return redirect(app()->getLocale());
@@ -115,12 +102,21 @@ Route::group([
   ]
   , function() {
     // any route at front should be has name to load translate of it 
-    //set lang 
+    //set lang president
     Route::get('setlang/{locale}', 'HomeController@set_lang');
     Route::get('/', 'HomeController@index')->name('home');
     Route::any('/search','HomeController@search')->name('search');
-    Route::get('about/{slug}','Front\PageController@about')->name('About');
+    Route::get('about','Front\PageController@about')->name('About');
+    Route::get('president','Front\PageController@president')->name('President');
     Route::get('page/{page}', 'Front\PageController@show')->name('page'); 
+    Route::get('section/{section}', 'Front\PageController@section')->name('section'); 
+    // projects list
+    Route::get('projects', 'Front\PageController@projects')->name('projects');
+    
+    //news
+    Route::get('news','Front\PageController@news')->name('News');
+    Route::get('news/{newslist}','Front\PageController@newsdetails');
+
     Route::get('contact-us', 'Front\PageController@contactUS')->name('Contact');
     Route::post('contact-us', ['as'=>'contactus.store','uses'=>'Front\PageController@contactUSPost']);
     // show_profile
@@ -151,5 +147,4 @@ Route::post('/comment/{product}', 'Front\ProductController@comment')->name('revi
 Route::get('/wishlist/{product}', 'Front\ProductController@wishlist')->name('wishlist');
 Route::get('/Favorite', 'Front\ProductController@Show_wishlist')->name('/Favorite');
 Route::get('/Filter', 'Front\ProductController@filter')->name('Filter');
-
-  });
+});

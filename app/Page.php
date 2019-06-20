@@ -11,7 +11,7 @@ class Page extends Model
      'title_ar', 'title_en', 'description_en', 'description_ar', 'img', 'status', 'type', 'slogen_ar','slogen_en',
     ];
     public function sections(){
-        return $this->hasMany('App\Section');
+        return $this->hasMany('App\Section')->orderBy('order');
     }
 
 }

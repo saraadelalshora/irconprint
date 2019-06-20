@@ -53,9 +53,20 @@
                                 <div class="row">
                                     <div class="col-12 col-md-12 col-lg-3">
                                         <div class="navbar-header">
-                                            <a class="logo" href="index.html">
+                                            <a class="logo" href="<?php echo e(url('/')); ?>"> <?php if(app()->getLocale() == 'ar'): ?>
+                                                <?php if(isset($setting->logo_img)): ?>
+                                                <img src="<?php echo e(asset($setting->logo_img)); ?>" alt="logo">
+                                                <?php else: ?>
                                                 <img src="<?php echo e(asset('/')); ?>/assetfront/images/logo/logo-colored.png" alt="logo">
-                                            </a>
+                                                <?php endif; ?>
+                                            <?php else: ?>
+                                            <?php if(isset($setting->log_img_en)): ?>
+                                                <img src="<?php echo e(asset($setting->log_img_en)); ?>" alt="logo">
+                                                <?php else: ?>
+                                                <img src="<?php echo e(asset('/')); ?>/assetfront/images/logo/logo-colored.png" alt="logo">
+                                                <?php endif; ?>
+                                             <?php endif; ?>
+                                        </a>
                                         </div>
                                     </div>
                                     <!-- .col-md-6 end -->
@@ -66,9 +77,8 @@
                                                     <i class="icon-map-pin"></i>
                                                 </div>
                                                 <div class="contact-box-info">
-                                                    <p class="text-capitalize ">Visit Us:</p>
-                                                    <p class="font-heading"> 3168 Hafsa Bint Omer Riyadh <br> 13211-7317
-                                                        Kingdom of Saudi Arabic </p>
+                                                    <p class="text-capitalize "><?php echo app('translator')->getFromJson('massege.address'); ?>:</p>
+                                                    <p class="font-heading"> <?php echo e(ucwords($setting->address)); ?> </p>
                                                 </div>
                                             </div>
     
@@ -77,8 +87,8 @@
                                                     <i class="icon-document"></i>
                                                 </div>
                                                 <div class="contact-box-info">
-                                                    <p class="text-capitalize ">email us</p>
-                                                    <p class="font-heading">ali.alsalman@irconprint.com</p>
+                                                    <p class="text-capitalize "><?php echo app('translator')->getFromJson('massege.email'); ?></p>
+                                                    <p class="font-heading"><?php echo e($setting->email); ?></p>
                                                 </div>
                                             </div>
     
@@ -87,16 +97,17 @@
                                                     <i class="icon-phone"></i>
                                                 </div>
                                                 <div class="contact-box-info">
-                                                    <p class="text-capitalize">call us</p>
-                                                    <p class="text-capitalize font-heading">+966114122806</p>
+                                                    <p class="text-capitalize"><?php echo app('translator')->getFromJson('massege.phone'); ?></p>
+                                                    <p class="text-capitalize font-heading"><?php echo e($setting->phone); ?></p>
                                                 </div>
                                             </div>
     
                                             <!-- Module Social -->
                                             <div class="module module-social pull-left">
-                                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                                <!--  <?php if($social->fb): ?> href="<?php echo e("https://".$social->fb); ?>"<?php else: ?> href="#" <?php endif; ?> target="_blank" -->
+                                                    <?php if($social->fb): ?>  <a href="<?php echo e('https://'.$social->fb); ?>" ><i class="fab fa-facebook-f"></i></a> <?php endif; ?>
+                                                <?php if($social->tw): ?><a href="<?php echo e('https://'.$social->tw); ?>"><i class="fab fa-twitter"></i></a><?php endif; ?>
+                                                <?php if($social->linkedin): ?><a href="<?php echo e('https://'.$social->linkedin); ?>"><i class="fab fa-linkedin-in"></i></a><?php endif; ?>
                                             </div><!-- .module-social end -->
                                         </div>
                                     </div>
@@ -111,8 +122,21 @@
             <div class="container">
                 <nav id="primary-menu" class="navbar navbar-expand-lg navbar-light bg-dark3">
     
-                    <a class="navbar-brand d-md-none d-xl-none" href="index.html">
-                        <img class="logo logo-light" src="images/logo/logo-light.png" alt="Consultivo Logo">
+                    <a class="navbar-brand d-md-none d-xl-none" href="<?php echo e(url('/')); ?>">
+                    <?php if(app()->getLocale() == 'ar'): ?>
+                                                <?php if(isset($setting->logo_img)): ?>
+                                                <img class="logo logo-light" src="<?php echo e(asset($setting->logo_img)); ?>" alt="Consultivo logo">
+                                                <?php else: ?>
+                                                <img class="logo logo-light" src="<?php echo e(asset('/')); ?>/assetfront/images/logo/logo-colored.png" alt="Consultivo logo">
+                                                <?php endif; ?>
+                                            <?php else: ?>
+                                            <?php if(isset($setting->log_img_en)): ?>
+                                                <img class="logo logo-light" src="<?php echo e(asset($setting->log_img_en)); ?>" alt="logo">
+                                                <?php else: ?>
+                                                <img class="logo logo-light" src="<?php echo e(asset('/')); ?>/assetfront/images/logo/logo-colored.png" alt="logo">
+                                                <?php endif; ?>
+                                             <?php endif; ?>
+                        
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
                         aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -124,17 +148,17 @@
                         <ul class="navbar-nav mr-auto">
                             <!-- Home Menu-->
                             <li class="has-dropdown active">
-                                <a href="index.html" class="dropdown-toggle menu-item">Home</a>
+                                <a href="<?php echo e(url('/')); ?>" class="dropdown-toggle menu-item"><?php echo app('translator')->getFromJson('massege.home'); ?></a>
                             </li>
                             <!-- li end -->
     
                             <!-- Pages Menu -->
                             <li class="has-dropdown">
-                                <a href="about.html" class="dropdown-toggle menu-item" data-hover="pages">About</a>
+                                <a href="<?php echo e(route('About')); ?>" class="dropdown-toggle menu-item" data-hover="pages"><?php echo app('translator')->getFromJson('massege.About Us'); ?></a>
                                 <ul class="dropdown-menu">
     
                                     <li>
-                                        <a href="President.html">President's word</a>
+                                        <a href="<?php echo e(route('President')); ?>"><?php echo app('translator')->getFromJson('massege.President`s word'); ?></a>
                                     </li>
     
                                 </ul>
@@ -142,15 +166,15 @@
                             <!-- li end -->
                             <!-- Products Menu -->
                             <li class="has-dropdown">
-                                <a href="main-category.html" class="dropdown-toggle menu-item" data-hover="pages">Products</a>
+                                <a href="main-category.html" class="dropdown-toggle menu-item" data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
                                 <ul class="dropdown-menu">
                                     <li class="dropdown-submenu">
                                         <a href="category.html" class="dropdown-toggle menu-item"
-                                            data-hover="pages">Products</a>
+                                            data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
                                         <ul class="dropdown-menu">
                                             <li class="has-dropdown">
                                                 <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">Products</a>
+                                                    data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
                                                 <ul class="dropdown-menu">
                                                     <li>
                                                         <a href="single.html">Product 1</a>
@@ -166,7 +190,7 @@
                                             </li>
                                             <li class="has-dropdown">
                                                 <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">Products</a>
+                                                    data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
                                                 <ul class="dropdown-menu">
                                                     <li>
                                                         <a href="single.html">Product 1</a>
@@ -182,7 +206,7 @@
                                             </li>
                                             <li class="has-dropdown">
                                                 <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">Products</a>
+                                                    data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
                                                 <ul class="dropdown-menu">
                                                     <li>
                                                         <a href="single.html">Product 1</a>
@@ -202,11 +226,11 @@
                                     </li>
                                     <li class="dropdown-submenu">
                                         <a href="category.html" class="dropdown-toggle menu-item"
-                                            data-hover="pages">Products</a>
+                                            data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
                                         <ul class="dropdown-menu">
                                             <li class="has-dropdown">
                                                 <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">Products</a>
+                                                    data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
                                                 <ul class="dropdown-menu">
                                                     <li>
                                                         <a href="single.html">Product 1</a>
@@ -222,7 +246,7 @@
                                             </li>
                                             <li class="has-dropdown">
                                                 <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">Products</a>
+                                                    data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
                                                 <ul class="dropdown-menu">
                                                     <li>
                                                         <a href="single.html">Product 1</a>
@@ -238,7 +262,7 @@
                                             </li>
                                             <li class="has-dropdown">
                                                 <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">Products</a>
+                                                    data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
                                                 <ul class="dropdown-menu">
                                                     <li>
                                                         <a href="single.html">Product 1</a>
@@ -258,11 +282,11 @@
                                     </li>
                                     <li class="dropdown-submenu">
                                         <a href="category.html" class="dropdown-toggle menu-item"
-                                            data-hover="pages">Products</a>
+                                            data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
                                         <ul class="dropdown-menu">
                                             <li class="has-dropdown">
                                                 <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">Products</a>
+                                                    data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
                                                 <ul class="dropdown-menu">
                                                     <li>
                                                         <a href="single.html">Product 1</a>
@@ -278,7 +302,7 @@
                                             </li>
                                             <li class="has-dropdown">
                                                 <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">Products</a>
+                                                    data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
                                                 <ul class="dropdown-menu">
                                                     <li>
                                                         <a href="single.html">Product 1</a>
@@ -294,7 +318,7 @@
                                             </li>
                                             <li class="has-dropdown">
                                                 <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">Products</a>
+                                                    data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
                                                 <ul class="dropdown-menu">
                                                     <li>
                                                         <a href="single.html">Product 1</a>
@@ -396,7 +420,7 @@
     
                             <!-- shop Menu -->
                             <li class="has-dropdown">
-                                <a href="projects.html" class="dropdown-toggle menu-item" data-hover="shop">Projects</a>
+                                <a href="projects.html" class="dropdown-toggle menu-item" data-hover="shop"><?php echo app('translator')->getFromJson('massege.Projects'); ?></a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a href="project-single.html">Project 1</a>
@@ -411,8 +435,7 @@
                             </li>
                             <!-- li end -->
                             <li class="has-dropdown">
-                                <a href="security.html" class="dropdown-toggle menu-item" data-hover="shop">Security
-                                    Printing </a>
+                                <a href="security.html" class="dropdown-toggle menu-item" data-hover="shop"><?php echo app('translator')->getFromJson('massege.Security Printing'); ?> </a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a href="project-single.html"> security inks for banknotes</a>
@@ -427,7 +450,7 @@
     
                             <!-- Elements Menu -->
                             <li class="has-dropdown mega-dropdown">
-                                <a href="news.html" class="dropdown-toggle menu-item">News & Events</a>
+                                <a href="news.html" class="dropdown-toggle menu-item"><?php echo app('translator')->getFromJson('massege.News & Events'); ?></a>
     
                                 <!-- .mega-dropdown-menu end -->
                             </li>
@@ -457,7 +480,7 @@
     
                             <!-- Module Consultation  -->
                             <div class="module module-consultation pull-left">
-                                <a class="btn" href="contact.html">Contact Us</a>
+                                <a class="btn" href="<?php echo e(url('contact-us')); ?>"><?php echo app('translator')->getFromJson('massege.contact'); ?></a>
                             </div>
                         </div>
                     </div>
@@ -470,7 +493,7 @@
         <!-- end  header   -->
     <!-- Hero Section
 ====================================== -->
-
+<?php echo $__env->yieldContent('content'); ?>
 
 <section id="featured3" class="featured featured-2 featured-3 featured-left bg-dark3 pt-0 pb-0">
         <div class="container-fluid pr-0 pl-0">

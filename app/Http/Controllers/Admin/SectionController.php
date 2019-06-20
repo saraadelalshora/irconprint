@@ -63,7 +63,7 @@ class SectionController extends Controller
                 mkdir('public/page/section/larg/', 0777, true);
             }          
             $image_resize = Image::make($file->getRealPath());
-            $image_resize->resize(555, 263);
+            $image_resize->resize(370, 245);
             $image_resize->save(public_path('page/section/larg/' .$imageName));
             $page->image='page/section/larg/'.$imageName;
             
@@ -129,7 +129,7 @@ class SectionController extends Controller
                     mkdir('public/page/section/larg/', 0777, true);
                 }          
                 $image_resize = Image::make($file->getRealPath());
-                $image_resize->resize(555, 263);
+                $image_resize->resize(370, 245);
                 $image_resize->save(public_path('page/section/larg/' .$imageName));
                 $page->image='page/section/larg/'.$imageName;
                 

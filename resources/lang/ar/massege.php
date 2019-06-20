@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+      //header
     'home' => 'الرئيسية',
     'contact'=>'اتصل بنا',
     'address'=>'العنوان',
@@ -9,6 +9,8 @@ return [
     'email'=>'البريد الالكترونى',
     'ar'=>'عربي',
     'en'=>'انجليزي',
+    'Security Printing'=>'الطباعة الأمنية',
+    'News & Events'=>'الاخباروالاحداث',
     'copyright'=>'جميع الحقوق محفوظة PDF © 2018 تصميم وبرمجة شركة 3Hand.',
     '3hand'=>'ثري هاند',
     'Follow'=>'تابعنا على ',
@@ -17,6 +19,7 @@ return [
     'Company Address'=>'عنوان الشركة ',
     'call us now'=>'اتصل بنا الان',
     'E-mail'=>'البريد الاكترونى',
+    'Waiting Your Call'=>'بانتظار مكالمتك',
     'Informations'=>'معلومات',
     'Login'=>'دخول',
     'Register'=>'تسجيل جديد',
@@ -29,12 +32,24 @@ return [
     'Categories'=>'كل الاقسام',
     'Search'=>'بحث',
     'Cart'=>'سلة الشراء',
+    // contact
+    'Get Directions'=>'الحصول علي الاتجاهات',
+    'Send a Message'=>'ارسال رسالتك',
     'fname'=>'الاسم الاول',
     'lname'=>'الاسم الأخير',
     'email'=>'البريد الاكتروني',
     'title'=>'العنوان',
     'massege'=>'الرساله',
     'send'=>'ارسال',
+
+    // section , page
+    'Read More'=>'المزيد',
+    'President`s word'=>'كلمة الرئيس',
+
+
+    //project
+    'Projects'=>'المشاريع',
+
     'Edit'=>'تعديل',
     'Country'=>'البلد',
     'zip code'=>'الرمز البريدي',

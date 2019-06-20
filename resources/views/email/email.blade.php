@@ -5,10 +5,6 @@ Name: {{ $fname." ".$lname  }}
 </p>
 
 <p>
-Subject: {{ $title  }}
-</p>
-
-<p>
 Email: {{ $email }}
 </p>
 

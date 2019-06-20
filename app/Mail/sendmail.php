@@ -34,8 +34,8 @@ class sendmail extends Mailable
         $fname=$this->email['fname'];
         $lname=$this->email['lname'];
         $title=$this->email['email'];
-        $email=$this->email['title'];
+   
        
-        return $this->view('email.email',compact('fname','lname','title','email'));
+        return $this->view('email.email',compact('fname','lname','email'));
     }
 }

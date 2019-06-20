@@ -88,9 +88,9 @@
                                             <div class="form-group">
                                                 <label class="control-label">نوع الصفحة</label>
                                                 <select name="type" class="form-control">
+                                                    <option value="4" {{$page->type == 4 ? 'selected="selected"' : '' }} >Page</option>
                                                     <option value="2" {{$page->type == 2 ? 'selected="selected"' : '' }} >Eshop</option>
                                                     <option value="3" {{$page->type == 3 ? 'selected="selected"' : '' }} >Security</option>
-                                                    <option value="4" {{$page->type == 4 ? 'selected="selected"' : '' }} >Page</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">

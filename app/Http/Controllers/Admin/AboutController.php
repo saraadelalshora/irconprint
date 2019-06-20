@@ -17,7 +17,7 @@ class AboutController extends Controller
     public function index()
     {
        
-        $all=Page::where('type','0')->orderBy('id', 'desc')->get();
+        $all=Page::whereIn('type',['1','0'])->get();
         return view('Admin.abouts.index',compact('all'));
     }
 
@@ -60,7 +60,7 @@ class AboutController extends Controller
                 mkdir('public/page/larg/', 0777, true);
             }          
             $image_resize = Image::make($file->getRealPath());
-            $image_resize->resize(555, 263);
+            $image_resize->resize(860, 575);
             $image_resize->save(public_path('page/larg/' .$imageName));
             $page->img='page/larg/'.$imageName;
             
@@ -126,14 +126,13 @@ class AboutController extends Controller
                     mkdir('public/page/larg/', 0777, true);
                 }          
                 $image_resize = Image::make($file->getRealPath());
-                $image_resize->resize(555, 263);
+                $image_resize->resize(860, 575);
                 $image_resize->save(public_path('page/larg/' .$imageName));
                 $page->img='page/larg/'.$imageName;
                 
             }
             $page->slogen_ar=$this->make_slug($request->input('ar_name'));
             $page->slogen_en=$this->make_slug($request->input('en_name'));
-            $page->type='0';
             $page->save();
             return  redirect('admin/About')->with('success','تم تعديل الصفحة بنجاح');
     }

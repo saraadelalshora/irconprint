@@ -1,20 +1,19 @@
-@extends('layouts.master')
-@section('meta')
+<?php $__env->startSection('meta'); ?>
 <title>الصفحات</title>
-@endsection
-@section('content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
             <!-- ============================================================== -->
                 <!-- Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">الصفحات</h4>
+                        <h4 class="text-themecolor">من نحن </h4>
                     </div>
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
                             
-                            <a href="{{route('Page.create')}}"><button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> إضافة جديد</button></a>
-                            <!-- <button type="button" class="btn btn-danger m-l-15"><i class="fa fa-close"></i> مسح</button> -->
+                            <!-- <a href="<?php echo e(route('About.create')); ?>"><button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> إضافة قسم داخلي </button></a>
+                             -->
                             
                         </div>
                     </div>
@@ -23,13 +22,13 @@
                 <!-- End Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
-                <!-- Start Page Content -->
+                <!-- Start About Content -->
                 <!-- ============================================================== -->
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                                 <div class="card-header">
-                                        <h4 class="card-title m-b-0">قائمة الصفحات</h4>
+                                        <!-- <h4 class="card-title m-b-0">قائمة الصفحات</h4> -->
                                 </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -38,33 +37,35 @@
                                         <tr>
                                             <th data-field="state" data-checkbox="true"></th>
                                             <th data-field="name">أسم الصفحة</th>
-                                            <th data-field="status"> نوع الصفحة</th>
                                             <th data-field="status"> الحالة</th>
                                             <th data-field="edit">تعديل</th>
                                         </tr>
                                     </thead>
                                     <tbody >
                                        
-                                    @foreach($all as $value)
+                                    <?php $__currentLoopData = $all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                      
                                      <tr>
                                          <td data-field="state" data-checkbox="true"></td>
-                                         <td data-field="name">{!!$value->title_ar!!}</td>
+                                         <td data-field="name"><?php echo $value->title_ar; ?></td>
                                        
-                                         <td data-field="status">@if($value->type == 2) Eshop @elseif($value->type == 3) Security  @else Page   @endif</td>
-                                         <td data-field="status">@if($value->status == 1) مفعل @else غير مفعل @endif</td>
+                                         <td data-field="status"><?php if($value->status == 1): ?> مفعل <?php else: ?> غير مفعل <?php endif; ?></td>
                      
-                                         <td data-field="edit"><button type="button" class="btn btn-sm btn-success btn-rounded m-l-15" ><i class="fa fa-check"></i><a href="{{route('Page.edit',$value->id)}}" style="color: #ffffff;"> تعديل</a></button>
-                                         <!-- <button type="button" class="btn btn-sm btn btn-info btn-rounded m-l-15" ><i class="fa fa-eye"></i><a href="{{route('Page.show',$value->id)}}" style="color: #ffffff;"> عرض</a></button> -->
-                                         <!-- <form  action="{{ route('Page.destroy',$value->id) }}"  style="display: inline;"  method="POST" accept-charset="utf-8">
-                                             {{csrf_field()}}
-                                             {{method_field('DELETE')}}
+                                         <td data-field="edit"><button type="button" class="btn btn-sm btn-success btn-rounded m-l-15" ><i class="fa fa-check"></i><a href="<?php echo e(route('About.edit',$value->id)); ?>" style="color: #ffffff;"> تعديل</a></button>
+                                         <?php if($value->type != 1): ?>
+                                         <button type="button" class="btn btn-sm btn btn-info btn-rounded m-l-15" ><i class="fa fa-eye"></i><a href="<?php echo e(route('Section.index')); ?>" style="color: #ffffff;"> اقسام  من نحن</a></button>
+                                        <?php endif; ?>
+                                         <!-- <form  action="<?php echo e(route('About.destroy',$value->id)); ?>"  style="display: inline;"  method="POST" accept-charset="utf-8">
+                                             <?php echo e(csrf_field()); ?>
+
+                                             <?php echo e(method_field('DELETE')); ?>
+
                      
                                          <button  class="btn btn-sm btn-danger btn-rounded m-l-15" type="submit" onclick="return confirm('هل تريد الحذف')"><i class="fa fa-times"></i> حذف</button>
                                           </form> -->
                                      </td>
                                      </tr>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -79,4 +80,5 @@
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

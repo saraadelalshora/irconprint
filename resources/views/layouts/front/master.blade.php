@@ -154,11 +154,11 @@
     
                             <!-- Pages Menu -->
                             <li class="has-dropdown">
-                                <a href="about.html" class="dropdown-toggle menu-item" data-hover="pages">About Us</a>
+                                <a href="{{route('About')}}" class="dropdown-toggle menu-item" data-hover="pages">@lang('massege.About Us')</a>
                                 <ul class="dropdown-menu">
     
                                     <li>
-                                        <a href="President.html">President's word</a>
+                                        <a href="{{route('President')}}">@lang('massege.President`s word')</a>
                                     </li>
     
                                 </ul>
@@ -166,15 +166,15 @@
                             <!-- li end -->
                             <!-- Products Menu -->
                             <li class="has-dropdown">
-                                <a href="main-category.html" class="dropdown-toggle menu-item" data-hover="pages">Products</a>
+                                <a href="main-category.html" class="dropdown-toggle menu-item" data-hover="pages">@lang('massege.Products')</a>
                                 <ul class="dropdown-menu">
                                     <li class="dropdown-submenu">
                                         <a href="category.html" class="dropdown-toggle menu-item"
-                                            data-hover="pages">Products</a>
+                                            data-hover="pages">@lang('massege.Products')</a>
                                         <ul class="dropdown-menu">
                                             <li class="has-dropdown">
                                                 <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">Products</a>
+                                                    data-hover="pages">@lang('massege.Products')</a>
                                                 <ul class="dropdown-menu">
                                                     <li>
                                                         <a href="single.html">Product 1</a>
@@ -190,7 +190,7 @@
                                             </li>
                                             <li class="has-dropdown">
                                                 <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">Products</a>
+                                                    data-hover="pages">@lang('massege.Products')</a>
                                                 <ul class="dropdown-menu">
                                                     <li>
                                                         <a href="single.html">Product 1</a>
@@ -206,7 +206,7 @@
                                             </li>
                                             <li class="has-dropdown">
                                                 <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">Products</a>
+                                                    data-hover="pages">@lang('massege.Products')</a>
                                                 <ul class="dropdown-menu">
                                                     <li>
                                                         <a href="single.html">Product 1</a>
@@ -226,11 +226,11 @@
                                     </li>
                                     <li class="dropdown-submenu">
                                         <a href="category.html" class="dropdown-toggle menu-item"
-                                            data-hover="pages">Products</a>
+                                            data-hover="pages">@lang('massege.Products')</a>
                                         <ul class="dropdown-menu">
                                             <li class="has-dropdown">
                                                 <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">Products</a>
+                                                    data-hover="pages">@lang('massege.Products')</a>
                                                 <ul class="dropdown-menu">
                                                     <li>
                                                         <a href="single.html">Product 1</a>
@@ -246,7 +246,7 @@
                                             </li>
                                             <li class="has-dropdown">
                                                 <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">Products</a>
+                                                    data-hover="pages">@lang('massege.Products')</a>
                                                 <ul class="dropdown-menu">
                                                     <li>
                                                         <a href="single.html">Product 1</a>
@@ -262,7 +262,7 @@
                                             </li>
                                             <li class="has-dropdown">
                                                 <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">Products</a>
+                                                    data-hover="pages">@lang('massege.Products')</a>
                                                 <ul class="dropdown-menu">
                                                     <li>
                                                         <a href="single.html">Product 1</a>
@@ -282,11 +282,11 @@
                                     </li>
                                     <li class="dropdown-submenu">
                                         <a href="category.html" class="dropdown-toggle menu-item"
-                                            data-hover="pages">Products</a>
+                                            data-hover="pages">@lang('massege.Products')</a>
                                         <ul class="dropdown-menu">
                                             <li class="has-dropdown">
                                                 <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">Products</a>
+                                                    data-hover="pages">@lang('massege.Products')</a>
                                                 <ul class="dropdown-menu">
                                                     <li>
                                                         <a href="single.html">Product 1</a>
@@ -302,7 +302,7 @@
                                             </li>
                                             <li class="has-dropdown">
                                                 <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">Products</a>
+                                                    data-hover="pages">@lang('massege.Products')</a>
                                                 <ul class="dropdown-menu">
                                                     <li>
                                                         <a href="single.html">Product 1</a>
@@ -318,7 +318,7 @@
                                             </li>
                                             <li class="has-dropdown">
                                                 <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">Products</a>
+                                                    data-hover="pages">@lang('massege.Products')</a>
                                                 <ul class="dropdown-menu">
                                                     <li>
                                                         <a href="single.html">Product 1</a>
@@ -420,7 +420,7 @@
     
                             <!-- shop Menu -->
                             <li class="has-dropdown">
-                                <a href="projects.html" class="dropdown-toggle menu-item" data-hover="shop">Projects</a>
+                                <a href="projects.html" class="dropdown-toggle menu-item" data-hover="shop">@lang('massege.Projects')</a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a href="project-single.html">Project 1</a>
@@ -435,8 +435,7 @@
                             </li>
                             <!-- li end -->
                             <li class="has-dropdown">
-                                <a href="security.html" class="dropdown-toggle menu-item" data-hover="shop">Security
-                                    Printing </a>
+                                <a href="security.html" class="dropdown-toggle menu-item" data-hover="shop">@lang('massege.Security Printing') </a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a href="project-single.html"> security inks for banknotes</a>
@@ -451,7 +450,7 @@
     
                             <!-- Elements Menu -->
                             <li class="has-dropdown mega-dropdown">
-                                <a href="news.html" class="dropdown-toggle menu-item">News & Events</a>
+                                <a href="news.html" class="dropdown-toggle menu-item">@lang('massege.News & Events')</a>
     
                                 <!-- .mega-dropdown-menu end -->
                             </li>
@@ -481,7 +480,7 @@
     
                             <!-- Module Consultation  -->
                             <div class="module module-consultation pull-left">
-                                <a class="btn" href="contact.html">Contact Us</a>
+                                <a class="btn" href="{{url('contact-us')}}">@lang('massege.contact')</a>
                             </div>
                         </div>
                     </div>
@@ -494,7 +493,7 @@
         <!-- end  header   -->
     <!-- Hero Section
 ====================================== -->
-
+@yield('content')
 
 <section id="featured3" class="featured featured-2 featured-3 featured-left bg-dark3 pt-0 pb-0">
         <div class="container-fluid pr-0 pl-0">

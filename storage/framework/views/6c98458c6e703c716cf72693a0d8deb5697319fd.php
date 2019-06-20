@@ -1,6 +1,4 @@
-@extends('layouts.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <!-- ============================================================== -->
                 <!-- Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
@@ -34,7 +32,7 @@
                                             <p class="text-muted"> اجمالي المنتجات</p>
                                         </div>
                                         <div class="ml-auto">
-                                            <h2 class="counter text-primary">{{$products}}</h2>
+                                            <h2 class="counter text-primary"><?php echo e($products); ?></h2>
                                         </div>
                                     </div>
                                 </div>
@@ -59,7 +57,7 @@
                                             <p class="text-muted">إجمالى الفيديوهات</p>
                                         </div>
                                         <div class="ml-auto">
-                                            <h2 class="counter text-cyan">{{$videos}}</h2>
+                                            <h2 class="counter text-cyan"><?php echo e($videos); ?></h2>
                                         </div>
                                     </div>
                                 </div>
@@ -84,7 +82,7 @@
                                             <p class="text-muted">عدد التدريبات</p>
                                         </div>
                                         <div class="ml-auto">
-                                            <h2 class="counter text-purple">{{$training}}</h2>
+                                            <h2 class="counter text-purple"><?php echo e($training); ?></h2>
                                         </div>
                                     </div>
                                 </div>
@@ -127,4 +125,6 @@
                 <!-- End Info box -->
                 <!-- ============================================================== -->
      
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
