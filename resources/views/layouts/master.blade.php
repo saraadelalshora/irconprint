@@ -371,6 +371,8 @@
                         </li>
                         <li> <a class=" waves-effect waves-dark" href="{{route('Service.index')}}" aria-expanded="false"><i
                                     class="ti-shopping-cart"></i><span class="hide-menu">الخدمات</span></a></li>
+                                    <li> <a class=" waves-effect waves-dark" href="{{route('Project.index')}}" aria-expanded="false"><i
+                                    class="ti-shopping-cart"></i><span class="hide-menu">المشاريع</span></a></li>
 
                         <li> <a class=" waves-effect waves-dark" href="{{route('Page.index')}}" aria-expanded="false"><i
                                     class="ti-user"></i><span class="hide-menu">الصفحات</span></a></li>

@@ -79,7 +79,7 @@ class NewSiteController extends Controller
             }
           
             $image_resize = Image::make($file->getRealPath());
-            $image_resize->resize(300, 300);
+            $image_resize->resize(770, 510);
             $image_resize->save(public_path('news/larg/' .$imageName));
             $news->image='news/larg/'.$imageName;
             
@@ -166,7 +166,7 @@ class NewSiteController extends Controller
             }
           
             $image_resize = Image::make($file->getRealPath());
-            $image_resize->resize(300, 300);
+            $image_resize->resize(770, 510);
             $image_resize->save(public_path('news/larg/' .$imageName));
             $news->image='news/larg/'.$imageName;
             

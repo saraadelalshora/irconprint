@@ -15,6 +15,8 @@ use App\Ad;
 use App\Product;
 use App\Manufactor;
 use App\Order_product;
+use App\NewSite;
+use App\CategoryNew;
 class HomeController extends Controller
 {
     /**
@@ -48,22 +50,11 @@ class HomeController extends Controller
    
     public function search(){
         $q = Input::get ( 'keyword' );
-        $subcategory=Input::get ( 'category' );
-        if($subcategory =='all'){
-          $products = Product::where([['name_ar','LIKE','%'.$q.'%']])->orWhere([['name_en','LIKE','%'.$q.'%']])->paginate(12);
-    
-        }else{
-          $products = Product::where([['name_ar','LIKE','%'.$q.'%'],['subcategory_id',$subcategory]])->orWhere([['name_en','LIKE','%'.$q.'%'],['subcategory_id',$subcategory]])->paginate(12);
-    
-        }
-       
-        if(count($products) > 0)
-        {
-          // dd($products);
-          return view('Frontend.search',compact('products'));
-        } 
-        else 
-        return view ('Frontend.search')->withMessage('No Details found. Try to search again !');
+         $newscategories=CategoryNew::where('status','1')->get();
+          $news = NewSite::where([['title_ar','LIKE','%'.$q.'%']])->orWhere([['title_en','LIKE','%'.$q.'%']])->paginate(12);
+          
+         return view('Frontend.newslist', compact('news','newscategories'));
+        
     }
     public function set_lang($locale)
     {

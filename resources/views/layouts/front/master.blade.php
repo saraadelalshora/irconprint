@@ -45,463 +45,364 @@
 <body>
     <!-- start header   -->
     <header id="navbar-spy" class="header header-full">
-            <div id="top-bar" class="contact-bar d-none d-lg-block">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 col-md-12 col-lg-12">
-                            <div class="top-bar-inner">
-                                <div class="row">
-                                    <div class="col-12 col-md-12 col-lg-3">
-                                        <div class="navbar-header">
-                                            <a class="logo" href="{{url('/')}}"> @if(app()->getLocale() == 'ar')
-                                                @if(isset($setting->logo_img))
-                                                <img src="{{asset($setting->logo_img)}}" alt="logo">
-                                                @else
-                                                <img src="{{asset('/')}}/assetfront/images/logo/logo-colored.png" alt="logo">
-                                                @endif
+        <div id="top-bar" class="contact-bar d-none d-lg-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-12">
+                        <div class="top-bar-inner">
+                            <div class="row">
+                                <div class="col-12 col-md-12 col-lg-3">
+                                    <div class="navbar-header">
+                                        <a class="logo" href="{{url('/')}}"> @if(app()->getLocale() == 'ar')
+                                            @if(isset($setting->logo_img))
+                                            <img src="{{asset($setting->logo_img)}}" alt="logo">
+                                            @else
+                                            <img src="{{asset('/')}}/assetfront/images/logo/logo-colored.png"
+                                                alt="logo">
+                                            @endif
                                             @else
                                             @if(isset($setting->log_img_en))
-                                                <img src="{{asset($setting->log_img_en)}}" alt="logo">
-                                                @else
-                                                <img src="{{asset('/')}}/assetfront/images/logo/logo-colored.png" alt="logo">
-                                                @endif
-                                             @endif
+                                            <img src="{{asset($setting->log_img_en)}}" alt="logo">
+                                            @else
+                                            <img src="{{asset('/')}}/assetfront/images/logo/logo-colored.png"
+                                                alt="logo">
+                                            @endif
+                                            @endif
                                         </a>
-                                        </div>
                                     </div>
-                                    <!-- .col-md-6 end -->
-                                    <div class="col-12 col-md-6 col-lg-9 top-bar-contact d-none d-lg-block">
-                                        <div class="module-container">
-                                            <div class="contact-box pull-left">
-                                                <div class="contact-box-icon pull-left">
-                                                    <i class="icon-map-pin"></i>
-                                                </div>
-                                                <div class="contact-box-info">
-                                                    <p class="text-capitalize ">@lang('massege.address'):</p>
-                                                    <p class="font-heading"> {{ucwords($setting->address)}} </p>
-                                                </div>
-                                            </div>
-    
-                                            <div class="contact-box pull-left">
-                                                <div class="contact-box-icon pull-left">
-                                                    <i class="icon-document"></i>
-                                                </div>
-                                                <div class="contact-box-info">
-                                                    <p class="text-capitalize ">@lang('massege.email')</p>
-                                                    <p class="font-heading">{{$setting->email}}</p>
-                                                </div>
-                                            </div>
-    
-                                            <div class="contact-box pull-left">
-                                                <div class="contact-box-icon pull-left">
-                                                    <i class="icon-phone"></i>
-                                                </div>
-                                                <div class="contact-box-info">
-                                                    <p class="text-capitalize">@lang('massege.phone')</p>
-                                                    <p class="text-capitalize font-heading">{{$setting->phone}}</p>
-                                                </div>
-                                            </div>
-    
-                                            <!-- Module Social -->
-                                            <div class="module module-social pull-left">
-                                                <!--  @if($social->fb) href="{{"https://".$social->fb}}"@else href="#" @endif target="_blank" -->
-                                                    @if($social->fb)  <a href="{{'https://'.$social->fb}}" ><i class="fab fa-facebook-f"></i></a> @endif
-                                                @if($social->tw)<a href="{{'https://'.$social->tw}}"><i class="fab fa-twitter"></i></a>@endif
-                                                @if($social->linkedin)<a href="{{'https://'.$social->linkedin}}"><i class="fab fa-linkedin-in"></i></a>@endif
-                                            </div><!-- .module-social end -->
-                                        </div>
-                                    </div>
-                                    <!-- .col-md-6 end -->
                                 </div>
+                                <!-- .col-md-6 end -->
+                                <div class="col-12 col-md-6 col-lg-9 top-bar-contact d-none d-lg-block">
+                                    <div class="module-container">
+                                        <div class="contact-box pull-left">
+                                            <div class="contact-box-icon pull-left">
+                                                <i class="icon-map-pin"></i>
+                                            </div>
+                                            <div class="contact-box-info">
+                                                <p class="text-capitalize ">@lang('massege.address'):</p>
+                                                <p class="font-heading"> {{ucwords($setting->address)}} </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="contact-box pull-left">
+                                            <div class="contact-box-icon pull-left">
+                                                <i class="icon-document"></i>
+                                            </div>
+                                            <div class="contact-box-info">
+                                                <p class="text-capitalize ">@lang('massege.email')</p>
+                                                <p class="font-heading">{{$setting->email}}</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="contact-box pull-left">
+                                            <div class="contact-box-icon pull-left">
+                                                <i class="icon-phone"></i>
+                                            </div>
+                                            <div class="contact-box-info">
+                                                <p class="text-capitalize">@lang('massege.phone')</p>
+                                                <p class="text-capitalize font-heading">{{$setting->phone}}</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- Module Social -->
+                                        <div class="module module-social pull-left">
+                                            <!--  @if($social->fb) href="{{"https://".$social->fb}}"@else href="#" @endif target="_blank" -->
+                                            @if($social->fb) <a href="{{'https://'.$social->fb}}"><i
+                                                    class="fab fa-facebook-f"></i></a> @endif
+                                            @if($social->tw)<a href="{{'https://'.$social->tw}}"><i
+                                                    class="fab fa-twitter"></i></a>@endif
+                                            @if($social->linkedin)<a href="{{'https://'.$social->linkedin}}"><i
+                                                    class="fab fa-linkedin-in"></i></a>@endif
+                                        </div><!-- .module-social end -->
+                                    </div>
+                                </div>
+                                <!-- .col-md-6 end -->
                             </div>
                         </div>
-                        <!-- .col-md-12 -->
                     </div>
+                    <!-- .col-md-12 -->
                 </div>
             </div>
-            <div class="container">
-                <nav id="primary-menu" class="navbar navbar-expand-lg navbar-light bg-dark3">
-    
-                    <a class="navbar-brand d-md-none d-xl-none" href="{{url('/')}}">
+        </div>
+        <div class="container">
+            <nav id="primary-menu" class="navbar navbar-expand-lg navbar-light bg-dark3">
+
+                <a class="navbar-brand d-md-none d-xl-none" href="{{url('/')}}">
                     @if(app()->getLocale() == 'ar')
-                                                @if(isset($setting->logo_img))
-                                                <img class="logo logo-light" src="{{asset($setting->logo_img)}}" alt="Consultivo logo">
-                                                @else
-                                                <img class="logo logo-light" src="{{asset('/')}}/assetfront/images/logo/logo-colored.png" alt="Consultivo logo">
-                                                @endif
+                    @if(isset($setting->logo_img))
+                    <img class="logo logo-light" src="{{asset($setting->logo_img)}}" alt="Consultivo logo">
+                    @else
+                    <img class="logo logo-light" src="{{asset('/')}}/assetfront/images/logo/logo-colored.png"
+                        alt="Consultivo logo">
+                    @endif
+                    @else
+                    @if(isset($setting->log_img_en))
+                    <img class="logo logo-light" src="{{asset($setting->log_img_en)}}" alt="logo">
+                    @else
+                    <img class="logo logo-light" src="{{asset('/')}}/assetfront/images/logo/logo-colored.png"
+                        alt="logo">
+                    @endif
+                    @endif
+
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+                    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav mr-auto">
+                        <!-- Home Menu-->
+                        <li class="has-dropdown active">
+                            <a href="{{url('/')}}" class="dropdown-toggle menu-item">@lang('massege.home')</a>
+                        </li>
+                        <!-- li end -->
+
+                        <!-- Pages Menu -->
+                        <li class="has-dropdown">
+                            <a href="{{route('About')}}" class="dropdown-toggle menu-item"
+                                data-hover="pages">@lang('massege.About Us')</a>
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a href="{{route('President')}}">@lang('massege.President`s word')</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <!-- li end -->
+                        <!-- Products Menu -->
+                        <li class="has-dropdown">
+                            <a href="main-category.html" class="dropdown-toggle menu-item"
+                                data-hover="pages">@lang('massege.Products')</a>
+                            <ul class="dropdown-menu">
+                                @if(isset($product_categories))
+                                @foreach($product_categories as $pro_cat)
+
+                                <li class="dropdown-submenu">
+                                    @if(App::getLocale() == 'en')
+                                    <a href="{{route('category.products',$pro_cat->id)}}"
+                                        class="dropdown-toggle sub-item" data-hover="pages">{{$pro_cat->name_en}} </a>
+                                    @else
+                                    <a href="{{route('category.products',$pro_cat->id)}}"
+                                        class="dropdown-toggle sub-item" data-hover="pages">{{$pro_cat->name_ar}} </a>
+                                    @endif
+                                    @if($pro_cat->subcategories->isEmpty() != true)
+                                    <ul class="dropdown-menu">
+                                  
+                                     @foreach($pro_cat->subcategories as $pro_sub_cat)
+                                        <li class="has-dropdown">
+                                            @if(App::getLocale() == 'en')
+                                            <a href="{{route('category.products',$pro_sub_cat->id)}}"
+                                                class="dropdown-toggle sub-item"
+                                                data-hover="pages">{{$pro_sub_cat->name_en}} </a>
                                             @else
-                                            @if(isset($setting->log_img_en))
-                                                <img class="logo logo-light" src="{{asset($setting->log_img_en)}}" alt="logo">
-                                                @else
-                                                <img class="logo logo-light" src="{{asset('/')}}/assetfront/images/logo/logo-colored.png" alt="logo">
-                                                @endif
-                                             @endif
-                        
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
-                        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-    
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="navbarContent">
-                        <ul class="navbar-nav mr-auto">
-                            <!-- Home Menu-->
-                            <li class="has-dropdown active">
-                                <a href="{{url('/')}}" class="dropdown-toggle menu-item">@lang('massege.home')</a>
-                            </li>
-                            <!-- li end -->
-    
-                            <!-- Pages Menu -->
-                            <li class="has-dropdown">
-                                <a href="{{route('About')}}" class="dropdown-toggle menu-item" data-hover="pages">@lang('massege.About Us')</a>
-                                <ul class="dropdown-menu">
-    
-                                    <li>
-                                        <a href="{{route('President')}}">@lang('massege.President`s word')</a>
-                                    </li>
-    
-                                </ul>
-                            </li>
-                            <!-- li end -->
-                            <!-- Products Menu -->
-                            <li class="has-dropdown">
-                                <a href="main-category.html" class="dropdown-toggle menu-item" data-hover="pages">@lang('massege.Products')</a>
-                                <ul class="dropdown-menu">
-                                    <li class="dropdown-submenu">
-                                        <a href="category.html" class="dropdown-toggle menu-item"
-                                            data-hover="pages">@lang('massege.Products')</a>
-                                        <ul class="dropdown-menu">
-                                            <li class="has-dropdown">
-                                                <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">@lang('massege.Products')</a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="single.html">Product 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 3</a>
-                                                    </li>
-    
-                                                </ul>
-                                            </li>
-                                            <li class="has-dropdown">
-                                                <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">@lang('massege.Products')</a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="single.html">Product 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 3</a>
-                                                    </li>
-    
-                                                </ul>
-                                            </li>
-                                            <li class="has-dropdown">
-                                                <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">@lang('massege.Products')</a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="single.html">Product 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 3</a>
-                                                    </li>
-    
-                                                </ul>
-                                            </li>
-    
-    
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-submenu">
-                                        <a href="category.html" class="dropdown-toggle menu-item"
-                                            data-hover="pages">@lang('massege.Products')</a>
-                                        <ul class="dropdown-menu">
-                                            <li class="has-dropdown">
-                                                <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">@lang('massege.Products')</a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="single.html">Product 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 3</a>
-                                                    </li>
-    
-                                                </ul>
-                                            </li>
-                                            <li class="has-dropdown">
-                                                <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">@lang('massege.Products')</a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="single.html">Product 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 3</a>
-                                                    </li>
-    
-                                                </ul>
-                                            </li>
-                                            <li class="has-dropdown">
-                                                <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">@lang('massege.Products')</a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="single.html">Product 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 3</a>
-                                                    </li>
-    
-                                                </ul>
-                                            </li>
-    
-    
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-submenu">
-                                        <a href="category.html" class="dropdown-toggle menu-item"
-                                            data-hover="pages">@lang('massege.Products')</a>
-                                        <ul class="dropdown-menu">
-                                            <li class="has-dropdown">
-                                                <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">@lang('massege.Products')</a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="single.html">Product 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 3</a>
-                                                    </li>
-    
-                                                </ul>
-                                            </li>
-                                            <li class="has-dropdown">
-                                                <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">@lang('massege.Products')</a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="single.html">Product 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 3</a>
-                                                    </li>
-    
-                                                </ul>
-                                            </li>
-                                            <li class="has-dropdown">
-                                                <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages">@lang('massege.Products')</a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="single.html">Product 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 3</a>
-                                                    </li>
-    
-                                                </ul>
-                                            </li>
-    
-    
-                                        </ul>
-                                    </li>
-    
-    
-    
-                                </ul>
-                            </li>
-                            <!-- li end -->
-                            <!-- Videos Menu -->
-                            <li class="has-dropdown">
-                                <a href="videos.html" class="dropdown-toggle menu-item" data-hover="pages">Videos</a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="videos.html">Video 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="videos.html">Video 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="videos.html">Video 3</a>
-                                    </li>
-    
-                                </ul>
-                            </li>
-                            <!-- li end -->
-                            <!-- Services Menu-->
-                            <li class="has-dropdown">
-                                <a href="service.html" class="dropdown-toggle menu-item">services</a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="service-single.html">services 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="service-single.html">services 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="service-single.html">services 3</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!-- li end -->
-                            <!-- Traning Menu-->
-                            <li class="has-dropdown">
-                                <a href="training.html" class="dropdown-toggle menu-item">Traning</a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="training-single.html">Traning For Offset</a>
-                                    </li>
-                                    <li>
-                                        <a href="training-single.html">Traning for Project</a>
-                                    </li>
-                                    <li>
-                                        <a href="training-single.html">Other Traning </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!-- li end -->
-    
-                            <!-- Blog Menu-->
-                            <li class="has-dropdown">
-                                <a href="consumables.html" class="dropdown-toggle menu-item">consumables /
-                                    E-Shop</a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="category.html">consumables Prepress</a>
-                                    </li>
-                                    <li>
-                                        <a href="category.html">consumables Press</a>
-                                    </li>
-                                    <li>
-                                        <a href="category.html">Digital </a>
-                                    </li>
-                                    <li>
-                                        <a href="category.html">consumables Post Press</a>
-                                    </li>
-                                    <li>
-                                        <a href="category.html">Service Parts </a>
-                                    </li>
-    
-    
-                                </ul>
-                            </li>
-                            <!-- li end -->
-    
-                            <!-- shop Menu -->
-                            <li class="has-dropdown">
-                                <a href="projects.html" class="dropdown-toggle menu-item" data-hover="shop">@lang('massege.Projects')</a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="project-single.html">Project 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="project-single.html">Project 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="project-single.html">Project 3</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!-- li end -->
-                            <li class="has-dropdown">
-                                <a href="security.html" class="dropdown-toggle menu-item" data-hover="shop">@lang('massege.Security Printing') </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="project-single.html"> security inks for banknotes</a>
-                                    </li>
-                                    <li>
-                                        <a href="project-single.html">security inks for id documents and passports </a>
-                                    </li>
-                                   
-                                </ul>
-                            </li>
-                            <!-- li end -->
-    
-                            <!-- Elements Menu -->
-                            <li class="has-dropdown mega-dropdown">
-                                <a href="news.html" class="dropdown-toggle menu-item">@lang('massege.News & Events')</a>
-    
-                                <!-- .mega-dropdown-menu end -->
-                            </li>
-                        </ul>
-                        <div class="module-container">
-                            <!-- Module Search -->
-                            <div class="module module-search pull-left">
-                                <div class="module-icon search-icon">
-                                    <i class="fas fa-search"></i>
-                                    <span class="title">search</span>
-                                </div>
-                                <div class="module-content module-fullscreen module--search-box">
-                                    <div class="pos-vertical-center">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
-                                                    <form class="form-search">
-                                                        <input type="text" class="form-control" placeholder="Search...">
-                                                    </form><!-- .form-search end -->
-                                                </div><!-- .col-md-8 end -->
-                                            </div><!-- .row end -->
-                                        </div><!-- .container end -->
-                                    </div>
-                                    <a class="module-cancel" href="#"><i class="fas fa-times"></i></a>
-                                </div>
-                            </div><!-- .module-search end -->
-    
-                            <!-- Module Consultation  -->
-                            <div class="module module-consultation pull-left">
-                                <a class="btn" href="{{url('contact-us')}}">@lang('massege.contact')</a>
+                                            <a href="{{route('category.products',$pro_sub_cat->id)}}"
+                                                class="dropdown-toggle sub-item"
+                                                data-hover="pages">{{$pro_sub_cat->name_ar}} </a>
+                                            @endif
+                                            @if($pro_sub_cat->subtwocategories->isEmpty() != true)
+                                            <ul class="dropdown-menu">
+                                                @foreach($pro_sub_cat->subtwocategories as $pro_sub_cat_two)
+                                                <li>
+                                                @if(App::getLocale() == 'en')
+                                            <a href="{{route('category.products',$pro_sub_cat_two->id)}}"
+                                                class="dropdown-toggle sub-item"
+                                                data-hover="pages">{{$pro_sub_cat_two->name_en}} </a>
+                                            @else
+                                            <a href="{{route('category.products',$pro_sub_cat_two->id)}}"
+                                                class="dropdown-toggle sub-item"
+                                                data-hover="pages">{{$pro_sub_cat_two->name_ar}} </a>
+                                            @endif
+                                                </li> 
+                                                @endforeach
+
+                                            </ul>
+                                            @endif
+                                        </li>
+                                     @endforeach
+                                    
+
+
+                                    </ul>
+                                    @endif
+                                </li>
+                                @endforeach
+                                @endif
+
+
+
+
+                            </ul>
+                        </li>
+                        <!-- li end -->
+                        <!-- Videos Menu -->
+                        <li class="has-dropdown">
+                            <a href="videos.html" class="dropdown-toggle menu-item" data-hover="pages">Videos</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="videos.html">Video 1</a>
+                                </li>
+                                <li>
+                                    <a href="videos.html">Video 2</a>
+                                </li>
+                                <li>
+                                    <a href="videos.html">Video 3</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <!-- li end -->
+                        <!-- Services Menu-->
+                        <li class="has-dropdown">
+                            <a href="{{url('services')}}"
+                                class="dropdown-toggle menu-item">@lang('massege.services')</a>
+                            <ul class="dropdown-menu">
+                                @if(isset($services))
+                                @foreach($services as $servicesss)
+                                <li>
+                                    @if(App::getLocale() == 'en')
+                                    <a href="{{route('service',$servicesss->slogen_en)}}">{{$servicesss->title_en}} </a>
+                                    @else
+                                    <a href="{{route('service',$servicesss->slogen_ar)}}">{{$servicesss->title_ar}} </a>
+                                    @endif
+                                </li>
+                                @endforeach
+                                @endif
+                            </ul>
+                        </li>
+                        <!-- li end -->
+                        <!-- Traning Menu-->
+                        <li class="has-dropdown">
+                            <a href="training.html" class="dropdown-toggle menu-item">Traning</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="training-single.html">Traning For Offset</a>
+                                </li>
+                                <li>
+                                    <a href="training-single.html">Traning for Project</a>
+                                </li>
+                                <li>
+                                    <a href="training-single.html">Other Traning </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- li end -->
+
+                        <!-- Blog Menu-->
+                        <li class="has-dropdown">
+
+                            @if(App::getLocale() == 'en')
+                            <a href="{{route('page',$eshop_page->slogen_en)}}">{{$eshop_page->title_en}} </a>
+                            @else
+                            <a href="{{route('page',$eshop_page->slogen_ar)}}">{{$eshop_page->title_ar}} </a>
+                            @endif
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="category.html">consumables Prepress</a>
+                                </li>
+                                <li>
+                                    <a href="category.html">consumables Press</a>
+                                </li>
+                                <li>
+                                    <a href="category.html">Digital </a>
+                                </li>
+                                <li>
+                                    <a href="category.html">consumables Post Press</a>
+                                </li>
+                                <li>
+                                    <a href="category.html">Service Parts </a>
+                                </li>
+
+
+                            </ul>
+                        </li>
+                        <!-- li end -->
+
+                        <!-- shop Menu -->
+                        <li class="has-dropdown">
+                            <a href="projects.html" class="dropdown-toggle menu-item"
+                                data-hover="shop">@lang('massege.Projects')</a>
+                        </li>
+                        <!-- li end -->
+                        <li class="has-dropdown">
+                            <a href="security.html" class="dropdown-toggle menu-item"
+                                data-hover="shop">@lang('massege.Security Printing') </a>
+                            <ul class="dropdown-menu">
+                                @if(isset($secure_page))
+                                @foreach($secure_page as $secure)
+                                <li>
+
+                                    @if(App::getLocale() == 'en')
+                                    <a href="{{route('page',$secure->slogen_en)}}">{{$secure->title_en}} </a>
+                                    @else
+                                    <a href="{{route('page',$secure->slogen_ar)}}">{{$secure->title_ar}} </a>
+                                    @endif
+                                </li>
+                                @endforeach
+                                @endif
+                            </ul>
+                        </li>
+                        <!-- li end -->
+
+                        <!-- Elements Menu -->
+                        <li class="has-dropdown mega-dropdown">
+                            <a href="{{url('news')}}" class="dropdown-toggle menu-item">@lang('massege.News &
+                                Events')</a>
+
+                            <!-- .mega-dropdown-menu end -->
+                        </li>
+                    </ul>
+                    <div class="module-container">
+                        <!-- Module Search -->
+                        <div class="module module-search pull-left">
+                            <div class="module-icon search-icon">
+                                <i class="fas fa-search"></i>
+                                <span class="title">@lang('massege.Search')</span>
                             </div>
+                            <div class="module-content module-fullscreen module--search-box">
+                                <div class="pos-vertical-center">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+                                                <form class="form-search">
+                                                    <input type="text" class="form-control" placeholder="Search...">
+                                                </form><!-- .form-search end -->
+                                            </div><!-- .col-md-8 end -->
+                                        </div><!-- .row end -->
+                                    </div><!-- .container end -->
+                                </div>
+                                <a class="module-cancel" href="#"><i class="fas fa-times"></i></a>
+                            </div>
+                        </div><!-- .module-search end -->
+
+                        <!-- Module Consultation  -->
+                        <div class="module module-consultation pull-left">
+                            <a class="btn" href="{{url('contact-us')}}">@lang('massege.contact')</a>
                         </div>
                     </div>
-                    <!-- /.navbar-collapse -->
-    
-                </nav>
-            </div>
-            <!-- /.container -->
-        </header>
-        <!-- end  header   -->
+                </div>
+                <!-- /.navbar-collapse -->
+
+            </nav>
+        </div>
+        <!-- /.container -->
+    </header>
+    <!-- end  header   -->
     <!-- Hero Section
 ====================================== -->
-@yield('content')
+    @yield('content')
 
-<section id="featured3" class="featured featured-2 featured-3 featured-left bg-dark3 pt-0 pb-0">
+    <section id="featured3" class="featured featured-2 featured-3 featured-left bg-dark3 pt-0 pb-0">
         <div class="container-fluid pr-0 pl-0">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-6 col-content">
                     <div class="heading">
                         <h2 class="heading--title color-white">We Are Here To Ease<br>The Financial Obstacles!</h2>
-                        <p class="heading--desc color-white">The choice is in your hands: Where do you go to get an advice and where you purchase products?!!</p>
+                        <p class="heading--desc color-white">The choice is in your hands: Where do you go to get an
+                            advice and where you purchase products?!!</p>
                     </div>
                     <!-- Feature Card #1 -->
                     <div class="feature-card wow fadeInUp" data-wow-delay="100ms">
@@ -510,7 +411,8 @@
                         </div>
                         <div class="feature-card-content">
                             <h3 class="feature-card-title">Innovative Solutions</h3>
-                            <p class="feature-card-desc">Innovative Solutions offers services, development services and consulting to help you make the best technology.</p>
+                            <p class="feature-card-desc">Innovative Solutions offers services, development services and
+                                consulting to help you make the best technology.</p>
                         </div>
                     </div>
                     <!-- feature-card end -->
@@ -521,7 +423,8 @@
                         </div>
                         <div class="feature-card-content">
                             <h3 class="feature-card-title">On Time Services</h3>
-                            <p class="feature-card-desc">Mutual funds from many investors to purchase broad range of investments, such as stocks, goals, and dreams.</p>
+                            <p class="feature-card-desc">Mutual funds from many investors to purchase broad range of
+                                investments, such as stocks, goals, and dreams.</p>
                         </div>
                     </div>
                     <!-- feature-card end -->
@@ -532,7 +435,8 @@
                         </div>
                         <div class="feature-card-content">
                             <h3 class="feature-card-title">Best Support</h3>
-                            <p class="feature-card-desc">We bring the right people business solutions to challenge established thinking and drive transformation.</p>
+                            <p class="feature-card-desc">We bring the right people business solutions to challenge
+                                established thinking and drive transformation.</p>
                         </div>
                     </div>
                     <!-- feature-card end -->
@@ -578,7 +482,8 @@
                 <div class="row clearfix">
                     <div class="col-12 col-md-6 col-lg-3 footer--widget widget-about">
                         <div class="widget-content">
-                            <img class="footer-logo" src="{{asset('/')}}/assetfront/images/logo/logo-small.png" alt="logo">
+                            <img class="footer-logo" src="{{asset('/')}}/assetfront/images/logo/logo-small.png"
+                                alt="logo">
                             <p>Experienced In Mortgage And Financial Advice!We don’t believe in the sales culture, but
                                 instead we believe in the service culture. </p>
                             <div class="social-icons">
@@ -653,8 +558,9 @@
                 <div class="row">
                     <div class="col-12 col-md-12 col-md-12 text-center footer--copyright">
                         <div class="copyright">
-                                <span> Copyright © 2019 Irconprint , <a href="#">Web Design Company</a> <a href="#">3Hand</a> All rights
-                                    reserved.</span>
+                            <span> Copyright © 2019 Irconprint , <a href="#">Web Design Company</a> <a
+                                    href="#">3Hand</a> All rights
+                                reserved.</span>
                         </div>
                     </div>
                 </div>
@@ -677,11 +583,14 @@
     <script src="{{asset('/')}}/assetfront/inc/revolution/js/jquery.themepunch.tools.min.js?rev=5.0"></script>
     <script src="{{asset('/')}}/assetfront/inc/revolution/js/jquery.themepunch.revolution.min.js?rev=5.0"></script>
     <script src="{{asset('/')}}/assetfront/inc/revolution/js/extensions/revolution.extension.video.min.js"></script>
-    <script src="{{asset('/')}}/assetfront/inc/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="{{asset('/')}}/assetfront/inc/revolution/js/extensions/revolution.extension.slideanims.min.js">
+    </script>
     <script src="{{asset('/')}}/assetfront/inc/revolution/js/extensions/revolution.extension.actions.min.js"></script>
-    <script src="{{asset('/')}}/assetfront/inc/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="{{asset('/')}}/assetfront/inc/revolution/js/extensions/revolution.extension.layeranimation.min.js">
+    </script>
     <script src="{{asset('/')}}/assetfront/inc/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-    <script src="{{asset('/')}}/assetfront/inc/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="{{asset('/')}}/assetfront/inc/revolution/js/extensions/revolution.extension.navigation.min.js">
+    </script>
     <script src="{{asset('/')}}/assetfront/inc/revolution/js/extensions/revolution.extension.migration.min.js"></script>
     <script src="{{asset('/')}}/assetfront/inc/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
     <!-- RS Configration JS Files -->

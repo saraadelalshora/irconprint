@@ -45,463 +45,364 @@
 <body>
     <!-- start header   -->
     <header id="navbar-spy" class="header header-full">
-            <div id="top-bar" class="contact-bar d-none d-lg-block">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 col-md-12 col-lg-12">
-                            <div class="top-bar-inner">
-                                <div class="row">
-                                    <div class="col-12 col-md-12 col-lg-3">
-                                        <div class="navbar-header">
-                                            <a class="logo" href="<?php echo e(url('/')); ?>"> <?php if(app()->getLocale() == 'ar'): ?>
-                                                <?php if(isset($setting->logo_img)): ?>
-                                                <img src="<?php echo e(asset($setting->logo_img)); ?>" alt="logo">
-                                                <?php else: ?>
-                                                <img src="<?php echo e(asset('/')); ?>/assetfront/images/logo/logo-colored.png" alt="logo">
-                                                <?php endif; ?>
+        <div id="top-bar" class="contact-bar d-none d-lg-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-12">
+                        <div class="top-bar-inner">
+                            <div class="row">
+                                <div class="col-12 col-md-12 col-lg-3">
+                                    <div class="navbar-header">
+                                        <a class="logo" href="<?php echo e(url('/')); ?>"> <?php if(app()->getLocale() == 'ar'): ?>
+                                            <?php if(isset($setting->logo_img)): ?>
+                                            <img src="<?php echo e(asset($setting->logo_img)); ?>" alt="logo">
+                                            <?php else: ?>
+                                            <img src="<?php echo e(asset('/')); ?>/assetfront/images/logo/logo-colored.png"
+                                                alt="logo">
+                                            <?php endif; ?>
                                             <?php else: ?>
                                             <?php if(isset($setting->log_img_en)): ?>
-                                                <img src="<?php echo e(asset($setting->log_img_en)); ?>" alt="logo">
-                                                <?php else: ?>
-                                                <img src="<?php echo e(asset('/')); ?>/assetfront/images/logo/logo-colored.png" alt="logo">
-                                                <?php endif; ?>
-                                             <?php endif; ?>
+                                            <img src="<?php echo e(asset($setting->log_img_en)); ?>" alt="logo">
+                                            <?php else: ?>
+                                            <img src="<?php echo e(asset('/')); ?>/assetfront/images/logo/logo-colored.png"
+                                                alt="logo">
+                                            <?php endif; ?>
+                                            <?php endif; ?>
                                         </a>
-                                        </div>
                                     </div>
-                                    <!-- .col-md-6 end -->
-                                    <div class="col-12 col-md-6 col-lg-9 top-bar-contact d-none d-lg-block">
-                                        <div class="module-container">
-                                            <div class="contact-box pull-left">
-                                                <div class="contact-box-icon pull-left">
-                                                    <i class="icon-map-pin"></i>
-                                                </div>
-                                                <div class="contact-box-info">
-                                                    <p class="text-capitalize "><?php echo app('translator')->getFromJson('massege.address'); ?>:</p>
-                                                    <p class="font-heading"> <?php echo e(ucwords($setting->address)); ?> </p>
-                                                </div>
-                                            </div>
-    
-                                            <div class="contact-box pull-left">
-                                                <div class="contact-box-icon pull-left">
-                                                    <i class="icon-document"></i>
-                                                </div>
-                                                <div class="contact-box-info">
-                                                    <p class="text-capitalize "><?php echo app('translator')->getFromJson('massege.email'); ?></p>
-                                                    <p class="font-heading"><?php echo e($setting->email); ?></p>
-                                                </div>
-                                            </div>
-    
-                                            <div class="contact-box pull-left">
-                                                <div class="contact-box-icon pull-left">
-                                                    <i class="icon-phone"></i>
-                                                </div>
-                                                <div class="contact-box-info">
-                                                    <p class="text-capitalize"><?php echo app('translator')->getFromJson('massege.phone'); ?></p>
-                                                    <p class="text-capitalize font-heading"><?php echo e($setting->phone); ?></p>
-                                                </div>
-                                            </div>
-    
-                                            <!-- Module Social -->
-                                            <div class="module module-social pull-left">
-                                                <!--  <?php if($social->fb): ?> href="<?php echo e("https://".$social->fb); ?>"<?php else: ?> href="#" <?php endif; ?> target="_blank" -->
-                                                    <?php if($social->fb): ?>  <a href="<?php echo e('https://'.$social->fb); ?>" ><i class="fab fa-facebook-f"></i></a> <?php endif; ?>
-                                                <?php if($social->tw): ?><a href="<?php echo e('https://'.$social->tw); ?>"><i class="fab fa-twitter"></i></a><?php endif; ?>
-                                                <?php if($social->linkedin): ?><a href="<?php echo e('https://'.$social->linkedin); ?>"><i class="fab fa-linkedin-in"></i></a><?php endif; ?>
-                                            </div><!-- .module-social end -->
-                                        </div>
-                                    </div>
-                                    <!-- .col-md-6 end -->
                                 </div>
+                                <!-- .col-md-6 end -->
+                                <div class="col-12 col-md-6 col-lg-9 top-bar-contact d-none d-lg-block">
+                                    <div class="module-container">
+                                        <div class="contact-box pull-left">
+                                            <div class="contact-box-icon pull-left">
+                                                <i class="icon-map-pin"></i>
+                                            </div>
+                                            <div class="contact-box-info">
+                                                <p class="text-capitalize "><?php echo app('translator')->getFromJson('massege.address'); ?>:</p>
+                                                <p class="font-heading"> <?php echo e(ucwords($setting->address)); ?> </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="contact-box pull-left">
+                                            <div class="contact-box-icon pull-left">
+                                                <i class="icon-document"></i>
+                                            </div>
+                                            <div class="contact-box-info">
+                                                <p class="text-capitalize "><?php echo app('translator')->getFromJson('massege.email'); ?></p>
+                                                <p class="font-heading"><?php echo e($setting->email); ?></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="contact-box pull-left">
+                                            <div class="contact-box-icon pull-left">
+                                                <i class="icon-phone"></i>
+                                            </div>
+                                            <div class="contact-box-info">
+                                                <p class="text-capitalize"><?php echo app('translator')->getFromJson('massege.phone'); ?></p>
+                                                <p class="text-capitalize font-heading"><?php echo e($setting->phone); ?></p>
+                                            </div>
+                                        </div>
+
+                                        <!-- Module Social -->
+                                        <div class="module module-social pull-left">
+                                            <!--  <?php if($social->fb): ?> href="<?php echo e("https://".$social->fb); ?>"<?php else: ?> href="#" <?php endif; ?> target="_blank" -->
+                                            <?php if($social->fb): ?> <a href="<?php echo e('https://'.$social->fb); ?>"><i
+                                                    class="fab fa-facebook-f"></i></a> <?php endif; ?>
+                                            <?php if($social->tw): ?><a href="<?php echo e('https://'.$social->tw); ?>"><i
+                                                    class="fab fa-twitter"></i></a><?php endif; ?>
+                                            <?php if($social->linkedin): ?><a href="<?php echo e('https://'.$social->linkedin); ?>"><i
+                                                    class="fab fa-linkedin-in"></i></a><?php endif; ?>
+                                        </div><!-- .module-social end -->
+                                    </div>
+                                </div>
+                                <!-- .col-md-6 end -->
                             </div>
                         </div>
-                        <!-- .col-md-12 -->
                     </div>
+                    <!-- .col-md-12 -->
                 </div>
             </div>
-            <div class="container">
-                <nav id="primary-menu" class="navbar navbar-expand-lg navbar-light bg-dark3">
-    
-                    <a class="navbar-brand d-md-none d-xl-none" href="<?php echo e(url('/')); ?>">
+        </div>
+        <div class="container">
+            <nav id="primary-menu" class="navbar navbar-expand-lg navbar-light bg-dark3">
+
+                <a class="navbar-brand d-md-none d-xl-none" href="<?php echo e(url('/')); ?>">
                     <?php if(app()->getLocale() == 'ar'): ?>
-                                                <?php if(isset($setting->logo_img)): ?>
-                                                <img class="logo logo-light" src="<?php echo e(asset($setting->logo_img)); ?>" alt="Consultivo logo">
-                                                <?php else: ?>
-                                                <img class="logo logo-light" src="<?php echo e(asset('/')); ?>/assetfront/images/logo/logo-colored.png" alt="Consultivo logo">
-                                                <?php endif; ?>
+                    <?php if(isset($setting->logo_img)): ?>
+                    <img class="logo logo-light" src="<?php echo e(asset($setting->logo_img)); ?>" alt="Consultivo logo">
+                    <?php else: ?>
+                    <img class="logo logo-light" src="<?php echo e(asset('/')); ?>/assetfront/images/logo/logo-colored.png"
+                        alt="Consultivo logo">
+                    <?php endif; ?>
+                    <?php else: ?>
+                    <?php if(isset($setting->log_img_en)): ?>
+                    <img class="logo logo-light" src="<?php echo e(asset($setting->log_img_en)); ?>" alt="logo">
+                    <?php else: ?>
+                    <img class="logo logo-light" src="<?php echo e(asset('/')); ?>/assetfront/images/logo/logo-colored.png"
+                        alt="logo">
+                    <?php endif; ?>
+                    <?php endif; ?>
+
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+                    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav mr-auto">
+                        <!-- Home Menu-->
+                        <li class="has-dropdown active">
+                            <a href="<?php echo e(url('/')); ?>" class="dropdown-toggle menu-item"><?php echo app('translator')->getFromJson('massege.home'); ?></a>
+                        </li>
+                        <!-- li end -->
+
+                        <!-- Pages Menu -->
+                        <li class="has-dropdown">
+                            <a href="<?php echo e(route('About')); ?>" class="dropdown-toggle menu-item"
+                                data-hover="pages"><?php echo app('translator')->getFromJson('massege.About Us'); ?></a>
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a href="<?php echo e(route('President')); ?>"><?php echo app('translator')->getFromJson('massege.President`s word'); ?></a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <!-- li end -->
+                        <!-- Products Menu -->
+                        <li class="has-dropdown">
+                            <a href="main-category.html" class="dropdown-toggle menu-item"
+                                data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
+                            <ul class="dropdown-menu">
+                                <?php if(isset($product_categories)): ?>
+                                <?php $__currentLoopData = $product_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pro_cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+                                <li class="dropdown-submenu">
+                                    <?php if(App::getLocale() == 'en'): ?>
+                                    <a href="<?php echo e(route('category.products',$pro_cat->id)); ?>"
+                                        class="dropdown-toggle sub-item" data-hover="pages"><?php echo e($pro_cat->name_en); ?> </a>
+                                    <?php else: ?>
+                                    <a href="<?php echo e(route('category.products',$pro_cat->id)); ?>"
+                                        class="dropdown-toggle sub-item" data-hover="pages"><?php echo e($pro_cat->name_ar); ?> </a>
+                                    <?php endif; ?>
+                                    <?php if($pro_cat->subcategories->isEmpty() != true): ?>
+                                    <ul class="dropdown-menu">
+                                  
+                                     <?php $__currentLoopData = $pro_cat->subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pro_sub_cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <li class="has-dropdown">
+                                            <?php if(App::getLocale() == 'en'): ?>
+                                            <a href="<?php echo e(route('category.products',$pro_sub_cat->id)); ?>"
+                                                class="dropdown-toggle sub-item"
+                                                data-hover="pages"><?php echo e($pro_sub_cat->name_en); ?> </a>
                                             <?php else: ?>
-                                            <?php if(isset($setting->log_img_en)): ?>
-                                                <img class="logo logo-light" src="<?php echo e(asset($setting->log_img_en)); ?>" alt="logo">
-                                                <?php else: ?>
-                                                <img class="logo logo-light" src="<?php echo e(asset('/')); ?>/assetfront/images/logo/logo-colored.png" alt="logo">
-                                                <?php endif; ?>
-                                             <?php endif; ?>
-                        
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
-                        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-    
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="navbarContent">
-                        <ul class="navbar-nav mr-auto">
-                            <!-- Home Menu-->
-                            <li class="has-dropdown active">
-                                <a href="<?php echo e(url('/')); ?>" class="dropdown-toggle menu-item"><?php echo app('translator')->getFromJson('massege.home'); ?></a>
-                            </li>
-                            <!-- li end -->
-    
-                            <!-- Pages Menu -->
-                            <li class="has-dropdown">
-                                <a href="<?php echo e(route('About')); ?>" class="dropdown-toggle menu-item" data-hover="pages"><?php echo app('translator')->getFromJson('massege.About Us'); ?></a>
-                                <ul class="dropdown-menu">
-    
-                                    <li>
-                                        <a href="<?php echo e(route('President')); ?>"><?php echo app('translator')->getFromJson('massege.President`s word'); ?></a>
-                                    </li>
-    
-                                </ul>
-                            </li>
-                            <!-- li end -->
-                            <!-- Products Menu -->
-                            <li class="has-dropdown">
-                                <a href="main-category.html" class="dropdown-toggle menu-item" data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
-                                <ul class="dropdown-menu">
-                                    <li class="dropdown-submenu">
-                                        <a href="category.html" class="dropdown-toggle menu-item"
-                                            data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
-                                        <ul class="dropdown-menu">
-                                            <li class="has-dropdown">
-                                                <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="single.html">Product 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 3</a>
-                                                    </li>
-    
-                                                </ul>
-                                            </li>
-                                            <li class="has-dropdown">
-                                                <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="single.html">Product 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 3</a>
-                                                    </li>
-    
-                                                </ul>
-                                            </li>
-                                            <li class="has-dropdown">
-                                                <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="single.html">Product 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 3</a>
-                                                    </li>
-    
-                                                </ul>
-                                            </li>
-    
-    
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-submenu">
-                                        <a href="category.html" class="dropdown-toggle menu-item"
-                                            data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
-                                        <ul class="dropdown-menu">
-                                            <li class="has-dropdown">
-                                                <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="single.html">Product 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 3</a>
-                                                    </li>
-    
-                                                </ul>
-                                            </li>
-                                            <li class="has-dropdown">
-                                                <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="single.html">Product 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 3</a>
-                                                    </li>
-    
-                                                </ul>
-                                            </li>
-                                            <li class="has-dropdown">
-                                                <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="single.html">Product 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 3</a>
-                                                    </li>
-    
-                                                </ul>
-                                            </li>
-    
-    
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-submenu">
-                                        <a href="category.html" class="dropdown-toggle menu-item"
-                                            data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
-                                        <ul class="dropdown-menu">
-                                            <li class="has-dropdown">
-                                                <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="single.html">Product 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 3</a>
-                                                    </li>
-    
-                                                </ul>
-                                            </li>
-                                            <li class="has-dropdown">
-                                                <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="single.html">Product 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 3</a>
-                                                    </li>
-    
-                                                </ul>
-                                            </li>
-                                            <li class="has-dropdown">
-                                                <a href="category.html" class="dropdown-toggle sub-item"
-                                                    data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="single.html">Product 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="single.html">Product 3</a>
-                                                    </li>
-    
-                                                </ul>
-                                            </li>
-    
-    
-                                        </ul>
-                                    </li>
-    
-    
-    
-                                </ul>
-                            </li>
-                            <!-- li end -->
-                            <!-- Videos Menu -->
-                            <li class="has-dropdown">
-                                <a href="videos.html" class="dropdown-toggle menu-item" data-hover="pages">Videos</a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="videos.html">Video 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="videos.html">Video 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="videos.html">Video 3</a>
-                                    </li>
-    
-                                </ul>
-                            </li>
-                            <!-- li end -->
-                            <!-- Services Menu-->
-                            <li class="has-dropdown">
-                                <a href="service.html" class="dropdown-toggle menu-item">services</a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="service-single.html">services 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="service-single.html">services 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="service-single.html">services 3</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!-- li end -->
-                            <!-- Traning Menu-->
-                            <li class="has-dropdown">
-                                <a href="training.html" class="dropdown-toggle menu-item">Traning</a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="training-single.html">Traning For Offset</a>
-                                    </li>
-                                    <li>
-                                        <a href="training-single.html">Traning for Project</a>
-                                    </li>
-                                    <li>
-                                        <a href="training-single.html">Other Traning </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!-- li end -->
-    
-                            <!-- Blog Menu-->
-                            <li class="has-dropdown">
-                                <a href="consumables.html" class="dropdown-toggle menu-item">consumables /
-                                    E-Shop</a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="category.html">consumables Prepress</a>
-                                    </li>
-                                    <li>
-                                        <a href="category.html">consumables Press</a>
-                                    </li>
-                                    <li>
-                                        <a href="category.html">Digital </a>
-                                    </li>
-                                    <li>
-                                        <a href="category.html">consumables Post Press</a>
-                                    </li>
-                                    <li>
-                                        <a href="category.html">Service Parts </a>
-                                    </li>
-    
-    
-                                </ul>
-                            </li>
-                            <!-- li end -->
-    
-                            <!-- shop Menu -->
-                            <li class="has-dropdown">
-                                <a href="projects.html" class="dropdown-toggle menu-item" data-hover="shop"><?php echo app('translator')->getFromJson('massege.Projects'); ?></a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="project-single.html">Project 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="project-single.html">Project 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="project-single.html">Project 3</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!-- li end -->
-                            <li class="has-dropdown">
-                                <a href="security.html" class="dropdown-toggle menu-item" data-hover="shop"><?php echo app('translator')->getFromJson('massege.Security Printing'); ?> </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="project-single.html"> security inks for banknotes</a>
-                                    </li>
-                                    <li>
-                                        <a href="project-single.html">security inks for id documents and passports </a>
-                                    </li>
-                                   
-                                </ul>
-                            </li>
-                            <!-- li end -->
-    
-                            <!-- Elements Menu -->
-                            <li class="has-dropdown mega-dropdown">
-                                <a href="news.html" class="dropdown-toggle menu-item"><?php echo app('translator')->getFromJson('massege.News & Events'); ?></a>
-    
-                                <!-- .mega-dropdown-menu end -->
-                            </li>
-                        </ul>
-                        <div class="module-container">
-                            <!-- Module Search -->
-                            <div class="module module-search pull-left">
-                                <div class="module-icon search-icon">
-                                    <i class="fas fa-search"></i>
-                                    <span class="title">search</span>
-                                </div>
-                                <div class="module-content module-fullscreen module--search-box">
-                                    <div class="pos-vertical-center">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
-                                                    <form class="form-search">
-                                                        <input type="text" class="form-control" placeholder="Search...">
-                                                    </form><!-- .form-search end -->
-                                                </div><!-- .col-md-8 end -->
-                                            </div><!-- .row end -->
-                                        </div><!-- .container end -->
-                                    </div>
-                                    <a class="module-cancel" href="#"><i class="fas fa-times"></i></a>
-                                </div>
-                            </div><!-- .module-search end -->
-    
-                            <!-- Module Consultation  -->
-                            <div class="module module-consultation pull-left">
-                                <a class="btn" href="<?php echo e(url('contact-us')); ?>"><?php echo app('translator')->getFromJson('massege.contact'); ?></a>
+                                            <a href="<?php echo e(route('category.products',$pro_sub_cat->id)); ?>"
+                                                class="dropdown-toggle sub-item"
+                                                data-hover="pages"><?php echo e($pro_sub_cat->name_ar); ?> </a>
+                                            <?php endif; ?>
+                                            <?php if($pro_sub_cat->subtwocategories->isEmpty() != true): ?>
+                                            <ul class="dropdown-menu">
+                                                <?php $__currentLoopData = $pro_sub_cat->subtwocategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pro_sub_cat_two): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <li>
+                                                <?php if(App::getLocale() == 'en'): ?>
+                                            <a href="<?php echo e(route('category.products',$pro_sub_cat_two->id)); ?>"
+                                                class="dropdown-toggle sub-item"
+                                                data-hover="pages"><?php echo e($pro_sub_cat_two->name_en); ?> </a>
+                                            <?php else: ?>
+                                            <a href="<?php echo e(route('category.products',$pro_sub_cat_two->id)); ?>"
+                                                class="dropdown-toggle sub-item"
+                                                data-hover="pages"><?php echo e($pro_sub_cat_two->name_ar); ?> </a>
+                                            <?php endif; ?>
+                                                </li> 
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                                            </ul>
+                                            <?php endif; ?>
+                                        </li>
+                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    
+
+
+                                    </ul>
+                                    <?php endif; ?>
+                                </li>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php endif; ?>
+
+
+
+
+                            </ul>
+                        </li>
+                        <!-- li end -->
+                        <!-- Videos Menu -->
+                        <li class="has-dropdown">
+                            <a href="videos.html" class="dropdown-toggle menu-item" data-hover="pages">Videos</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="videos.html">Video 1</a>
+                                </li>
+                                <li>
+                                    <a href="videos.html">Video 2</a>
+                                </li>
+                                <li>
+                                    <a href="videos.html">Video 3</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <!-- li end -->
+                        <!-- Services Menu-->
+                        <li class="has-dropdown">
+                            <a href="<?php echo e(url('services')); ?>"
+                                class="dropdown-toggle menu-item"><?php echo app('translator')->getFromJson('massege.services'); ?></a>
+                            <ul class="dropdown-menu">
+                                <?php if(isset($services)): ?>
+                                <?php $__currentLoopData = $services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $servicesss): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <li>
+                                    <?php if(App::getLocale() == 'en'): ?>
+                                    <a href="<?php echo e(route('service',$servicesss->slogen_en)); ?>"><?php echo e($servicesss->title_en); ?> </a>
+                                    <?php else: ?>
+                                    <a href="<?php echo e(route('service',$servicesss->slogen_ar)); ?>"><?php echo e($servicesss->title_ar); ?> </a>
+                                    <?php endif; ?>
+                                </li>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php endif; ?>
+                            </ul>
+                        </li>
+                        <!-- li end -->
+                        <!-- Traning Menu-->
+                        <li class="has-dropdown">
+                            <a href="training.html" class="dropdown-toggle menu-item">Traning</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="training-single.html">Traning For Offset</a>
+                                </li>
+                                <li>
+                                    <a href="training-single.html">Traning for Project</a>
+                                </li>
+                                <li>
+                                    <a href="training-single.html">Other Traning </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- li end -->
+
+                        <!-- Blog Menu-->
+                        <li class="has-dropdown">
+
+                            <?php if(App::getLocale() == 'en'): ?>
+                            <a href="<?php echo e(route('page',$eshop_page->slogen_en)); ?>"><?php echo e($eshop_page->title_en); ?> </a>
+                            <?php else: ?>
+                            <a href="<?php echo e(route('page',$eshop_page->slogen_ar)); ?>"><?php echo e($eshop_page->title_ar); ?> </a>
+                            <?php endif; ?>
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="category.html">consumables Prepress</a>
+                                </li>
+                                <li>
+                                    <a href="category.html">consumables Press</a>
+                                </li>
+                                <li>
+                                    <a href="category.html">Digital </a>
+                                </li>
+                                <li>
+                                    <a href="category.html">consumables Post Press</a>
+                                </li>
+                                <li>
+                                    <a href="category.html">Service Parts </a>
+                                </li>
+
+
+                            </ul>
+                        </li>
+                        <!-- li end -->
+
+                        <!-- shop Menu -->
+                        <li class="has-dropdown">
+                            <a href="projects.html" class="dropdown-toggle menu-item"
+                                data-hover="shop"><?php echo app('translator')->getFromJson('massege.Projects'); ?></a>
+                        </li>
+                        <!-- li end -->
+                        <li class="has-dropdown">
+                            <a href="security.html" class="dropdown-toggle menu-item"
+                                data-hover="shop"><?php echo app('translator')->getFromJson('massege.Security Printing'); ?> </a>
+                            <ul class="dropdown-menu">
+                                <?php if(isset($secure_page)): ?>
+                                <?php $__currentLoopData = $secure_page; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $secure): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <li>
+
+                                    <?php if(App::getLocale() == 'en'): ?>
+                                    <a href="<?php echo e(route('page',$secure->slogen_en)); ?>"><?php echo e($secure->title_en); ?> </a>
+                                    <?php else: ?>
+                                    <a href="<?php echo e(route('page',$secure->slogen_ar)); ?>"><?php echo e($secure->title_ar); ?> </a>
+                                    <?php endif; ?>
+                                </li>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php endif; ?>
+                            </ul>
+                        </li>
+                        <!-- li end -->
+
+                        <!-- Elements Menu -->
+                        <li class="has-dropdown mega-dropdown">
+                            <a href="<?php echo e(url('news')); ?>" class="dropdown-toggle menu-item"><?php echo app('translator')->getFromJson('massege.News &
+                                Events'); ?></a>
+
+                            <!-- .mega-dropdown-menu end -->
+                        </li>
+                    </ul>
+                    <div class="module-container">
+                        <!-- Module Search -->
+                        <div class="module module-search pull-left">
+                            <div class="module-icon search-icon">
+                                <i class="fas fa-search"></i>
+                                <span class="title"><?php echo app('translator')->getFromJson('massege.Search'); ?></span>
                             </div>
+                            <div class="module-content module-fullscreen module--search-box">
+                                <div class="pos-vertical-center">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+                                                <form class="form-search">
+                                                    <input type="text" class="form-control" placeholder="Search...">
+                                                </form><!-- .form-search end -->
+                                            </div><!-- .col-md-8 end -->
+                                        </div><!-- .row end -->
+                                    </div><!-- .container end -->
+                                </div>
+                                <a class="module-cancel" href="#"><i class="fas fa-times"></i></a>
+                            </div>
+                        </div><!-- .module-search end -->
+
+                        <!-- Module Consultation  -->
+                        <div class="module module-consultation pull-left">
+                            <a class="btn" href="<?php echo e(url('contact-us')); ?>"><?php echo app('translator')->getFromJson('massege.contact'); ?></a>
                         </div>
                     </div>
-                    <!-- /.navbar-collapse -->
-    
-                </nav>
-            </div>
-            <!-- /.container -->
-        </header>
-        <!-- end  header   -->
+                </div>
+                <!-- /.navbar-collapse -->
+
+            </nav>
+        </div>
+        <!-- /.container -->
+    </header>
+    <!-- end  header   -->
     <!-- Hero Section
 ====================================== -->
-<?php echo $__env->yieldContent('content'); ?>
+    <?php echo $__env->yieldContent('content'); ?>
 
-<section id="featured3" class="featured featured-2 featured-3 featured-left bg-dark3 pt-0 pb-0">
+    <section id="featured3" class="featured featured-2 featured-3 featured-left bg-dark3 pt-0 pb-0">
         <div class="container-fluid pr-0 pl-0">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-6 col-content">
                     <div class="heading">
                         <h2 class="heading--title color-white">We Are Here To Ease<br>The Financial Obstacles!</h2>
-                        <p class="heading--desc color-white">The choice is in your hands: Where do you go to get an advice and where you purchase products?!!</p>
+                        <p class="heading--desc color-white">The choice is in your hands: Where do you go to get an
+                            advice and where you purchase products?!!</p>
                     </div>
                     <!-- Feature Card #1 -->
                     <div class="feature-card wow fadeInUp" data-wow-delay="100ms">
@@ -510,7 +411,8 @@
                         </div>
                         <div class="feature-card-content">
                             <h3 class="feature-card-title">Innovative Solutions</h3>
-                            <p class="feature-card-desc">Innovative Solutions offers services, development services and consulting to help you make the best technology.</p>
+                            <p class="feature-card-desc">Innovative Solutions offers services, development services and
+                                consulting to help you make the best technology.</p>
                         </div>
                     </div>
                     <!-- feature-card end -->
@@ -521,7 +423,8 @@
                         </div>
                         <div class="feature-card-content">
                             <h3 class="feature-card-title">On Time Services</h3>
-                            <p class="feature-card-desc">Mutual funds from many investors to purchase broad range of investments, such as stocks, goals, and dreams.</p>
+                            <p class="feature-card-desc">Mutual funds from many investors to purchase broad range of
+                                investments, such as stocks, goals, and dreams.</p>
                         </div>
                     </div>
                     <!-- feature-card end -->
@@ -532,7 +435,8 @@
                         </div>
                         <div class="feature-card-content">
                             <h3 class="feature-card-title">Best Support</h3>
-                            <p class="feature-card-desc">We bring the right people business solutions to challenge established thinking and drive transformation.</p>
+                            <p class="feature-card-desc">We bring the right people business solutions to challenge
+                                established thinking and drive transformation.</p>
                         </div>
                     </div>
                     <!-- feature-card end -->
@@ -578,7 +482,8 @@
                 <div class="row clearfix">
                     <div class="col-12 col-md-6 col-lg-3 footer--widget widget-about">
                         <div class="widget-content">
-                            <img class="footer-logo" src="<?php echo e(asset('/')); ?>/assetfront/images/logo/logo-small.png" alt="logo">
+                            <img class="footer-logo" src="<?php echo e(asset('/')); ?>/assetfront/images/logo/logo-small.png"
+                                alt="logo">
                             <p>Experienced In Mortgage And Financial Advice!We don’t believe in the sales culture, but
                                 instead we believe in the service culture. </p>
                             <div class="social-icons">
@@ -653,8 +558,9 @@
                 <div class="row">
                     <div class="col-12 col-md-12 col-md-12 text-center footer--copyright">
                         <div class="copyright">
-                                <span> Copyright © 2019 Irconprint , <a href="#">Web Design Company</a> <a href="#">3Hand</a> All rights
-                                    reserved.</span>
+                            <span> Copyright © 2019 Irconprint , <a href="#">Web Design Company</a> <a
+                                    href="#">3Hand</a> All rights
+                                reserved.</span>
                         </div>
                     </div>
                 </div>
@@ -677,11 +583,14 @@
     <script src="<?php echo e(asset('/')); ?>/assetfront/inc/revolution/js/jquery.themepunch.tools.min.js?rev=5.0"></script>
     <script src="<?php echo e(asset('/')); ?>/assetfront/inc/revolution/js/jquery.themepunch.revolution.min.js?rev=5.0"></script>
     <script src="<?php echo e(asset('/')); ?>/assetfront/inc/revolution/js/extensions/revolution.extension.video.min.js"></script>
-    <script src="<?php echo e(asset('/')); ?>/assetfront/inc/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assetfront/inc/revolution/js/extensions/revolution.extension.slideanims.min.js">
+    </script>
     <script src="<?php echo e(asset('/')); ?>/assetfront/inc/revolution/js/extensions/revolution.extension.actions.min.js"></script>
-    <script src="<?php echo e(asset('/')); ?>/assetfront/inc/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assetfront/inc/revolution/js/extensions/revolution.extension.layeranimation.min.js">
+    </script>
     <script src="<?php echo e(asset('/')); ?>/assetfront/inc/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-    <script src="<?php echo e(asset('/')); ?>/assetfront/inc/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assetfront/inc/revolution/js/extensions/revolution.extension.navigation.min.js">
+    </script>
     <script src="<?php echo e(asset('/')); ?>/assetfront/inc/revolution/js/extensions/revolution.extension.migration.min.js"></script>
     <script src="<?php echo e(asset('/')); ?>/assetfront/inc/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
     <!-- RS Configration JS Files -->

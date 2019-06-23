@@ -10,8 +10,9 @@ use App\Project;
 use App\Setting;
 use App\Contact;
 use App\NewSite;
+use App\CategoryNew;
 use App\categoryNewSite;
-
+use App\Service;
 use Mail;
 class PageController extends Controller
 {
@@ -44,35 +45,67 @@ class PageController extends Controller
         // dd($pages);
         return view('Frontend.project_list', compact('projects'));
     }
+// singleproject
+public function projectdetailis(Request $request) 
+{
+ 
+    $projects=Project:: where('slogen_en',$request->project)->orWhere('slogen_ar',$request->project)->get()->first();
 
+    return view('Frontend.singleproject', compact('projects'));
+}
     public function news(Request $request)
     {
         // dd($request->page);
-        $newscategories=categoryNewSite::where('status','1')->get();
-        $news=NewSite::where('status','1')->orderBy('id', 'desc')->get();
+        $newscategories=CategoryNew::where('status','1')->get();
+        $news=NewSite::where('status','1')->orderBy('id', 'desc')->paginate(6);
         // dd($pages);
         return view('Frontend.newslist', compact('news','newscategories'));
     }
 // newsdetails
 
-public function newsdetailis(Request $request)
+public function newsdetailis(Request $request) 
 {
-    // dd($request->page);
-    $page=Page::all();
-    $locale=app()->getLocale();
-    $land=Page::where('slogen_ar',$request->page)->orwhere('slogen_en',$request->page)->get();
-    // dd($pages);
-    return view('Frontend.page', compact('land','page','locale'));
+    // dd($request->newslist);
+    $newscategories=CategoryNew::where('status','1')->get();
+
+    $news=NewSite::where('slogen_en',$request->newslist)->orWhere('slogen_ar',$request->newslist)->get()->first();
+    // dd($news);
+    return view('Frontend.singlenews', compact('newscategories','news'));
+}
+public function newscategory(Request $request)
+{
+    // dd($request->newslist);
+    $newscategories=CategoryNew::where('status','1')->get();
+    $cat=categoryNewSite::where('category_id',$request->newscat)->pluck('newsite_id');
+    $news=NewSite::whereIn('id',$cat)->paginate(6);
+    return view('Frontend.newslist', compact('newscategories','news'));
 }
     public function show(Request $request)
     {
-        // dd($request->page);
-        $page=Page::all();
-        $locale=app()->getLocale();
+        //show page 
         $land=Page::where('slogen_ar',$request->page)->orwhere('slogen_en',$request->page)->get();
         // dd($pages);
-        return view('Frontend.page', compact('land','page','locale'));
+        return view('Frontend.page', compact('land'));
     }
+
+    public function services(Request $request)
+    {
+        $services=Service::where('status','1')->orderBy('id', 'desc')->get();
+        $i=1;
+        // dd($pages);
+        return view('Frontend.services', compact('services','i'));
+    }
+// newsdetails
+
+public function servicesdetailis(Request $request) 
+{
+ 
+    $serviceslist=Service::where('status','1')->orderBy('id', 'desc')->get();
+    $servicedetails=Service::where('slogen_en',$request->service)->orWhere('slogen_ar',$request->service)->get()->first();
+    return view('Frontend.singleservice', compact('serviceslist','servicedetails'));
+}
+
+
 
     public function contactUS(){
         return view('Frontend.contact');

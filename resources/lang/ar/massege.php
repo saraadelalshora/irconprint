@@ -49,7 +49,9 @@ return [
 
     //project
     'Projects'=>'المشاريع',
+    'news'=>'الاخبار',
 
+    'Search Bar'=>'البحث',
     'Edit'=>'تعديل',
     'Country'=>'البلد',
     'zip code'=>'الرمز البريدي',
@@ -115,12 +117,12 @@ return [
     'Congratelation Your Coupon applied Now'=>'تهانيا انت الان تستمتع بالخصم ',
     'Yourrequesthasbeensuccessfullysent'=>'تم ارسال الطلب بنجاح',
     'Therequestwasnotsent'=>'لم يتم ارسال الطلب بنجاح',
-    ''=>'',
-    ''=>'',
-    ''=>'',
-    ''=>'',
-    ''=>'',
-    ''=>'',
+    'notfoundnews'=>'عفوا لا يوجد خبر ',
+    'notfoundproject'=>'عفوا لا يوجد مشاريع ',
+    'services'=>'الخدمات',
+    'notfoundservice'=>'عفوا لا يوجد خدمات',
+    'All services'=>'كل الخدمات',
+    'Products'=>'المنتجات',
     ''=>'',
     ''=>'',
     ''=>'',

@@ -67,6 +67,7 @@ Route::resource('Slider','Admin\SliderController');
 Route::resource('Page','Admin\PageController');
 Route::resource('About','Admin\AboutController');
 Route::resource('Section','Admin\SectionController');
+Route::resource('Project','Admin\ProjectController');
 
 
 Route::resource('News','Admin\NewSiteController');
@@ -112,13 +113,23 @@ Route::group([
     Route::get('section/{section}', 'Front\PageController@section')->name('section'); 
     // projects list
     Route::get('projects', 'Front\PageController@projects')->name('projects');
+    Route::get('Project/{project}','Front\PageController@projectdetailis')->name('Project');
     
-    //news
+    //news 
     Route::get('news','Front\PageController@news')->name('News');
-    Route::get('news/{newslist}','Front\PageController@newsdetails');
+    Route::get('new/{newslist}','Front\PageController@newsdetailis')->name('new');
+    Route::get('newscategory/{newscat}','Front\PageController@newscategory')->name('Newscategory');
 
+    //news 
+    Route::get('services','Front\PageController@services')->name('services');
+    Route::get('services/{service}','Front\PageController@servicesdetailis')->name('service');
+
+    //contact us
     Route::get('contact-us', 'Front\PageController@contactUS')->name('Contact');
     Route::post('contact-us', ['as'=>'contactus.store','uses'=>'Front\PageController@contactUSPost']);
+
+    //product categories
+    Route::get('product/category/{slug}', 'Front\ProductController@product_category')->name('category.products');
     // show_profile
     Route::get('profile', 'Front\AccountController@show_profile')->name('Profile');
     Route::match(['put', 'patch'],'profile/{id}','Front\AccountController@update_profile')->name('account.update');

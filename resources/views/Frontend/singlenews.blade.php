@@ -1,4 +1,16 @@
 @extends('layouts.front.master')
+@section('meta')
+@if(app()->getLocale() == 'ar')
+<title>{{$news->title_ar}} </title>
+<meta name="description" content="{{$news->meta_description_ar}}">
+
+@else
+<title>{{$news->title_en}} </title>
+<meta name="description" content="{{$news->meta_description_en}}">
+
+@endif
+<meta name="keywords" content="{{$news->tags}}">
+@endsection
 @section('content')
 
 
@@ -16,8 +28,13 @@
                     <div class="clearfix"></div>
                     <ol class="breadcrumb d-flex justify-content-center">
                         <li class="breadcrumb-item"><a href="{{url('/')}}">{{trans('massege.home')}}</a></li>
+                        <li class="breadcrumb-item"><a href="{{url('news')}}">@lang('massege.news')</a></li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            @lang('massege.news')</li>
+                            @if(App::getLocale() == 'en')
+                            {{$news->title_en}}
+                            @else
+                            {{$news->title_ar}}
+                            @endif
                     </ol>
                 </div><!-- .title end -->
             </div><!-- .col-md-12 end -->
@@ -25,72 +42,62 @@
     </div><!-- .container end -->
 </section><!-- #page-title end -->
 
+
 <!-- Blog Standard Right Sidebar
 ============================================= -->
-<section id="blog" class="blog blog-standard">
+<section id="blog" class="blog blog-single blog-standard">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-8">
-             @if($news->isEmpty() != true)
-                @foreach($news as $newsdetails)
+                @if(isset($news))
+
                 <!-- Blog Entry #1 -->
                 <div class="blog-entry">
                     <div class="entry--img">
                         <a href="#">
-                            <img src="{{asset($newsdetails->image)}}" alt="entry image" />
-                            <div class="entry--overlay"></div>
+                            <img src="{{asset($news->image)}}" alt="entry image" />
                         </a>
                     </div>
-                    <!-- .entry-img end -->
-                    <div class="entry--content">
+                    <div class="entry--content clearfix">
                         <div class="entry--meta">
-                            @if(App::getLocale() == 'en')
-                            <a href="#">{{$newsdetails->categories->first()->name_en}}</a>
-                            @else
-                            <a href="#">{{$newsdetails->categories->first()->name_ar}}</a>
-                            @endif
-
+                            <a href="#"> @if(App::getLocale() == 'en')
+                                <a href="#">{{$news->categories->first()->name_en}}</a>
+                                @else
+                                <a href="#">{{$news->categories->first()->name_ar}}</a>
+                                @endif
+                            </a>
                         </div>
                         <div class="entry--date">
-                            {{\Carbon\Carbon::parse($newsdetails->created_at)->format('d M  Y')}}
+                            {{\Carbon\Carbon::parse($news->created_at)->format('d M  Y')}}
                         </div>
                         <div class="entry--title">
-                            <h4>
-                                @if(App::getLocale() == 'en')
-                                <a href="{{route('new',$newsdetails->slogen_en)}}">{{$newsdetails->title_en}}</a>
+                            <h4> @if(App::getLocale() == 'en')
+                                <a href="{{route('new',$news->slogen_en)}}">{{$news->title_en}}</a>
                                 @else
-                                <a href="{{route('new',$newsdetails->slogen_en)}}">{{$newsdetails->title_ar}}</a>
-                                @endif
-                            </h4>
+                                <a href="{{route('new',$news->slogen_en)}}">{{$news->title_ar}}</a>
+                                @endif</h4>
                         </div>
                         <div class="entry--bio">
                             @if(App::getLocale() == 'en')
-                            {!! str_limit(strip_tags($newsdetails->description_en), $limit = 100, $end = '...') !!}
+                            {!! $news->description_en !!}
                             @else
-                            {!! str_limit(strip_tags($newsdetails->description_ar) , $limit = 100, $end = '...') !!}
+                            {!! $news->description_ar !!}
                             @endif
                         </div>
-                        <div class="entry--footer">
-                            <div class="entry--more">
-                                @if(App::getLocale() == 'en')
-                                <a href="{{route('new',$newsdetails->slogen_en)}}"><i
-                                        class="fa fa-plus"></i>@lang('massege.Read More')</a>
-                                @else
-                                <a href="{{route('new',$newsdetails->slogen_ar)}}"><i
-                                        class="fa fa-plus"></i>@lang('massege.Read More')</a>
-                                @endif
-                            </div>
+
+                        <!-- .entry-share end -->
+                        <div class="entry--tags">
+                            @foreach(explode(',',$news->tags) as $tags)
+                            <a href="#">
+                                {{$tags}}
+                            </a>
+                            @endforeach
                         </div>
+
+                        <!-- .entry-cat end -->
                     </div>
-                    <!-- .entry-content end -->
                 </div>
                 <!-- .blog-entry end -->
-                @endforeach
-                <div class="text--center">
-                    <ul class="pagination">
-                        {!! $news->appends(request()->except('page'))->links() !!}
-                    </ul>
-                </div>
                 @else
                 <div class="text-center">
                     <h2 style="color:#830C0C;">{{trans('massege.notfoundnews')}}</h2>
@@ -109,7 +116,8 @@
                             {{ csrf_field() }}
                             <div class="input-group">
                                 <input type="text" class="form-control" name="keyword"
-                                    placeholder="@lang('massege.Search')">
+                                    placeholder="@lang('massege.Search')$news->isEmpty() != true
+notfoundnews">
                                 <span class="input-group-btn">
                                     <button class="btn" type="button"><i class="fa fa-search"></i></button>
                                 </span>
@@ -131,10 +139,10 @@
                             @foreach($newscategories as $categorynews)
                             <li>
                                 @if(App::getLocale() == 'en')
-                                <a href="{{route('Newscategory',$categorynews->id)}}">{{$categorynews->name_en}}</a>
+                                <a href="#">{{$categorynews->name_en}}</a>
 
                                 @else
-                                <a href="{{route('Newscategory',$categorynews->id)}}">{{$categorynews->name_ar}}</a>
+                                <a href="#">{{$categorynews->name_ar}}</a>
 
                                 @endif
                                 @endforeach
