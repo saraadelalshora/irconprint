@@ -123,17 +123,16 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label">القسم الفرعي<span class="text-danger">*</span> </label>
+                                    <label class="control-label">القسم الفرعي </label>
                                     <select name="subcategory" id="subcategory"
-                                        class="form-control m-b-10 select2-multiplel" required
+                                        class="form-control m-b-10 select2-multiplel" 
                                         data-validation-required-message="هذا الحقل مطلوب">
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">تصنفيات الاقسام الفرعية<span
-                                            class="text-danger">*</span> </label>
+                                    <label class="control-label">تصنفيات الاقسام الفرعية</label>
                                     <select name="subsubcategory" id="filter"
-                                        class="form-control m-b-10 select2-multiplel" required
+                                        class="form-control m-b-10 select2-multiplel" 
                                         data-validation-required-message="هذا الحقل مطلوب">
                                     </select>
                                 </div>

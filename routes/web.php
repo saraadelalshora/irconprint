@@ -42,23 +42,23 @@ Route::resource('product/Category','Admin\product\CategoryController');
 Route::resource('product/SubCategory','Admin\product\SubCategoryController');
 Route::resource('product/SubtwoCategory','Admin\product\SubtwoCategoryController');
 Route::resource('Product','Admin\product\ProductController');
-Route::get('subcategory-list','Admin\product\ProductController@getSubcategory');
-Route::get('filter-list','Admin\product\ProductController@getFilter');
+Route::get('subcategory-list-product','Admin\product\ProductController@getSubcategory');
+Route::get('filter-list-product','Admin\product\ProductController@getFilter');
 Route::delete('image/', 'Admin\product\ProductController@deleteimage')->name('image');
 
 Route::resource('video/Category','Admin\video\CategoryController');
 Route::resource('video/SubCategory','Admin\video\SubCategoryController');
 Route::resource('video/SubtwoCategory','Admin\video\SubtwoCategoryController');
 Route::resource('Video','Admin\video\VideoController');
-Route::get('video/subcategory-list','Admin\video\VideoController@getSubcategory');
-Route::get('video/filter-list','Admin\video\VideoController@getFilter');
+Route::get('subcategory-list','Admin\video\VideoController@getSubcategory');
+Route::get('filter-list','Admin\video\VideoController@getFilter');
 
 Route::resource('training/Category','Admin\training\CategoryController');
 Route::resource('training/SubCategory','Admin\training\SubCategoryController');
 Route::resource('training/SubtwoCategory','Admin\training\SubtwoCategoryController');
 Route::resource('training','Admin\training\TrainingController');
-Route::get('subcategory-list','Admin\training\TrainingController@getSubcategory');
-Route::get('filter-list','Admin\training\TrainingController@getFilter');
+Route::get('subcategory-list-training','Admin\training\TrainingController@getSubcategory');
+Route::get('filter-list-training','Admin\training\TrainingController@getFilter');
 
 Route::resource('CategoriesNews','Admin\CategoryNewController');
 Route::resource('Service','Admin\ServiceController');
@@ -128,18 +128,25 @@ Route::group([
     Route::get('contact-us', 'Front\PageController@contactUS')->name('Contact');
     Route::post('contact-us', ['as'=>'contactus.store','uses'=>'Front\PageController@contactUSPost']);
 
-    //product categories
+    //Training 
+    Route::get('training/category/{slug}', 'Front\TrainingController@training_category')->name('category.trainings');
+    Route::get('training/subcategory/{slug}', 'Front\TrainingController@subcategory')->name('Subcategory.trainings');
+    Route::get('training/subcategorytwo/{slug}', 'Front\TrainingController@subcategorytwo')->name('Subcategorytwo.trainings');
+    Route::get('training/{slug}', 'Front\TrainingController@training_details')->name('training.name');
+
+    //product 
     Route::get('product/category/{slug}', 'Front\ProductController@product_category')->name('category.products');
+    Route::get('product/subcategory/{slug}', 'Front\ProductController@subcategory')->name('Subcategory.products');
+    Route::get('product/subcategorytwo/{slug}', 'Front\ProductController@subcategorytwo')->name('Subcategorytwo.products');
+    Route::get('products/{slug}', 'Front\ProductController@product_details')->name('product.name');
+
     // show_profile
     Route::get('profile', 'Front\AccountController@show_profile')->name('Profile');
     Route::match(['put', 'patch'],'profile/{id}','Front\AccountController@update_profile')->name('account.update');
-    // Route::get('products', 'Front\ProductController@index')->name('products');
-    Route::get('category/{slug}', 'Front\ProductController@product_category')->name('category.products');
-    Route::get('suncategory/{slug}', 'Front\ProductController@product_filters')->name('Subcategory.products');
+    // Route::get('products', 'Front\ProductController@index')->name('products')categoryproduct;
     // product_details
    Route::get('products/{slug}', 'Front\ProductController@product_details')->name('product.name');
   //  subcategorylist
-  Route::get('categories/{id}', 'Front\CategoryController@subcategorylist')->name('category.name');
    //================Method/Shopping===================== /search//
 Route::get('/Shopping-Cart-Show', 'Front\CartController@CartShow');
 Route::post('/Shopping-Cart-Add/{id}', 'Front\CartController@AddToCart');

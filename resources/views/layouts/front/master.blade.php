@@ -174,7 +174,7 @@
                         <!-- li end -->
                         <!-- Products Menu -->
                         <li class="has-dropdown">
-                            <a href="main-category.html" class="dropdown-toggle menu-item"
+                            <a href="#" class="dropdown-toggle menu-item"
                                 data-hover="pages">@lang('massege.Products')</a>
                             <ul class="dropdown-menu">
                                 @if(isset($product_categories))
@@ -182,10 +182,10 @@
 
                                 <li class="dropdown-submenu">
                                     @if(App::getLocale() == 'en')
-                                    <a href="{{route('category.products',$pro_cat->id)}}"
+                                    <a href="{{route('category.products',$pro_cat->slogen_en)}}"
                                         class="dropdown-toggle sub-item" data-hover="pages">{{$pro_cat->name_en}} </a>
                                     @else
-                                    <a href="{{route('category.products',$pro_cat->id)}}"
+                                    <a href="{{route('category.products',$pro_cat->slogen_ar)}}"
                                         class="dropdown-toggle sub-item" data-hover="pages">{{$pro_cat->name_ar}} </a>
                                     @endif
                                     @if($pro_cat->subcategories->isEmpty() != true)
@@ -194,11 +194,11 @@
                                      @foreach($pro_cat->subcategories as $pro_sub_cat)
                                         <li class="has-dropdown">
                                             @if(App::getLocale() == 'en')
-                                            <a href="{{route('category.products',$pro_sub_cat->id)}}"
+                                            <a href="{{route('Subcategory.products',$pro_sub_cat->slogen_en)}}"
                                                 class="dropdown-toggle sub-item"
                                                 data-hover="pages">{{$pro_sub_cat->name_en}} </a>
                                             @else
-                                            <a href="{{route('category.products',$pro_sub_cat->id)}}"
+                                            <a href="{{route('Subcategory.products',$pro_sub_cat->slogen_ar)}}"
                                                 class="dropdown-toggle sub-item"
                                                 data-hover="pages">{{$pro_sub_cat->name_ar}} </a>
                                             @endif
@@ -207,11 +207,11 @@
                                                 @foreach($pro_sub_cat->subtwocategories as $pro_sub_cat_two)
                                                 <li>
                                                 @if(App::getLocale() == 'en')
-                                            <a href="{{route('category.products',$pro_sub_cat_two->id)}}"
+                                            <a href="{{route('Subcategorytwo.products',$pro_sub_cat_two->slogen_en)}}"
                                                 class="dropdown-toggle sub-item"
                                                 data-hover="pages">{{$pro_sub_cat_two->name_en}} </a>
                                             @else
-                                            <a href="{{route('category.products',$pro_sub_cat_two->id)}}"
+                                            <a href="{{route('Subcategorytwo.products',$pro_sub_cat_two->slogen_ar)}}"
                                                 class="dropdown-toggle sub-item"
                                                 data-hover="pages">{{$pro_sub_cat_two->name_ar}} </a>
                                             @endif
@@ -239,17 +239,62 @@
                         <!-- li end -->
                         <!-- Videos Menu -->
                         <li class="has-dropdown">
-                            <a href="videos.html" class="dropdown-toggle menu-item" data-hover="pages">Videos</a>
+                            <a href="#" class="dropdown-toggle menu-item" data-hover="pages">@lang('massege.Videos')</a>
                             <ul class="dropdown-menu">
-                                <li>
-                                    <a href="videos.html">Video 1</a>
+                            @if(isset($video_categories))
+                                @foreach($video_categories as $pro_cat_video)
+
+                                <li class="dropdown-submenu">
+                                    @if(App::getLocale() == 'en')
+                                    <a href="{{route('category.trainings',$pro_cat_video->slogen_en)}}"
+                                        class="dropdown-toggle sub-item" data-hover="pages">{{$pro_cat_video->name_en}} </a>
+                                    @else
+                                    <a href="{{route('category.trainings',$pro_cat_video->slogen_ar)}}"
+                                        class="dropdown-toggle sub-item" data-hover="pages">{{$pro_cat_video->name_ar}} </a>
+                                    @endif
+                                    @if($pro_cat_video->subcategories->isEmpty() != true)
+                                    <ul class="dropdown-menu">
+                                  
+                                     @foreach($pro_cat_video->subcategories as $pro_sub_cat_video)
+                                        <li class="has-dropdown">
+                                            @if(App::getLocale() == 'en')
+                                            <a href="{{route('Subcategory.trainings',$pro_sub_cat_video->slogen_en)}}"
+                                                class="dropdown-toggle sub-item"
+                                                data-hover="pages">{{$pro_sub_cat_video->name_en}} </a>
+                                            @else
+                                            <a href="{{route('Subcategory.trainings',$pro_sub_cat_video->slogen_ar)}}"
+                                                class="dropdown-toggle sub-item"
+                                                data-hover="pages">{{$pro_sub_cat_video->name_ar}} </a>
+                                            @endif
+                                            @if($pro_sub_cat_video->subtwocategories->isEmpty() != true)
+                                            <ul class="dropdown-menu">
+                                                @foreach($pro_sub_cat_video->subtwocategories as $pro_sub_cat_two_video)
+                                                <li>
+                                                @if(App::getLocale() == 'en')
+                                            <a href="{{route('Subcategorytwo.trainings',$pro_sub_cat_two_video->slogen_en)}}"
+                                                class="dropdown-toggle sub-item"
+                                                data-hover="pages">{{$pro_sub_cat_two_video->name_en}} </a>
+                                            @else
+                                            <a href="{{route('Subcategorytwo.trainings',$pro_sub_cat_two_video->slogen_ar)}}"
+                                                class="dropdown-toggle sub-item"
+                                                data-hover="pages">{{$pro_sub_cat_two_video->name_ar}} </a>
+                                            @endif
+                                                </li> 
+                                                @endforeach
+
+                                            </ul>
+                                            @endif
+                                        </li>
+                                     @endforeach
+                                    
+
+
+                                    </ul>
+                                    @endif
                                 </li>
-                                <li>
-                                    <a href="videos.html">Video 2</a>
-                                </li>
-                                <li>
-                                    <a href="videos.html">Video 3</a>
-                                </li>
+                                @endforeach
+                                @endif
+
 
                             </ul>
                         </li>
@@ -275,17 +320,61 @@
                         <!-- li end -->
                         <!-- Traning Menu-->
                         <li class="has-dropdown">
-                            <a href="training.html" class="dropdown-toggle menu-item">Traning</a>
+                            <a href="#" class="dropdown-toggle menu-item">@lang('massege.Traning')</a>
                             <ul class="dropdown-menu">
-                                <li>
-                                    <a href="training-single.html">Traning For Offset</a>
+                            @if(isset($training_categories))
+                                @foreach($training_categories as $pro_cat_training)
+
+                                <li class="dropdown-submenu">
+                                    @if(App::getLocale() == 'en')
+                                    <a href="{{route('category.trainings',$pro_cat_training->slogen_en)}}"
+                                        class="dropdown-toggle sub-item" data-hover="pages">{{$pro_cat_training->name_en}} </a>
+                                    @else
+                                    <a href="{{route('category.trainings',$pro_cat_training->slogen_ar)}}"
+                                        class="dropdown-toggle sub-item" data-hover="pages">{{$pro_cat_training->name_ar}} </a>
+                                    @endif
+                                    @if($pro_cat_training->subcategories->isEmpty() != true)
+                                    <ul class="dropdown-menu">
+                                  
+                                     @foreach($pro_cat_training->subcategories as $pro_sub_cat_training)
+                                        <li class="has-dropdown">
+                                            @if(App::getLocale() == 'en')
+                                            <a href="{{route('Subcategory.trainings',$pro_sub_cat_training->slogen_en)}}"
+                                                class="dropdown-toggle sub-item"
+                                                data-hover="pages">{{$pro_sub_cat_training->name_en}} </a>
+                                            @else
+                                            <a href="{{route('Subcategory.trainings',$pro_sub_cat_training->slogen_ar)}}"
+                                                class="dropdown-toggle sub-item"
+                                                data-hover="pages">{{$pro_sub_cat_training->name_ar}} </a>
+                                            @endif
+                                            @if($pro_sub_cat_training->subtwocategories->isEmpty() != true)
+                                            <ul class="dropdown-menu">
+                                                @foreach($pro_sub_cat_training->subtwocategories as $pro_sub_cat_two_training)
+                                                <li>
+                                                @if(App::getLocale() == 'en')
+                                            <a href="{{route('Subcategorytwo.trainings',$pro_sub_cat_two_training->slogen_en)}}"
+                                                class="dropdown-toggle sub-item"
+                                                data-hover="pages">{{$pro_sub_cat_two_training->name_en}} </a>
+                                            @else
+                                            <a href="{{route('Subcategorytwo.trainings',$pro_sub_cat_two_training->slogen_ar)}}"
+                                                class="dropdown-toggle sub-item"
+                                                data-hover="pages">{{$pro_sub_cat_two_training->name_ar}} </a>
+                                            @endif
+                                                </li> 
+                                                @endforeach
+
+                                            </ul>
+                                            @endif
+                                        </li>
+                                     @endforeach
+                                    
+
+
+                                    </ul>
+                                    @endif
                                 </li>
-                                <li>
-                                    <a href="training-single.html">Traning for Project</a>
-                                </li>
-                                <li>
-                                    <a href="training-single.html">Other Traning </a>
-                                </li>
+                                @endforeach
+                                @endif
                             </ul>
                         </li>
                         <!-- li end -->
@@ -349,8 +438,7 @@
 
                         <!-- Elements Menu -->
                         <li class="has-dropdown mega-dropdown">
-                            <a href="{{url('news')}}" class="dropdown-toggle menu-item">@lang('massege.News &
-                                Events')</a>
+                            <a href="{{url('news')}}" class="dropdown-toggle menu-item">@lang('massege.News & Events')</a>
 
                             <!-- .mega-dropdown-menu end -->
                         </li>

@@ -139,17 +139,16 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label">القسم الفرعي<span class="text-danger">*</span> </label>
+                                    <label class="control-label">القسم الفرعي </label>
                                     <select name="subcategory" id="subcategory"
-                                        class="form-control m-b-10 select2-multiplel" required
+                                        class="form-control m-b-10 select2-multiplel" 
                                         data-validation-required-message="هذا الحقل مطلوب">
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">تصنفيات الاقسام الفرعية<span
-                                            class="text-danger">*</span> </label>
+                                    <label class="control-label">تصنفيات الاقسام الفرعية</label>
                                     <select name="subsubcategory" id="filter"
-                                        class="form-control m-b-10 select2-multiplel" required
+                                        class="form-control m-b-10 select2-multiplel" 
                                         data-validation-required-message="هذا الحقل مطلوب">
                                     </select>
                                 </div>
@@ -170,9 +169,9 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">الكود </label>
+                                    <label class="control-label">الكود<span class="text-danger">*</span> </label>
                                     <input type="text" class="form-control" name="code" 
-                                        data-validation-required-message="هذا الحقل مطلوب">
+                                        data-validation-required-message="هذا الحقل مطلوب" required>
                                 </div>
 
                                 <div class="form-group">
@@ -304,7 +303,7 @@
         if (countryID) {
             $.ajax({
                 type: "GET",
-                url: "{{url('admin/subcategory-list')}}?category_id=" + countryID,
+                url: "{{url('admin/subcategory-list-product')}}?category_id=" + countryID,
                 success: function (res) {
                     if (res) {
                         $("#subcategory").empty();
@@ -332,7 +331,7 @@
         if (stateID) {
             $.ajax({
                 type: "GET",
-                url: "{{url('admin/filter-list')}}?subcategory_id=" + stateID,
+                url: "{{url('admin/filter-list-product')}}?subcategory_id=" + stateID,
                 success: function (res) {
                     if (res) {
                         $("#filter").empty();

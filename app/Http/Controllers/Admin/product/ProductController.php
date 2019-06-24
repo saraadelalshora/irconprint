@@ -56,13 +56,13 @@ $this->validate($request,[
     'name_ar'=>'required',
     'description_ar'=>'required',
     'category_id'=>'required',
-    'subcategory'=>'required',
+    // 'subcategory'=>'required',
     'img'=>'mimes:jpeg,jpg,png,gif|max:1000'
 ],[
     'name_ar.required' => 'اسم المنتج باللغة العربية مطلوب ',
     'description_ar.required' => 'وصف المنتج باللغة العربية مطلوب ',
     'category_id.required' => 'اسم القسم الرئيسي مطلوب ',
-    'subcategory.required' => 'وصف القسم الفرعي   مطلوب ',
+    // 'subcategory.required' => 'وصف القسم الفرعي   مطلوب ',
     'img.mimes' => 'هذا النوع من الصور غير مسموح',
     'img.max'=>'هذه الصورة اكبر من الحجم المسموح به ',
     ]
@@ -182,14 +182,14 @@ $this->validate($request,[
             'name_ar'=>'required',
             'description_ar'=>'required',
             'category_id'=>'required',
-            'subcategory'=>'required',
+            // 'subcategory'=>'required',
            
             'img'=>'mimes:jpeg,jpg,png,gif|max:1000'
         ],[
             'name_ar.required' => 'اسم المنتج باللغة العربية مطلوب ',
             'description_ar.required' => 'وصف المنتج باللغة العربية مطلوب ',
             'category_id.required' => 'اسم القسم الرئيسي مطلوب ',
-            'subcategory.required' => 'وصف القسم الفرعي   مطلوب ',
+            // 'subcategory.required' => 'وصف القسم الفرعي   مطلوب ',
             'img.mimes' => 'هذا النوع من الصور غير مسموح',
             'img.max'=>'هذه الصورة اكبر من الحجم المسموح به ',
             ]
@@ -289,11 +289,12 @@ $this->validate($request,[
     {
         $subcategories =Sub_Category::where([["category_id",$request->category_id],['type','product']])
         ->pluck("name_ar","id");
+        // dd($subcategories);
         return response()->json($subcategories);
     }
     public function getFilter(Request $request)
     {
-        $subcategory=SubTwoCategory::find([[$request->subcategory_id],['type','product']]);
+        $subcategory=SubTwoCategory::where([["subcategory_id",$request->subcategory_id],['type','product']]);
         $filterss=$subcategory->pluck("name_ar","id");
        
         return response()->json($filterss);

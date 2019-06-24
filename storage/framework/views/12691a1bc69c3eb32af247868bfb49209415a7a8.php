@@ -45,7 +45,7 @@
                                         <tr>
                                             <td data-field="state" data-checkbox="true"></td>
                                             <td data-field="name"> <?php echo e($value->name_ar); ?></td>
-                                            <td data-field="catname"><?php echo e($value->subcategory->category->name_ar); ?> => <?php echo e($value->subcategory->name_ar); ?></td>
+                                            <td data-field="catname"><?php if(isset($value->category)): ?><?php echo e($value->category->name_ar); ?> <?php endif; ?> => <?php if(isset($value->subcategory)): ?> <?php echo e($value->subcategory->name_ar); ?> <?php endif; ?></td>
 
                                              <td data-field="status"><?php if($value->status == 1): ?> مفعل <?php else: ?> غير مفعل <?php endif; ?></td>
                         

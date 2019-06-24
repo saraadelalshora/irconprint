@@ -350,7 +350,7 @@
                                 <li><a href="{{url('admin/video/Category')}}">الأقسام الرئيسية</a></li>
                                 <li><a href="{{url('admin/video/SubCategory')}}">الأقسام الفرعية</a></li>
                                 <li><a href="{{url('admin/video/SubtwoCategory')}}">  الاقسام الفرعية  للاقسام الفرعية</a></li>
-                                <li><a href="{{route('Video.index')}}">المنتجات</a></li>
+                                <li><a href="{{route('Video.index')}}">الفيديو</a></li>
                             </ul>
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
@@ -359,7 +359,7 @@
                                 <li><a href="{{url('admin/training/Category')}}">الأقسام الرئيسية</a></li>
                                 <li><a href="{{url('admin/training/SubCategory')}}">الأقسام الفرعية</a></li>
                                 <li><a href="{{url('admin/training/SubtwoCategory')}}">  الاقسام الفرعية  للاقسام الفرعية</a></li>
-                                <li><a href="{{route('training.index')}}">المنتجات</a></li>
+                                <li><a href="{{route('training.index')}}">التدريبات</a></li>
                             </ul>
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i

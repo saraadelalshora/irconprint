@@ -16,15 +16,15 @@ class SubTwoCategory extends Model
 
    
     public function sub_category(){
-        return $this->belongsTo('App\Sub_Category');
+        return $this->belongsTo('App\Sub_Category','subtwocategory_id','id');
     }
     public function products(){
-        return $this->hasMany('App\Product');
+        return $this->hasMany('App\Product','subtwocategory_id','id');
     }
     public function videos(){
-        return $this->hasMany('App\Video');
+        return $this->hasMany('App\Video','subtwocategory_id','id');
     }
     public function trainings(){
-        return $this->hasMany('App\Training');
+        return $this->hasMany('App\Training','subtwocategory_id','id');
     }
 }

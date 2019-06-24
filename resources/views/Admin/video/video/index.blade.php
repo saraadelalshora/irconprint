@@ -46,7 +46,7 @@
                                         <tr>
                                             <td data-field="state" data-checkbox="true"></td>
                                             <td data-field="name"> {{$value->name_ar}}</td>
-                                            <td data-field="catname">{{$value->subcategory->category->name_ar}} => {{$value->subcategory->name_ar}}</td>
+                                            <td data-field="catname"> @if(isset($value->category)) {{$value->category->name_ar}} @endif  => @if(isset($value->subcategory))  {{$value->subcategory->name_ar}} @endif </td>
                                              <td data-field="status">@if($value->status == 1) مفعل @else غير مفعل @endif</td>
                         
                                             <td data-field="edit"><button type="button" class="btn btn-sm btn-success btn-rounded m-l-15" ><i class="fa fa-check"></i><a href="{{route('Video.edit',$value->id)}}" style="color: #ffffff;"> تعديل</a></button>

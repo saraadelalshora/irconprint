@@ -95,10 +95,12 @@
 
                                             <div class="tab-pane" id="home2" role="tabpanel">
                                                 <div class="form-group">
-                                                    <label class="control-label">القسم الرئيسي <span class="text-danger">*</span></label>
+                                                    <label class="control-label">القسم الرئيسي <span class="text-danger">*</span><span class="text-danger">(بعض الاقسام غير موجوده بسبب انها لديها منتجات لاضافة قسم فرعي لها  قم بحذف المنتجات اولا)</span></label>
                                                     <select class="form-control m-b-10 select2-multiple" style="width: 100%" required name="category" data-placeholder="Choose">
-                                                    @if(!empty($categories)) @foreach($categories as $category)       
+                                                    @if(!empty($categories)) @foreach($categories as $category)      
+                                                    @if($category->products->isEmpty() == true )
                                                     <option value="{{$category->id}}" @if($subcategory->category_id == $category->id)selected @endif>{{$category->name_ar}}</option>
+                                                      @endif
                                                      @endforeach  @endif
                                                         </select>
                                                      </div>

@@ -135,9 +135,9 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label">القسم الفرعي<span class="text-danger">*</span> </label>
+                                    <label class="control-label">القسم الفرعي</label>
                                     <select name="subcategory" id="subcategory"
-                                        class="form-control m-b-10 select2-multiplel" required
+                                        class="form-control m-b-10 select2-multiplel" 
                                         data-validation-required-message="هذا الحقل مطلوب">
                                     </select>
                                 </div>
@@ -145,7 +145,7 @@
                                     <label class="control-label">تصنفيات الاقسام الفرعية<span
                                             class="text-danger">*</span> </label>
                                     <select name="subsubcategory" id="filter"
-                                        class="form-control m-b-10 select2-multiplel" required
+                                        class="form-control m-b-10 select2-multiplel" 
                                         data-validation-required-message="هذا الحقل مطلوب">
                                     </select>
                                 </div>
@@ -266,10 +266,10 @@
         if (countryID) {
             $.ajax({
                 type: "GET",
-                url: "{{url('admin/subcategory-list')}}?category_id=" + countryID,
+                url: "{{url('admin/subcategory-list-training')}}?category_id=" + countryID,
                 success: function (res) {
                     if (res) {
-                        $("#subcategory").empty();
+                        // $("#subcategory").empty();
                         $("#subcategory").append('<option disabled="disabled" selected="selected" >Select</option>');
                         $.each(res, function (key, value) {
                             $("#subcategory").append('<option value="' + key + '">' +
@@ -294,10 +294,10 @@
         if (stateID) {
             $.ajax({
                 type: "GET",
-                url: "{{url('admin/filter-list')}}?subcategory_id=" + stateID,
+                url: "{{url('admin/filter-list-training')}}?subcategory_id=" + stateID,
                 success: function (res) {
                     if (res) {
-                        $("#filter").empty();
+                        // $("#filter").empty();
                         $("#filter").append('<option disabled="disabled" selected="selected">Select</option>');
                         $.each(res, function (key, value) {
                             $("#filter").append('<option value="' + key + '">' + value +

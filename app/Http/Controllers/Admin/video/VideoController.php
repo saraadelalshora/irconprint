@@ -216,7 +216,7 @@ $this->validate($request,[
     }
     public function getFilter(Request $request)
     {
-        $subcategory=SubTwoCategory::find([[$request->subcategory_id],['type','video']]);
+        $subcategory=SubTwoCategory::where([["subcategory_id",$request->subcategory_id],['type','video']]);
         $filterss=$subcategory->pluck("name_ar","id");
        
         return response()->json($filterss);

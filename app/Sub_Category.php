@@ -16,18 +16,18 @@ class Sub_Category extends Model
 
    
     public function category(){
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo('App\Category','subcategory_id','id');
     }
     public function subtwocategories(){
         return $this->hasMany('App\SubTwoCategory','subcategory_id','id');
     }
     public function products(){
-        return $this->hasMany('App\Product');
+        return $this->hasMany('App\Product','subcategory_id','id');
     }
     public function videos(){
-        return $this->hasMany('App\Video');
+        return $this->hasMany('App\Video','subcategory_id','id');
     }
     public function trainings(){
-        return $this->hasMany('App\Training');
+        return $this->hasMany('App\Training','subcategory_id','id');
     }
 }
