@@ -35,14 +35,10 @@
                 <div class="col-sm-12 col-md-6 col-lg-4">
                     <div class="feature-card">
                         <div class="feature-card-icon">
-                             @if($i==1)
+                        @if($service1->img)
+                            <i class="{{$service1->img}}"></i>
+                            @else
                             <i class="icon-presentation"></i>
-                              @elseif($i==2)
-                              <i class="icon-search"></i>
-                              @elseif($i==3)
-                              <i class="icon-piechart"></i>
-                              @elseif($i==4)
-                            <i class="icon-map"></i>
                             @endif
                         </div>
                         <div class="feature-card-content">

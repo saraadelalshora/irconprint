@@ -33,7 +33,8 @@
             </div>
             <div class="card-body">
                 <div class="form-group">
-                    <form class="p-t-20" method="POST" action="{{route('Service.store')}}" enctype="multipart/form-data">
+                    <form class="p-t-20" method="POST" action="{{route('Service.store')}}"
+                        enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="tab-content">
                             <div class="tab-pane active" id="home1" role="tabpanel">
@@ -64,6 +65,34 @@
                                                             name="ar_name">
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <div class="form-group live-preview">
+                                                <label class="control-label">اختر ايقونه الخدمه</label>
+                                                <select id="e1_element" name="e1_element">
+                                                    <option >No icon</option>
+                                                    <option value="icon-mobile">icon-mobile</option>
+                                                    <option value="icon-laptop">icon-laptop</option>
+                                                    <option value="icon-desktop">icon-desktop</option>
+                                                    <option value="icon-tablet">icon-tablet</option>
+                                                    <option value="icon-phone">icon-phone</option>
+                                                    <option value="icon-document">icon-document</option>
+                                                    <option value="icon-documents">icon-documents</option>
+                                                    <option value="icon-search">icon-search</option>
+                                                    <option value="icon-clipboard">icon-clipboard</option>
+                                                    <option value="icon-newspaper">icon-newspaper</option>
+                                                    <option value="icon-notebook">icon-notebook</option>
+                                                    <option value="icon-calendar">icon-calendar</option>
+                                                    <option value="icon-presentation">icon-presentation</option>
+                                                    <option value="icon-picture">icon-picture</option>
+                                                    <option value="icon-pictures">icon-pictures</option>
+                                                    <option value="icon-video">icon-video</option>
+                                                    <option value="icon-camera">icon-camera</option>
+                                                    <option value="icon-printer">icon-printer</option>
+                                                    <option value="icon-toolbox">icon-toolbox</option>
+                                                    <option value="icon-briefcase">icon-briefcase</option>
+                                                    <option value="icon-wallet">icon-wallet</option>
+                                                    <option value="icon-gift">icon-gift</option>
+                                            </select>
                                             </div>
                                             <hr>
                                             <div>

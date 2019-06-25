@@ -98,9 +98,12 @@
                                                     <label class="control-label">القسم الرئيسي <span class="text-danger">*</span><span class="text-danger">(بعض الاقسام غير موجوده بسبب انها لديها فيديو لاضافة قسم فرعي لها  قم بحذف الفيديو اولا)</span></label> 
                                                     
                                                     <select class="form-control m-b-10 select2-multiple" style="width: 100%" required name="category" data-placeholder="Choose">
-                                                    @if(!empty($categories)) @foreach($categories as $category)       
+                                                    @if(!empty($categories)) @foreach($categories as $category)   
+                                                    <option value="{{$subcategory->category_id}}" selected>{{$category->name_ar}}</option>  
                                                    @if($category->videos->isEmpty() == true )  
-                                                    <option value="{{$category->id}}" @if($subcategory->category_id == $category->id)selected @endif>{{$category->name_ar}}</option>
+                                                     @if($subcategory->category_id != $category->id)
+                                                    <option value="{{$category->id}}" >{{$category->name_ar}}</option>
+                                                    @endif
                                                    @endif 
                                                      @endforeach  @endif
                                                         </select>

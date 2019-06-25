@@ -128,17 +128,20 @@
             <!-- Case #1 -->
             @if($category->trainings->isEmpty() != true)
             @foreach($category->trainings()->paginate(15) as $categorytraining)
+        
             <div class="col-sm-12 col-md-6 col-lg-4 case-item filter-customer filter-tips">
                 <div class="case-item-container">
                     <div class="case--img">
                         <img src="{{asset($categorytraining->image)}}" alt="case Item">
                         <div class="case--hover">
                             <div class="case--action">
-                            @if(app()->getLocale() == 'ar')
-                               <a href="{{route('training.name',$categorytraining->slogen_ar)}}" alt="{{$categorytraining->name_ar}}">  </a>
-                            @else
-                               <a href="{{route('training.name',$categorytraining->slogen_en)}}" alt="{{$categorytraining->name_en}}">  </a>
-                            @endif
+                                @if(app()->getLocale() == 'ar')
+                                <a href="{{route('training.name',$categorytraining->slogen_ar)}}"
+                                    alt="{{$categorytraining->name_ar}}"> </a>
+                                @else
+                                <a href="{{route('training.name',$categorytraining->slogen_en)}}"
+                                    alt="{{$categorytraining->name_en}}"> </a>
+                                @endif
                             </div>
                             <!-- .case-action end -->
                         </div>
@@ -146,16 +149,34 @@
                     </div>
                     <!-- .case-img end -->
                     <div class="case--content">
+                        <div class="case--cat ">
+                            <ul class="list-inline">
+                            <li> <i class="far fa-calendar-alt"></i> <span>@lang('massege.starts') {{\Carbon\Carbon::parse($categorytraining->course_date)->format('d M  Y')}}</span></li>
+                                <li class="ml-30"> <i class="far fa-clock"></i> <span>{{$categorytraining->course_hour}} @lang('massege.hour')</span> </li>
+                            </ul>
 
+                        </div>
                         <div class="case--title">
                             <h4>
-                            @if(app()->getLocale() == 'ar')
-                               <a href="{{route('training.name',$categorytraining->slogen_ar)}}"> {{$categorytraining->name_ar}} </a>
-                            @else
-                               <a href="{{route('training.name',$categorytraining->slogen_en)}}"> {{$categorytraining->name_en}} </a>
-                            @endif
-                                 
+                                @if(app()->getLocale() == 'ar')
+                                <a href="{{route('training.name',$categorytraining->slogen_ar)}}">
+                                    {{$categorytraining->name_ar}} </a>
+                                @else
+                                <a href="{{route('training.name',$categorytraining->slogen_en)}}">
+                                    {{$categorytraining->name_en}} </a>
+                                @endif
                             </h4>
+                        </div>
+
+                        <div class="product--action text--center mt-20">
+                            @if(app()->getLocale() == 'ar')
+                            <a href="{{route('training.name',$categorytraining->slogen_ar)}}"
+                                class="btn btn--rounded btn--primary"><i class="fa fa-plus"></i> @lang('massege.Read More') </a>
+                            @else
+                            <a href="{{route('training.name',$categorytraining->slogen_en)}}"
+                                class="btn btn--rounded btn--primary"><i class="fa fa-plus"></i> @lang('massege.Read More') </a>
+                            @endif
+
                         </div>
                     </div>
                 </div>

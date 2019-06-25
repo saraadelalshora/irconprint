@@ -79,8 +79,15 @@
                         <div class="col-sm-12 col-md-12 col-lg-12 mb-60">
                             <div class="chart--img">
                                 <!-- "public/".str_replace("small","larg",$manufact->img) -->
-                                <img src="{{asset(str_replace('larg','small',$training->image))}}" alt="chart" class="img-fluid">
+                                <img src="{{asset($training->image)}}" alt="chart" class="img-fluid">
                             </div>
+                            <div class="case--cat ">
+                            <ul class="list-inline">
+                            <li> <i class="far fa-calendar-alt"></i> <span>@lang('massege.starts') {{\Carbon\Carbon::parse($training->course_date)->format('d M  Y')}}</span></li>
+                                <li class="ml-30"> <i class="far fa-clock"></i> <span>{{$training->course_hour}} @lang('massege.hour')</span> </li>
+                            </ul>
+
+                        </div>
                             <!-- .chart-img end -->
                         </div>
                         <!-- .col-lg-12 end -->

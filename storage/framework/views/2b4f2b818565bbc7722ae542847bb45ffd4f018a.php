@@ -66,6 +66,34 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="form-group live-preview">
+                                                <label class="control-label">اختر ايقونه الخدمه</label>
+                                                <select id="e1_element" name="e1_element">
+                                                    <option >No icon</option>
+                                                    <option value="icon-mobile" <?php if($service->img == "icon-mobile"): ?> selected <?php endif; ?>>icon-mobile</option>
+                                                    <option value="icon-laptop," <?php if($service->img == "icon-laptop,"): ?> selected <?php endif; ?>>icon-laptop,</option>
+                                                    <option value="icon-desktop" <?php if($service->img == "icon-desktop"): ?> selected <?php endif; ?>>icon-desktop</option>
+                                                    <option value="icon-tablet" <?php if($service->img == "icon-tablet"): ?> selected <?php endif; ?>>icon-tablet</option>
+                                                    <option value="icon-phone" <?php if($service->img == "icon-phone"): ?> selected <?php endif; ?>>icon-phone</option>
+                                                    <option value="icon-document" <?php if($service->img == "icon-document"): ?> selected <?php endif; ?>>icon-document</option>
+                                                    <option value="icon-documents" <?php if($service->img == "icon-documents"): ?> selected <?php endif; ?>>icon-documents</option>
+                                                    <option value="icon-search" <?php if($service->img == "icon-search"): ?> selected <?php endif; ?>>icon-search</option>
+                                                    <option value="icon-clipboard," <?php if($service->img == "icon-clipboard,"): ?> selected <?php endif; ?>>icon-clipboard,</option>
+                                                    <option value="icon-newspaper" <?php if($service->img == "icon-newspaper"): ?> selected <?php endif; ?>>icon-newspaper</option>
+                                                    <option value="icon-notebook" <?php if($service->img == "icon-notebook"): ?> selected <?php endif; ?>>icon-notebook</option>
+                                                    <option value="icon-calendar" <?php if($service->img == "icon-calendar"): ?> selected <?php endif; ?>>icon-calendar</option>
+                                                    <option value="icon-presentation" <?php if($service->img == "icon-presentation"): ?> selected <?php endif; ?>>icon-presentation</option>
+                                                    <option value="icon-picture" <?php if($service->img == "icon-picture"): ?> selected <?php endif; ?>>icon-picture</option>
+                                                    <option value="icon-pictures" <?php if($service->img == "icon-pictures"): ?> selected <?php endif; ?>>icon-pictures</option>
+                                                    <option value="icon-video" <?php if($service->img == "icon-video"): ?> selected <?php endif; ?>>icon-video</option>
+                                                    <option value="icon-camera" <?php if($service->img == "icon-camera"): ?> selected <?php endif; ?>>icon-camera</option>
+                                                    <option value="icon-printer" <?php if($service->img == "icon-printer"): ?> selected <?php endif; ?>>icon-printer</option>
+                                                    <option value="icon-toolbox" <?php if($service->img == "icon-toolbox"): ?> selected <?php endif; ?>>icon-toolbox</option>
+                                                    <option value="icon-briefcase" <?php if($service->img == "icon-briefcase"): ?> selected <?php endif; ?>>icon-briefcase</option>
+                                                    <option value="icon-wallet" <?php if($service->img == "icon-wallet"): ?> selected <?php endif; ?>>icon-wallet</option>
+                                                    <option value=" icon-gift" <?php if($service->img == "icon-gift"): ?> selected <?php endif; ?>>icon-gift</option>
+                                               </select>
+                                            </div>
                                             <hr>
                                             <div>
                                                 <label for="textarea_ar">وصف الخدمة</label>
@@ -101,6 +129,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        
                                             <hr>
                                             <div>
                                                 <label for="textarea_ar"> وصف الخدمة </label>

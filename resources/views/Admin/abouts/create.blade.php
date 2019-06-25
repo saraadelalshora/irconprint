@@ -78,7 +78,7 @@
                                                 <label class="control-label">الحالة</label>
                                                 <select name="status" class="form-control">
                                                     <option value="1">تفعيل</option>
-                                                    <option value="0">ايقاف</option>
+                                                    <!-- <option value="0">ايقاف</option> -->
                                                 </select>
                                             </div>
                                             <div class="form-group">

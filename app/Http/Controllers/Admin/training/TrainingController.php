@@ -88,6 +88,8 @@ $this->validate($request,[
     $training->category_id=$request->category_id;
     $training->subcategory_id=$request->subcategory;
     $training->subtwocategory_id=$request->subsubcategory;
+    $training->course_hour=$request->course_hour;      
+    $training->course_date=$request->course_date;  
      if ($request->hasFile('pro_image')) {
             $images1= $request->file('pro_image');
           
@@ -103,11 +105,11 @@ $this->validate($request,[
                     
        
                     $image_resize = Img::make($images1->getRealPath());
-                    $image_resize->resize(634, 811);
+                    $image_resize->resize(1920, 670);
                     $image_resize->save(public_path('training/larg/' . $imageName));
 
                     $image_resize1 = Img::make($images1->getRealPath());
-                    $image_resize1->resize(560, 460);
+                    $image_resize1->resize(350, 200);
                     $image_resize1->save(public_path('training/small/' . $imageName));
 
                     $training->image = 'training/larg/' . $imageName;
@@ -212,6 +214,8 @@ $this->validate($request,[
         $training->category_id=$request->category_id;
         $training->subcategory_id=$request->subcategory;
         $training->subtwocategory_id=$request->subsubcategory;
+        $training->course_hour=$request->course_hour;      
+        $training->course_date=$request->course_date;                     
          if ($request->hasFile('pro_image')) {
                 $images1= $request->file('pro_image');
               
@@ -227,11 +231,11 @@ $this->validate($request,[
                         
            
                         $image_resize = Img::make($images1->getRealPath());
-                        $image_resize->resize(634, 811);
+                        $image_resize->resize(1920, 670);
                         $image_resize->save(public_path('training/larg/' . $imageName));
     
                         $image_resize1 = Img::make($images1->getRealPath());
-                        $image_resize1->resize(560, 460);
+                        $image_resize1->resize(350, 200);
                         $image_resize1->save(public_path('training/small/' . $imageName));
     
                         $training->image = 'training/larg/' . $imageName;

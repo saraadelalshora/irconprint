@@ -133,7 +133,7 @@
                                         <option disabled="disabled" selected="selected">Select</option>
                                         @if(isset($categories))
                                         @foreach($categories as $category)
-                                        <option value="{{$category->id}}" @if($product->subcategory->category->id ==
+                                        <option value="{{$category->id}}" @if($product->subcategory->category_id ==
                                             $category->id) selected @endif >{{$category->name_ar}}</option>
                                         @endforeach
                                         @endif

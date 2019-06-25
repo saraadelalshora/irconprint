@@ -42,4 +42,10 @@ class TrainingController extends Controller
         return view('Frontend.training.trainingdetails', compact('training','all_training'));
     }
 
+
+    public function All_training()
+    {   
+        $all_training=Category::where([['status','1'],['type','training']])->paginate(12);
+        return view('Frontend.training.allcategory', compact('all_training'));
+    }
 }

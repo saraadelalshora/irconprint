@@ -23,6 +23,9 @@ class CreateTrainingsTable extends Migration
             $table->string('tag_en')->nullable();
             $table->string('image')->nullable();
             $table->string('video')->nullable();
+            // timestamp
+            $table->string('course_hour')->nullable();
+            $table->timestamp('course_date')->nullable();
             $table->string('slogen_ar');
             $table->string('slogen_en')->nullable();
             $table->enum('status', ['0', '1'])->default('1');

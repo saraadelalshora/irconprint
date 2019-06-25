@@ -40,7 +40,14 @@
     <link href="{{asset('/')}}/assets/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
     <link href="{{asset('/')}}/assets/node_modules/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
     <link href="{{asset('/')}}/assets/node_modules/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
-   
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <link href="{{asset('/')}}/assets/dist/css/fontawesome-iconpicker.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{asset('/')}}/assets/dist/css/jquery.fonticonpicker.min.css" />
+    <!-- Font -->
+    <!-- <link rel="stylesheet" type="text/css" href="{{asset('/')}}/assets/dist/css/fontello-7275ca86/css/fontello.css" />
+    <link rel="stylesheet" type="text/css" href="{{asset('/')}}/assets/dist/css/icomoon/style.css" /> -->
+    <link rel="stylesheet" href="{{asset('/')}}/assetfront/css/et-line.css">
+
     <!-- Dashboard 1 Page CSS -->
     <link href="{{asset('/')}}/assets/dist/css/pages/dashboard1.css" rel="stylesheet">
     <link href="{{asset('/')}}/assets/dist/css/pages/bootstrap-switch.css" rel="stylesheet">
@@ -175,6 +182,15 @@
     -ms-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
+.icons-selector .selector-search i {
+  right:auto;
+    left: 10px;
+    
+}
+.icons-selector {
+  
+    background: #ddd;
+}
 </style>
 </head>
 
@@ -202,7 +218,7 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{{url('/')}}">
                         <!--End Logo icon -->
                         <!-- Logo text --><span>
                             <!-- dark Logo text -->
@@ -534,8 +550,8 @@
     <script src="{{asset('/')}}/assets/node_modules/bootstrap-switch/bootstrap-switch.min.js"></script>
     <script src="{{asset('/')}}/assets/node_modules/dropify/dist/js/dropify.min.js"></script>
     <script src="{{asset('/')}}/assets/node_modules/summernote/dist/summernote.min.js"></script>
-  
-
+    <script src="{{asset('/')}}/assets/dist/js/fontawesome-iconpicker.js"></script>
+    <script type="text/javascript" src="{{asset('/')}}/assets/dist/js/jquery.fonticonpicker.min.js"></script>
 <script type="text/javascript">
     
  jQuery(document).ready(function() {
@@ -638,6 +654,14 @@
         ]
     });
     $(document).ready(function() {
+        $('.icp-dd').iconpicker({
+                //title: 'Dropdown with picker',
+                //component:'.btn > i'
+            });
+            
+            $('#e1_element').fontIconPicker({
+                
+            });
         // Basic
         $('.dropify').dropify();
 

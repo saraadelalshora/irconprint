@@ -9,14 +9,17 @@ use App\City;
 use Config;
 use Session;
 use App;
-use App\Category;
+use App\Project;
 use App\Slider;
-use App\Ad;
+use App\Service;
 use App\Product;
 use App\Manufactor;
-use App\Order_product;
+use App\Page;
 use App\NewSite;
 use App\CategoryNew;
+use App\Video;
+use App\Training;
+use App\Category;
 class HomeController extends Controller
 {
     /**
@@ -37,15 +40,22 @@ class HomeController extends Controller
     public function index()
     {
         $sliders=Slider::where('status','1')->get();
-        $ads=Ad::all()->first();
-        $product=Product::where('status','1')->get();
-        // $subcategories=Sub_Category::where('status','1')->get()->random(6);;
-        $subcategories=Category::where('status','1')->get()->take(6);
-        $lastproduct=Product::where('status','1')->orderBy('created_at', 'desc')->get()->take(10);
-        $specialproduct=Product::where([['status','1']])->orderBy('created_at', 'desc')->get();
+        $product=Product::where('status','1')->orderBy('id', 'desc')->get()->take(8);
+        $services=Service::where([['status','1']])->orderBy('id', 'desc')->get()->take(4);
         $brands=Manufactor::where('status','1')->get()->take(10);
+        $about=Page::where('type','0')->get()->first();
+        $projects=Project::where('status','1')->orderBy('id', 'desc')->get()->take(12);
+        $videocount=Video::where('status','1')->count();
+        $trainingcount=Training::where('status','1')->count();
+        $productcount=$product->count();
+        $projectscount=$projects->count();
+        $cate_id=$product->pluck('category_id');
         
-        return view('home',compact('sliders','ads','subcategories','lastproduct','specialproduct','brands'));
+        $categories=Category::whereIn('id',$cate_id)->get();
+        // dd($categories);
+        $i=1;
+        $x=0;
+        return view('home',compact('categories','sliders','projects','product','services','about','brands','i','x','videocount','trainingcount','productcount','projectscount'));
     }
    
     public function search(){

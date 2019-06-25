@@ -52,6 +52,10 @@ class productController extends Controller
         return view('Frontend.product.productdetails', compact('product'));
     }
 
-
+    public function All_product()
+    {   
+        $all_product=Category::where([['status','1'],['type','product']])->paginate(12);
+        return view('Frontend.product.allcategory', compact('all_product'));
+    }
  
 }

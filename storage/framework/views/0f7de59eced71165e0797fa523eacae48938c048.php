@@ -34,14 +34,10 @@
                 <div class="col-sm-12 col-md-6 col-lg-4">
                     <div class="feature-card">
                         <div class="feature-card-icon">
-                             <?php if($i==1): ?>
+                        <?php if($service1->img): ?>
+                            <i class="<?php echo e($service1->img); ?>"></i>
+                            <?php else: ?>
                             <i class="icon-presentation"></i>
-                              <?php elseif($i==2): ?>
-                              <i class="icon-search"></i>
-                              <?php elseif($i==3): ?>
-                              <i class="icon-piechart"></i>
-                              <?php elseif($i==4): ?>
-                            <i class="icon-map"></i>
                             <?php endif; ?>
                         </div>
                         <div class="feature-card-content">

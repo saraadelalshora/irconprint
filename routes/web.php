@@ -133,13 +133,21 @@ Route::group([
     Route::get('training/subcategory/{slug}', 'Front\TrainingController@subcategory')->name('Subcategory.trainings');
     Route::get('training/subcategorytwo/{slug}', 'Front\TrainingController@subcategorytwo')->name('Subcategorytwo.trainings');
     Route::get('training/{slug}', 'Front\TrainingController@training_details')->name('training.name');
+    Route::get('training', 'Front\TrainingController@All_training')->name('training');
 
-    //product 
+    //product  All_product
     Route::get('product/category/{slug}', 'Front\ProductController@product_category')->name('category.products');
     Route::get('product/subcategory/{slug}', 'Front\ProductController@subcategory')->name('Subcategory.products');
     Route::get('product/subcategorytwo/{slug}', 'Front\ProductController@subcategorytwo')->name('Subcategorytwo.products');
     Route::get('products/{slug}', 'Front\ProductController@product_details')->name('product.name');
+    Route::get('products', 'Front\ProductController@All_product')->name('products');
 
+     //Videos 
+     Route::get('Video/category/{slug}', 'Front\VideoController@Video_category')->name('category.Videos');
+     Route::get('Video/subcategory/{slug}', 'Front\VideoController@subcategory')->name('Subcategory.Videos');
+     Route::get('Video/subcategorytwo/{slug}', 'Front\VideoController@subcategorytwo')->name('Subcategorytwo.Videos');
+     Route::get('Video', 'Front\VideoController@All_Video')->name('Video.name');
+ 
     // show_profile
     Route::get('profile', 'Front\AccountController@show_profile')->name('Profile');
     Route::match(['put', 'patch'],'profile/{id}','Front\AccountController@update_profile')->name('account.update');

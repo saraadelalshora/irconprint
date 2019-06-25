@@ -130,17 +130,20 @@
             <!-- Case #1 -->
             <?php if($category->trainings->isEmpty() != true): ?>
             <?php $__currentLoopData = $category->trainings()->paginate(15); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $categorytraining): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        
             <div class="col-sm-12 col-md-6 col-lg-4 case-item filter-customer filter-tips">
                 <div class="case-item-container">
                     <div class="case--img">
                         <img src="<?php echo e(asset($categorytraining->image)); ?>" alt="case Item">
                         <div class="case--hover">
                             <div class="case--action">
-                            <?php if(app()->getLocale() == 'ar'): ?>
-                               <a href="<?php echo e(route('training.name',$categorytraining->slogen_ar)); ?>" alt="<?php echo e($categorytraining->name_ar); ?>">  </a>
-                            <?php else: ?>
-                               <a href="<?php echo e(route('training.name',$categorytraining->slogen_en)); ?>" alt="<?php echo e($categorytraining->name_en); ?>">  </a>
-                            <?php endif; ?>
+                                <?php if(app()->getLocale() == 'ar'): ?>
+                                <a href="<?php echo e(route('training.name',$categorytraining->slogen_ar)); ?>"
+                                    alt="<?php echo e($categorytraining->name_ar); ?>"> </a>
+                                <?php else: ?>
+                                <a href="<?php echo e(route('training.name',$categorytraining->slogen_en)); ?>"
+                                    alt="<?php echo e($categorytraining->name_en); ?>"> </a>
+                                <?php endif; ?>
                             </div>
                             <!-- .case-action end -->
                         </div>
@@ -148,16 +151,36 @@
                     </div>
                     <!-- .case-img end -->
                     <div class="case--content">
+                        <div class="case--cat ">
+                            <ul class="list-inline">
+                                <li> <i class="far fa-calendar-alt"></i> <span>starts : june 12,2019</span></li>
+                                <li class="ml-30"> <i class="far fa-clock"></i> <span>15 hour</span> </li>
+                            </ul>
 
+                        </div>
                         <div class="case--title">
                             <h4>
-                            <?php if(app()->getLocale() == 'ar'): ?>
-                               <a href="<?php echo e(route('training.name',$categorytraining->slogen_ar)); ?>"> <?php echo e($categorytraining->name_ar); ?> </a>
-                            <?php else: ?>
-                               <a href="<?php echo e(route('training.name',$categorytraining->slogen_en)); ?>"> <?php echo e($categorytraining->name_en); ?> </a>
-                            <?php endif; ?>
-                                 
+                                <?php if(app()->getLocale() == 'ar'): ?>
+                                <a href="<?php echo e(route('training.name',$categorytraining->slogen_ar)); ?>">
+                                    <?php echo e($categorytraining->name_ar); ?> </a>
+                                <?php else: ?>
+                                <a href="<?php echo e(route('training.name',$categorytraining->slogen_en)); ?>">
+                                    <?php echo e($categorytraining->name_en); ?> </a>
+                                <?php endif; ?>
                             </h4>
+                        </div>
+
+                        <div class="product--action text--center mt-20">
+                            <?php if(app()->getLocale() == 'ar'): ?>
+                            <a href="<?php echo e(route('training.name',$categorytraining->slogen_ar)); ?>"
+                                class="btn btn--rounded btn--primary"><i class="fa fa-plus"></i> <?php echo app('translator')->getFromJson('massege.Read
+                                More'); ?> </a>
+                            <?php else: ?>
+                            <a href="<?php echo e(route('training.name',$categorytraining->slogen_en)); ?>"
+                                class="btn btn--rounded btn--primary"><i class="fa fa-plus"></i> <?php echo app('translator')->getFromJson('massege.Read
+                                More'); ?> </a>
+                            <?php endif; ?>
+
                         </div>
                     </div>
                 </div>

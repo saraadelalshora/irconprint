@@ -219,7 +219,7 @@
         if (countryID) {
             $.ajax({
                 type: "GET",
-                url: "{{url('admin/video/subcategory-list')}}?category_id=" + countryID,
+                url: "{{url('admin/subcategory-list')}}?category_id=" + countryID,
                 success: function (res) {
                     if (res) {
                         $("#subcategory").empty();
@@ -247,7 +247,7 @@
         if (stateID) {
             $.ajax({
                 type: "GET",
-                url: "{{url('admin/video/filter-list')}}?subcategory_id=" + stateID,
+                url: "{{url('admin/filter-list')}}?subcategory_id=" + stateID,
                 success: function (res) {
                     if (res) {
                         $("#filter").empty();

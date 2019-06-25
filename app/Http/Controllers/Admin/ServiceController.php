@@ -40,6 +40,7 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         //
         $service=new Service;
         $service->title_ar=$request->ar_name;
@@ -50,19 +51,7 @@ class ServiceController extends Controller
         if($request->description_en != null){
             $service->description_en=$request->description_en;
         }
-        if ($request->hasFile('img')) {
-            $file = $request->file('img');
-            $imageExtension = $file->getClientOriginalExtension();
-            $imageName ='page_'.time().'.'.$imageExtension;
-            if (!file_exists('public/service/larg/')) {
-                mkdir('public/service/larg/', 0777, true);
-            }
-            $image_resize = Image::make($file->getRealPath());
-            $image_resize->resize(625, 417);
-            $image_resize->save(public_path('service/larg/' .$imageName));
-            $service->img='service/larg/'.$imageName;
-
-        }
+        $service->img=$request->e1_element;
         $service->slogen_ar=$this->make_slug($request->input('ar_name'));
         $service->slogen_en=$this->make_slug($request->input('en_name'));
         $service->save();
@@ -112,19 +101,8 @@ class ServiceController extends Controller
         if($request->description_en != null){
             $service->description_en=$request->description_en;
         }
-        if ($request->hasFile('img')) {
-            $file = $request->file('img');
-            $imageExtension = $file->getClientOriginalExtension();
-            $imageName ='page_'.time().'.'.$imageExtension;
-            if (!file_exists('public/service/larg/')) {
-                mkdir('public/service/larg/', 0777, true);
-            }
-            $image_resize = Image::make($file->getRealPath());
-            $image_resize->resize(625, 417);
-            $image_resize->save(public_path('service/larg/' .$imageName));
-            $service->img='service/larg/'.$imageName;
-
-        }
+    
+        $service->img=$request->e1_element;
         $service->slogen_ar=$this->make_slug($request->input('ar_name'));
         $service->slogen_en=$this->make_slug($request->input('en_name'));
         $service->save();
@@ -140,6 +118,8 @@ class ServiceController extends Controller
     public function destroy($id)
     {
         //
+        $service=Service::find($id)->delete();
+        return  redirect('admin/Service')->with('success','تم حذف الخدمة بنجاح');
     }
 
     public function make_slug($string = null, $separator = "-") {

@@ -79,15 +79,21 @@
                 <div class="col-sm-12 col-md-12 col-lg-9">
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-12 mb-60">
-                            <div class="chart--img">
-                                <img src="{{asset('/')}}/assetfront/images/shop/full/11.jpg" alt="chart" class="img-fluid">
+                        <div class="feature-card">
+                             <div class="feature-card-icon text-center">
+                            @if($servicedetails->img)
+                            <i class="{{$servicedetails->img}}"></i>
+                            @else
+                            <i class="icon-presentation"></i>
+                            @endif
+                            </div>
                             </div>
                             <!-- .chart-img end -->
                         </div>
                         <!-- .col-lg-12 end -->
 
                         <div class="col-sm-12 col-md-12 col-lg-12">
-                            <div class="services--text">
+                            <div class="services--text text-center">
                             @if(App::getLocale() == 'en')
                             {!! $servicedetails->description_en !!}
                             @else

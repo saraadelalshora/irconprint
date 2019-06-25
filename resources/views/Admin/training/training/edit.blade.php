@@ -129,8 +129,8 @@
                                         <option disabled="disabled" selected="selected">Select</option>
                                         @if(isset($categories))
                                         @foreach($categories as $category)
-                                        <option value="{{$category->id}}" @if($training->subcategory->category->id ==
-                                            $category->id) selected @endif>{{$category->name_ar}}</option>
+                                        <option value="{{$category->id}}"
+                                         @if($training->subcategory->category_id == $category->id) selected @endif>{{$category->name_ar}}</option>
                                         @endforeach
                                         @endif
                                     </select>
@@ -155,7 +155,17 @@
                                             {{$training->subtwocategory->name_ar}}</option> @endif
                                     </select>
                                 </div>
-
+                                <div class="form-group">
+                                    <label class="control-label">عدد ساعات التدريب </label>
+                                    <input type="number" id="AR" class="form-control"  placeholder="عدد ساعات التدريب " name="course_hour" 
+                                                            data-validation-required-message="هذا الحقل مطلوب" value="{{$training->course_hour}}">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">تاريخ بدا التدريب </label>
+                                  <input type="date" id="AR" class="form-control"
+                                                            placeholder=" تاريخ بدا التدريب " name="course_date" 
+                                                            data-validation-required-message="هذا الحقل مطلوب" value="{{$training->course_date}}">
+                                </div>
                             </div>
 
 

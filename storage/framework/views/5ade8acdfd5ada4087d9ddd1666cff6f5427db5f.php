@@ -174,7 +174,7 @@
                         <!-- li end -->
                         <!-- Products Menu -->
                         <li class="has-dropdown">
-                            <a href="#" class="dropdown-toggle menu-item"
+                            <a href="<?php echo e(route('products')); ?>" class="dropdown-toggle menu-item"
                                 data-hover="pages"><?php echo app('translator')->getFromJson('massege.Products'); ?></a>
                             <ul class="dropdown-menu">
                                 <?php if(isset($product_categories)): ?>
@@ -190,8 +190,8 @@
                                     <?php endif; ?>
                                     <?php if($pro_cat->subcategories->isEmpty() != true): ?>
                                     <ul class="dropdown-menu">
-                                  
-                                     <?php $__currentLoopData = $pro_cat->subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pro_sub_cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+                                        <?php $__currentLoopData = $pro_cat->subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pro_sub_cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <li class="has-dropdown">
                                             <?php if(App::getLocale() == 'en'): ?>
                                             <a href="<?php echo e(route('Subcategory.products',$pro_sub_cat->slogen_en)); ?>"
@@ -206,23 +206,23 @@
                                             <ul class="dropdown-menu">
                                                 <?php $__currentLoopData = $pro_sub_cat->subtwocategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pro_sub_cat_two): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <li>
-                                                <?php if(App::getLocale() == 'en'): ?>
-                                            <a href="<?php echo e(route('Subcategorytwo.products',$pro_sub_cat_two->slogen_en)); ?>"
-                                                class="dropdown-toggle sub-item"
-                                                data-hover="pages"><?php echo e($pro_sub_cat_two->name_en); ?> </a>
-                                            <?php else: ?>
-                                            <a href="<?php echo e(route('Subcategorytwo.products',$pro_sub_cat_two->slogen_ar)); ?>"
-                                                class="dropdown-toggle sub-item"
-                                                data-hover="pages"><?php echo e($pro_sub_cat_two->name_ar); ?> </a>
-                                            <?php endif; ?>
-                                                </li> 
+                                                    <?php if(App::getLocale() == 'en'): ?>
+                                                    <a href="<?php echo e(route('Subcategorytwo.products',$pro_sub_cat_two->slogen_en)); ?>"
+                                                        class="dropdown-toggle sub-item"
+                                                        data-hover="pages"><?php echo e($pro_sub_cat_two->name_en); ?> </a>
+                                                    <?php else: ?>
+                                                    <a href="<?php echo e(route('Subcategorytwo.products',$pro_sub_cat_two->slogen_ar)); ?>"
+                                                        class="dropdown-toggle sub-item"
+                                                        data-hover="pages"><?php echo e($pro_sub_cat_two->name_ar); ?> </a>
+                                                    <?php endif; ?>
+                                                </li>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                                             </ul>
                                             <?php endif; ?>
                                         </li>
-                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
 
 
                                     </ul>
@@ -239,30 +239,34 @@
                         <!-- li end -->
                         <!-- Videos Menu -->
                         <li class="has-dropdown">
-                            <a href="#" class="dropdown-toggle menu-item" data-hover="pages"><?php echo app('translator')->getFromJson('massege.Videos'); ?></a>
+                            <a href="<?php echo e(route('Video.name')); ?>" class="dropdown-toggle menu-item" data-hover="pages"><?php echo app('translator')->getFromJson('massege.Videos'); ?></a>
                             <ul class="dropdown-menu">
-                            <?php if(isset($video_categories)): ?>
+                                <?php if(isset($video_categories)): ?>
                                 <?php $__currentLoopData = $video_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pro_cat_video): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
                                 <li class="dropdown-submenu">
                                     <?php if(App::getLocale() == 'en'): ?>
-                                    <a href="<?php echo e(route('category.trainings',$pro_cat_video->slogen_en)); ?>"
-                                        class="dropdown-toggle sub-item" data-hover="pages"><?php echo e($pro_cat_video->name_en); ?> </a>
+                                    <a href="<?php echo e(route('category.Videos',$pro_cat_video->slogen_en)); ?>"
+                                        class="dropdown-toggle sub-item" data-hover="pages"><?php echo e($pro_cat_video->name_en); ?>
+
+                                    </a>
                                     <?php else: ?>
-                                    <a href="<?php echo e(route('category.trainings',$pro_cat_video->slogen_ar)); ?>"
-                                        class="dropdown-toggle sub-item" data-hover="pages"><?php echo e($pro_cat_video->name_ar); ?> </a>
+                                    <a href="<?php echo e(route('category.Videos',$pro_cat_video->slogen_ar)); ?>"
+                                        class="dropdown-toggle sub-item" data-hover="pages"><?php echo e($pro_cat_video->name_ar); ?>
+
+                                    </a>
                                     <?php endif; ?>
                                     <?php if($pro_cat_video->subcategories->isEmpty() != true): ?>
                                     <ul class="dropdown-menu">
-                                  
-                                     <?php $__currentLoopData = $pro_cat_video->subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pro_sub_cat_video): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+                                        <?php $__currentLoopData = $pro_cat_video->subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pro_sub_cat_video): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <li class="has-dropdown">
                                             <?php if(App::getLocale() == 'en'): ?>
-                                            <a href="<?php echo e(route('Subcategory.trainings',$pro_sub_cat_video->slogen_en)); ?>"
+                                            <a href="<?php echo e(route('Subcategory.Videos',$pro_sub_cat_video->slogen_en)); ?>"
                                                 class="dropdown-toggle sub-item"
                                                 data-hover="pages"><?php echo e($pro_sub_cat_video->name_en); ?> </a>
                                             <?php else: ?>
-                                            <a href="<?php echo e(route('Subcategory.trainings',$pro_sub_cat_video->slogen_ar)); ?>"
+                                            <a href="<?php echo e(route('Subcategory.Videos',$pro_sub_cat_video->slogen_ar)); ?>"
                                                 class="dropdown-toggle sub-item"
                                                 data-hover="pages"><?php echo e($pro_sub_cat_video->name_ar); ?> </a>
                                             <?php endif; ?>
@@ -270,23 +274,23 @@
                                             <ul class="dropdown-menu">
                                                 <?php $__currentLoopData = $pro_sub_cat_video->subtwocategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pro_sub_cat_two_video): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <li>
-                                                <?php if(App::getLocale() == 'en'): ?>
-                                            <a href="<?php echo e(route('Subcategorytwo.trainings',$pro_sub_cat_two_video->slogen_en)); ?>"
-                                                class="dropdown-toggle sub-item"
-                                                data-hover="pages"><?php echo e($pro_sub_cat_two_video->name_en); ?> </a>
-                                            <?php else: ?>
-                                            <a href="<?php echo e(route('Subcategorytwo.trainings',$pro_sub_cat_two_video->slogen_ar)); ?>"
-                                                class="dropdown-toggle sub-item"
-                                                data-hover="pages"><?php echo e($pro_sub_cat_two_video->name_ar); ?> </a>
-                                            <?php endif; ?>
-                                                </li> 
+                                                    <?php if(App::getLocale() == 'en'): ?>
+                                                    <a href="<?php echo e(route('Subcategorytwo.Videos',$pro_sub_cat_two_video->slogen_en)); ?>"
+                                                        class="dropdown-toggle sub-item"
+                                                        data-hover="pages"><?php echo e($pro_sub_cat_two_video->name_en); ?> </a>
+                                                    <?php else: ?>
+                                                    <a href="<?php echo e(route('Subcategorytwo.Videos',$pro_sub_cat_two_video->slogen_ar)); ?>"
+                                                        class="dropdown-toggle sub-item"
+                                                        data-hover="pages"><?php echo e($pro_sub_cat_two_video->name_ar); ?> </a>
+                                                    <?php endif; ?>
+                                                </li>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                                             </ul>
                                             <?php endif; ?>
                                         </li>
-                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
 
 
                                     </ul>
@@ -320,23 +324,25 @@
                         <!-- li end -->
                         <!-- Traning Menu-->
                         <li class="has-dropdown">
-                            <a href="#" class="dropdown-toggle menu-item"><?php echo app('translator')->getFromJson('massege.Traning'); ?></a>
+                            <a href="<?php echo e(route('training')); ?>" class="dropdown-toggle menu-item"><?php echo app('translator')->getFromJson('massege.Traning'); ?></a>
                             <ul class="dropdown-menu">
-                            <?php if(isset($training_categories)): ?>
+                                <?php if(isset($training_categories)): ?>
                                 <?php $__currentLoopData = $training_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pro_cat_training): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
                                 <li class="dropdown-submenu">
                                     <?php if(App::getLocale() == 'en'): ?>
                                     <a href="<?php echo e(route('category.trainings',$pro_cat_training->slogen_en)); ?>"
-                                        class="dropdown-toggle sub-item" data-hover="pages"><?php echo e($pro_cat_training->name_en); ?> </a>
+                                        class="dropdown-toggle sub-item"
+                                        data-hover="pages"><?php echo e($pro_cat_training->name_en); ?> </a>
                                     <?php else: ?>
                                     <a href="<?php echo e(route('category.trainings',$pro_cat_training->slogen_ar)); ?>"
-                                        class="dropdown-toggle sub-item" data-hover="pages"><?php echo e($pro_cat_training->name_ar); ?> </a>
+                                        class="dropdown-toggle sub-item"
+                                        data-hover="pages"><?php echo e($pro_cat_training->name_ar); ?> </a>
                                     <?php endif; ?>
                                     <?php if($pro_cat_training->subcategories->isEmpty() != true): ?>
                                     <ul class="dropdown-menu">
-                                  
-                                     <?php $__currentLoopData = $pro_cat_training->subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pro_sub_cat_training): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+                                        <?php $__currentLoopData = $pro_cat_training->subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pro_sub_cat_training): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <li class="has-dropdown">
                                             <?php if(App::getLocale() == 'en'): ?>
                                             <a href="<?php echo e(route('Subcategory.trainings',$pro_sub_cat_training->slogen_en)); ?>"
@@ -351,23 +357,23 @@
                                             <ul class="dropdown-menu">
                                                 <?php $__currentLoopData = $pro_sub_cat_training->subtwocategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pro_sub_cat_two_training): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <li>
-                                                <?php if(App::getLocale() == 'en'): ?>
-                                            <a href="<?php echo e(route('Subcategorytwo.trainings',$pro_sub_cat_two_training->slogen_en)); ?>"
-                                                class="dropdown-toggle sub-item"
-                                                data-hover="pages"><?php echo e($pro_sub_cat_two_training->name_en); ?> </a>
-                                            <?php else: ?>
-                                            <a href="<?php echo e(route('Subcategorytwo.trainings',$pro_sub_cat_two_training->slogen_ar)); ?>"
-                                                class="dropdown-toggle sub-item"
-                                                data-hover="pages"><?php echo e($pro_sub_cat_two_training->name_ar); ?> </a>
-                                            <?php endif; ?>
-                                                </li> 
+                                                    <?php if(App::getLocale() == 'en'): ?>
+                                                    <a href="<?php echo e(route('Subcategorytwo.trainings',$pro_sub_cat_two_training->slogen_en)); ?>"
+                                                        class="dropdown-toggle sub-item"
+                                                        data-hover="pages"><?php echo e($pro_sub_cat_two_training->name_en); ?> </a>
+                                                    <?php else: ?>
+                                                    <a href="<?php echo e(route('Subcategorytwo.trainings',$pro_sub_cat_two_training->slogen_ar)); ?>"
+                                                        class="dropdown-toggle sub-item"
+                                                        data-hover="pages"><?php echo e($pro_sub_cat_two_training->name_ar); ?> </a>
+                                                    <?php endif; ?>
+                                                </li>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                                             </ul>
                                             <?php endif; ?>
                                         </li>
-                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
 
 
                                     </ul>
@@ -489,45 +495,41 @@
                 <div class="col-sm-12 col-md-12 col-lg-6 col-content">
                     <div class="heading">
                         <h2 class="heading--title color-white">We Are Here To Ease<br>The Financial Obstacles!</h2>
-                        <p class="heading--desc color-white">The choice is in your hands: Where do you go to get an
-                            advice and where you purchase products?!!</p>
+                        <p class="heading--desc color-white"> </p>
                     </div>
+                    <?php $__currentLoopData = $services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $footersevice): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <!-- Feature Card #1 -->
                     <div class="feature-card wow fadeInUp" data-wow-delay="100ms">
-                        <div class="feature-card-icon">
-                            <i class="icon-refresh"></i>
+                        <div class="feature-card-icon ">
+                            <?php if($footersevice->img): ?>
+                            <i class="<?php echo e($footersevice->img); ?>"></i>
+                            <?php else: ?>
+                            <i class="icon-presentation"></i>
+                            <?php endif; ?>
                         </div>
-                        <div class="feature-card-content">
-                            <h3 class="feature-card-title">Innovative Solutions</h3>
-                            <p class="feature-card-desc">Innovative Solutions offers services, development services and
-                                consulting to help you make the best technology.</p>
-                        </div>
-                    </div>
-                    <!-- feature-card end -->
-                    <!-- Feature Card #2 -->
-                    <div class="feature-card wow fadeInUp" data-wow-delay="200ms">
-                        <div class="feature-card-icon">
-                            <i class="icon-speedometer"></i>
-                        </div>
-                        <div class="feature-card-content">
-                            <h3 class="feature-card-title">On Time Services</h3>
-                            <p class="feature-card-desc">Mutual funds from many investors to purchase broad range of
-                                investments, such as stocks, goals, and dreams.</p>
-                        </div>
-                    </div>
-                    <!-- feature-card end -->
-                    <!-- Feature Card #3 -->
-                    <div class="feature-card wow fadeInUp" data-wow-delay="300ms">
-                        <div class="feature-card-icon">
-                            <i class="icon-lifesaver"></i>
-                        </div>
-                        <div class="feature-card-content">
-                            <h3 class="feature-card-title">Best Support</h3>
-                            <p class="feature-card-desc">We bring the right people business solutions to challenge
-                                established thinking and drive transformation.</p>
+                        <div class="feature-card-content ">
+                            <h3 class="feature-card-title">
+                                <?php if(App::getLocale() == 'ar'): ?>
+                                <?php echo e($footersevice->title_ar); ?>
+
+                                <?php else: ?>
+                                <?php echo e($footersevice->title_en); ?>
+
+                                <?php endif; ?>
+                            </h3>
+                            <p class="feature-card-desc">
+                                <?php if(App::getLocale() == 'en'): ?>
+                                <?php echo str_limit(strip_tags($footersevice->description_en), $limit = 80, $end = '...'); ?>
+
+                                <?php else: ?>
+                                <?php echo str_limit(strip_tags($footersevice->description_ar) , $limit = 80, $end = '...'); ?>
+
+                                <?php endif; ?>
+                            </p>
                         </div>
                     </div>
                     <!-- feature-card end -->
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
                 <!-- .col-lg-6 end -->
                 <div class="col-sm-12 col-md-12 col-lg-6 pr-0">
@@ -548,11 +550,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-9">
-                    <h3>Doing the Right Thing, at the Right Time!</h3>
+                    <h3><?php echo app('translator')->getFromJson('massege.Doing the Right Thing, at the Right Time!'); ?></h3>
                 </div>
                 <!-- .col-lg-9 -->
                 <div class="col-sm-12 col-md-12 col-lg-3 text-right">
-                    <a href="#" class="btn btn--white btn--bordered btn--rounded">Get Started</a>
+                    <a href="<?php echo e(url('contact-us')); ?>" class="btn btn--white btn--bordered btn--rounded"><?php echo app('translator')->getFromJson('massege.Get
+                        Started'); ?></a>
                 </div>
                 <!-- .col-lg-3 -->
             </div>
@@ -572,68 +575,64 @@
                         <div class="widget-content">
                             <img class="footer-logo" src="<?php echo e(asset('/')); ?>/assetfront/images/logo/logo-small.png"
                                 alt="logo">
-                            <p>Experienced In Mortgage And Financial Advice!We don’t believe in the sales culture, but
-                                instead we believe in the service culture. </p>
+                            <?php if(App::getLocale() == 'ar'): ?>
+                            <p><?php echo e($setting->description_ar); ?></p>
+                            <?php else: ?>
+                            <p><?php echo e($setting->description_en); ?></p>
+                            <?php endif; ?>
                             <div class="social-icons">
-                                <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
-                                <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                                <?php if($social->fb): ?> <a href="<?php echo e('https://'.$social->fb); ?>" class="facebook"> <i
+                                        class="fab fa-facebook-f"></i></a> <?php endif; ?>
+                                <?php if($social->tw): ?><a href="<?php echo e('https://'.$social->tw); ?>" class="twitter"><i
+                                        class="fab fa-twitter"></i></a><?php endif; ?>
+                                <?php if($social->linkedin): ?><a href="<?php echo e('https://'.$social->linkedin); ?>" class="linkedin"><i
+                                        class="fab fa-linkedin-in"></i></a><?php endif; ?>
+                                <?php if($social->instegram): ?><a href="<?php echo e('https://'.$social->instegram); ?>" class="linkedin"><i
+                                        class="fab fa-linkedin-in"></i></a><?php endif; ?>
+                                <?php if($social->youtube): ?><a href="<?php echo e('https://'.$social->youtube); ?>" class="linkedin"><i
+                                        class="fab fa-linkedin-in"></i></a><?php endif; ?>
+                                <?php if($social->pinterest): ?><a href="<?php echo e('https://'.$social->pinterest); ?>" class="linkedin"><i
+                                        class="fab fa-linkedin-in"></i></a><?php endif; ?>
+
                             </div>
                         </div>
                     </div><!-- .col-md-3 end -->
                     <div class="col-12 col-sm-4 col-md-6 col-lg-2 footer--widget widget-links">
                         <div class="widget-title">
-                            <h5>Company</h5>
+                            <h5><?php echo app('translator')->getFromJson('massege.Company'); ?></h5>
                         </div>
                         <div class="widget-content">
                             <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Meet Our Team</a></li>
-                                <li><a href="#">How It Works</a></li>
-                                <li><a href="#">Latest News</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">FAQs</a></li>
+                                <li><a href="<?php echo e(route('About')); ?>"><?php echo app('translator')->getFromJson('massege.About Us'); ?></a></li>
+                                <li><a href="<?php echo e(route('President')); ?>"><?php echo app('translator')->getFromJson('massege.President`s word'); ?></a></li>
+                                <li><a href="<?php echo e(url('contact-us')); ?>"><?php echo app('translator')->getFromJson('massege.contact'); ?></a></li>
                             </ul>
                         </div>
                     </div><!-- .col-md-2 end -->
 
                     <div class="col-12 col-sm-8 col-md-6 col-lg-4 footer--widget widget-links widget-links-inline">
-                        <div class="widget-title">
-                            <h5>Services</h5>
+                        <div class="contact-box-icon pull-left">
+                            <i class="icon-map-pin"></i>
                         </div>
-                        <div class="widget-content">
-                            <ul>
-                                <li><a href="#">Finance & Restructuring</a></li>
-                                <li><a href="#">Merchandise Consulting</a></li>
-                                <li><a href="#">Insurance & Retirement</a></li>
-                                <li><a href="#">Enterprise Consulting</a></li>
-                                <li><a href="#">Strategy & Planning</a></li>
-                                <li><a href="#">General Consultancy</a></li>
-                                <li><a href="#">Audit & Evaluation</a></li>
-                                <li><a href="#">Investment Planing</a></li>
-                                <li><a href="#">Taxes & Efficiency</a></li>
-                                <li><a href="#">Market Analysis</a></li>
-                                <li><a href="#">Market Analysis</a></li>
-                            </ul>
+                        <div class="contact-box-info">
+                            <p class="text-capitalize "><?php echo app('translator')->getFromJson('massege.address'); ?>:</p>
+                            <p class="font-heading"> <?php echo e(ucwords($setting->address)); ?> </p>
                         </div>
                     </div><!-- .col-md-4 end -->
 
                     <div class="col-12 col-md-6 col-lg-3 footer--widget widget-newsletter">
-                        <div class="widget-title">
-                            <h5>Stay Updated</h5>
+
+                        <div class="contact-box-info">
+                            <p class="text-capitalize "><?php echo app('translator')->getFromJson('massege.email'); ?></p>
+                            <p class="font-heading"><?php echo e($setting->email); ?></p>
                         </div>
-                        <div class="widget-content">
-                            <form class="form-newsletter mailchimp">
-                                <input type="email" name="email" class="form-control"
-                                    placeholder="Subscribe Our Newsletter">
-                                <button type="submit"><i class="fas fa-long-arrow-alt-right"></i></button>
-                            </form>
-                            <div class="subscribe-alert"></div>
-                            <div class="clearfix"></div>
-                            <p>Get the latest updates and offers.</p>
+
+                        <div class="contact-box-info">
+                            <p class="text-capitalize"><?php echo app('translator')->getFromJson('massege.phone'); ?></p>
+                            <p class="text-capitalize font-heading"><?php echo e($setting->phone); ?></p>
                         </div>
-                    </div><!-- .col-md-3 end -->
+                    </div>
+                    <!-- .col-md-3 end -->
                     <div class="clearfix"></div>
                 </div>
             </div><!-- .container end -->
@@ -646,8 +645,8 @@
                 <div class="row">
                     <div class="col-12 col-md-12 col-md-12 text-center footer--copyright">
                         <div class="copyright">
-                            <span> Copyright © 2019 Irconprint , <a href="#">Web Design Company</a> <a
-                                    href="#">3Hand</a> All rights
+                            <span> Copyright © 2019 Irconprint , <a href="http://3hand.net">Web Design Company</a> <a
+                                    href="http://3hand.net">3Hand</a> All rights
                                 reserved.</span>
                         </div>
                     </div>

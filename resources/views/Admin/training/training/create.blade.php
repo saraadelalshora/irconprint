@@ -149,7 +149,18 @@
                                         data-validation-required-message="هذا الحقل مطلوب">
                                     </select>
                                 </div>
-
+                              <!--   -->
+                              <div class="form-group">
+                                    <label class="control-label">عدد ساعات التدريب </label>
+                                    <input type="number" id="AR" class="form-control"  placeholder="عدد ساعات التدريب " name="course_hour" 
+                                                            data-validation-required-message="هذا الحقل مطلوب">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">تاريخ بدا التدريب </label>
+                                  <input type="date" id="AR" class="form-control"
+                                                            placeholder=" تاريخ بدا التدريب " name="course_date" 
+                                                            data-validation-required-message="هذا الحقل مطلوب">
+                                </div>
                             </div>
 
 

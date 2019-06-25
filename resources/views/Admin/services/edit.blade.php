@@ -65,6 +65,34 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="form-group live-preview">
+                                                <label class="control-label">اختر ايقونه الخدمه</label>
+                                                <select id="e1_element" name="e1_element">
+                                                    <option >No icon</option>
+                                                    <option value="icon-mobile" @if($service->img == "icon-mobile") selected @endif>icon-mobile</option>
+                                                    <option value="icon-laptop" @if($service->img == "icon-laptop") selected @endif>icon-laptop</option>
+                                                    <option value="icon-desktop" @if($service->img == "icon-desktop") selected @endif>icon-desktop</option>
+                                                    <option value="icon-tablet" @if($service->img == "icon-tablet") selected @endif>icon-tablet</option>
+                                                    <option value="icon-phone" @if($service->img == "icon-phone") selected @endif>icon-phone</option>
+                                                    <option value="icon-document" @if($service->img == "icon-document") selected @endif>icon-document</option>
+                                                    <option value="icon-documents" @if($service->img == "icon-documents") selected @endif>icon-documents</option>
+                                                    <option value="icon-search" @if($service->img == "icon-search") selected @endif>icon-search</option>
+                                                    <option value="icon-clipboard" @if($service->img == "icon-clipboard") selected @endif>icon-clipboard</option>
+                                                    <option value="icon-newspaper" @if($service->img == "icon-newspaper") selected @endif>icon-newspaper</option>
+                                                    <option value="icon-notebook" @if($service->img == "icon-notebook") selected @endif>icon-notebook</option>
+                                                    <option value="icon-calendar" @if($service->img == "icon-calendar") selected @endif>icon-calendar</option>
+                                                    <option value="icon-presentation" @if($service->img == "icon-presentation") selected @endif>icon-presentation</option>
+                                                    <option value="icon-picture" @if($service->img == "icon-picture") selected @endif>icon-picture</option>
+                                                    <option value="icon-pictures" @if($service->img == "icon-pictures") selected @endif>icon-pictures</option>
+                                                    <option value="icon-video" @if($service->img == "icon-video") selected @endif>icon-video</option>
+                                                    <option value="icon-camera" @if($service->img == "icon-camera") selected @endif>icon-camera</option>
+                                                    <option value="icon-printer" @if($service->img == "icon-printer") selected @endif>icon-printer</option>
+                                                    <option value="icon-toolbox" @if($service->img == "icon-toolbox") selected @endif>icon-toolbox</option>
+                                                    <option value="icon-briefcase" @if($service->img == "icon-briefcase") selected @endif>icon-briefcase</option>
+                                                    <option value="icon-wallet" @if($service->img == "icon-wallet") selected @endif>icon-wallet</option>
+                                                    <option value=" icon-gift" @if($service->img == "icon-gift") selected @endif>icon-gift</option>
+                                               </select>
+                                            </div>
                                             <hr>
                                             <div>
                                                 <label for="textarea_ar">وصف الخدمة</label>
@@ -99,6 +127,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        
                                             <hr>
                                             <div>
                                                 <label for="textarea_ar"> وصف الخدمة </label>

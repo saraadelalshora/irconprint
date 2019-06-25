@@ -81,15 +81,21 @@
                 <div class="col-sm-12 col-md-12 col-lg-9">
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-12 mb-60">
-                            <div class="chart--img">
-                                <img src="<?php echo e(asset('/')); ?>/assetfront/images/shop/full/11.jpg" alt="chart" class="img-fluid">
+                        <div class="feature-card">
+                             <div class="feature-card-icon text-center">
+                            <?php if($servicedetails->img): ?>
+                            <i class="<?php echo e($servicedetails->img); ?>"></i>
+                            <?php else: ?>
+                            <i class="icon-presentation"></i>
+                            <?php endif; ?>
+                            </div>
                             </div>
                             <!-- .chart-img end -->
                         </div>
                         <!-- .col-lg-12 end -->
 
                         <div class="col-sm-12 col-md-12 col-lg-12">
-                            <div class="services--text">
+                            <div class="services--text text-center">
                             <?php if(App::getLocale() == 'en'): ?>
                             <?php echo $servicedetails->description_en; ?>
 

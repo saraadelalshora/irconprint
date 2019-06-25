@@ -82,8 +82,15 @@
                         <div class="col-sm-12 col-md-12 col-lg-12 mb-60">
                             <div class="chart--img">
                                 <!-- "public/".str_replace("small","larg",$manufact->img) -->
-                                <img src="<?php echo e(asset(str_replace('larg','small',$training->image))); ?>" alt="chart" class="img-fluid">
+                                <img src="<?php echo e(asset($training->image)); ?>" alt="chart" class="img-fluid">
                             </div>
+                            <div class="case--cat ">
+                            <ul class="list-inline">
+                            <li> <i class="far fa-calendar-alt"></i> <span><?php echo app('translator')->getFromJson('massege.starts'); ?> <?php echo e(\Carbon\Carbon::parse($training->course_date)->format('d M  Y')); ?></span></li>
+                                <li class="ml-30"> <i class="far fa-clock"></i> <span><?php echo e($training->course_hour); ?> <?php echo app('translator')->getFromJson('massege.hour'); ?></span> </li>
+                            </ul>
+
+                        </div>
                             <!-- .chart-img end -->
                         </div>
                         <!-- .col-lg-12 end -->
@@ -119,7 +126,7 @@
                             <?php if($training->video != null): ?>
                                 <div class="video--content text-center">
                                     <div class="bg-section">
-                                        <img src="assets/images/video/1.jpg" alt="Background" />
+                                        <img src="<?php echo e(asset('/')); ?>/assetfront/assets/images/video/1.jpg" alt="Background" />
                                     </div>
                                     <div class="video--button">
                                         <div class="video-overlay">

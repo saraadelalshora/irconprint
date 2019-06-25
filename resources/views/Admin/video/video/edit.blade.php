@@ -117,7 +117,7 @@
                                         <option disabled="disabled" selected="selected">Select</option>
                                         @if(isset($categories))
                                         @foreach($categories as $category)
-                                        <option value="{{$category->id}}"  @if($video->subcategory->category->id ==
+                                        <option value="{{$category->id}}"  @if($video->subcategory->category_id ==
                                             $category->id) selected @endif selected >{{$category->name_ar}}</option>
                                         @endforeach
                                         @endif
@@ -223,7 +223,7 @@
         if (countryID) {
             $.ajax({
                 type: "GET",
-                url: "{{url('admin/video/subcategory-list')}}?category_id=" + countryID,
+                url: "{{url('admin/subcategory-list')}}?category_id=" + countryID,
                 success: function (res) {
                     if (res) {
                         $("#subcategory").empty();
@@ -251,7 +251,7 @@
         if (stateID) {
             $.ajax({
                 type: "GET",
-                url: "{{url('admin/video/filter-list')}}?subcategory_id=" + stateID,
+                url: "{{url('admin/filter-list')}}?subcategory_id=" + stateID,
                 success: function (res) {
                     if (res) {
                         $("#filter").empty();
