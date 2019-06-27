@@ -1,12 +1,11 @@
-@extends('layouts.front.master')
-@section('meta')
+<?php $__env->startSection('meta'); ?>
 <title>Ircon</title>
-<meta name="description" @if(isset($setting->meta_description_ar))content="{{$setting->meta_description_ar}}"@endif>
-<meta name="keywords" @if(isset($setting->meta_tags)) content="{{$setting->meta_tags}}"@endif >
+<meta name="description" <?php if(isset($setting->meta_description_ar)): ?>content="<?php echo e($setting->meta_description_ar); ?>"<?php endif; ?>>
+<meta name="keywords" <?php if(isset($setting->meta_tags)): ?> content="<?php echo e($setting->meta_tags); ?>"<?php endif; ?> >
 
-<meta name="author" @if(isset($setting->meta_title)) content="{{$setting->meta_title}}"@endif >
-@endsection
-@section('content')
+<meta name="author" <?php if(isset($setting->meta_title)): ?> content="<?php echo e($setting->meta_title); ?>"<?php endif; ?> >
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
 <!-- Hero Section
 ====================================== -->
 <section id="slider" class="slider slide-overlay-black">
@@ -15,22 +14,22 @@
         <div id="slider1" class="rev_slider" data-version="5.0">
             <ul>
                 <!-- slide 1    -->
-                @foreach($sliders as $slide)
-                @if($i==1)
+                <?php $__currentLoopData = $sliders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $slide): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php if($i==1): ?>
                 <li data-transition="zoomout" data-slotamount="default" data-easein="Power4.easeInOut"
                     data-easeout="Power4.easeInOut" data-masterspeed="2000">
-                    @elseif($i==2)
+                    <?php elseif($i==2): ?>
                 <li data-transition="fadethroughdark" data-slotamount="default" data-easein="Power4.easeInOut"
                     data-easeout="Power4.easeInOut" data-masterspeed="2000">
-                    @elseif($i==3)
+                    <?php elseif($i==3): ?>
                 <li data-transition="slidingoverlaydown" data-slotamount="default" data-easein="Power4.easeInOut"
                     data-easeout="Power4.easeInOut" data-masterspeed="2000">
-                    @else
+                    <?php else: ?>
                 <li data-transition="fadethroughdark" data-slotamount="default" data-easein="Power4.easeInOut"
                     data-easeout="Power4.easeInOut" data-masterspeed="2000">
-                    @endif
+                    <?php endif; ?>
 
-                    <img src="{{asset($slide->img)}}" alt="Slide Background Image" width="1920" height="1280">
+                    <img src="<?php echo e(asset($slide->img)); ?>" alt="Slide Background Image" width="1920" height="1280">
                     <!-- LAYER NR. 1 -->
                     <div class="tp-caption" data-x="['center','center','center','center']"
                         data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
@@ -40,11 +39,13 @@
                         data-frames='[{"delay":1000,"speed":1000,"frame":"0","from":"z:0;rX:0deg;rY:0;rZ:0;sX:2;sY:2;skX:0;skY:0;opacity:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
                         data-splitin="none" data-responsive_offset="on">
                         <div class="slide--headline text-center">
-                            @if(App::getLocale() == 'en')
-                            {!! $slide->title_en !!}
-                            @else
-                            {!! $slide->title_ar !!}
-                            @endif
+                            <?php if(App::getLocale() == 'en'): ?>
+                            <?php echo $slide->title_en; ?>
+
+                            <?php else: ?>
+                            <?php echo $slide->title_ar; ?>
+
+                            <?php endif; ?>
 
                         </div>
                     </div>
@@ -57,27 +58,31 @@
                         data-lineheight="['25','25','25','25']" data-width="none" data-height="none"
                         data-frames='[{"delay":1250,"speed":1500,"frame":"0","from":"x:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
                         data-splitin="none" data-splitout="none" data-responsive_offset="on">
-                        @if($slide->short_desc_ar)
+                        <?php if($slide->short_desc_ar): ?>
                         <div class="slide--bio text-center">
-                            @if(App::getLocale() == 'ar')
-                            {{$slide->short_desc_ar}}
-                            @else
-                            {{$slide->short_desc_en}}
-                            @endif
+                            <?php if(App::getLocale() == 'ar'): ?>
+                            <?php echo e($slide->short_desc_ar); ?>
+
+                            <?php else: ?>
+                            <?php echo e($slide->short_desc_en); ?>
+
+                            <?php endif; ?>
                         </div>
-                        @else
+                        <?php else: ?>
                         <div class="slide--bio text-center">
-                            @if(App::getLocale() == 'ar')
-                            {{strip_tags($slide->description_ar)}}
-                            @else
-                            {{strip_tags($slide->description_en)}}
-                            @endif
+                            <?php if(App::getLocale() == 'ar'): ?>
+                            <?php echo e(strip_tags($slide->description_ar)); ?>
+
+                            <?php else: ?>
+                            <?php echo e(strip_tags($slide->description_en)); ?>
+
+                            <?php endif; ?>
                         </div>
-                        @endif
+                        <?php endif; ?>
                     </div>
 
                     <!-- LAYER NR. 3 -->
-                    @if($slide->link)
+                    <?php if($slide->link): ?>
                     <div class="tp-caption" data-x="['center','center','center','center']"
                         data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
                         data-voffset="['135','135','150','170']" data-width="none" data-height="none"
@@ -86,139 +91,145 @@
                         data-splitin="none" data-splitout="none" data-responsive_offset="on">
                         <div class="slide-action">
 
-                            <a class="btn btn--gradient btn--rounded" href="{{$slide->link}}">Invest Now!</a>
+                            <a class="btn btn--gradient btn--rounded" href="<?php echo e($slide->link); ?>">Invest Now!</a>
 
                         </div>
                     </div>
-                    @endif
+                    <?php endif; ?>
                 </li>
 
-                @php
-                if($i < 4){ $i++; }else{ $i=1; } @endphp @endforeach </ul> </div> <!-- END REVOLUTION SLIDER -->
+                <?php
+                if($i < 4){ $i++; }else{ $i=1; } ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> </ul> </div> <!-- END REVOLUTION SLIDER -->
         </div>
         <!-- END OF SLIDER WRAPPER -->
 </section>
 <!-- #hero end -->
 <!-- Featured #1
 ============================================= -->
-@if(isset($services))
+<?php if(isset($services)): ?>
 <section id="featured1" class="featured featured-1 pt-100">
     <div class="container">
         <div class="row">
-            @foreach($services as $service)
+            <?php $__currentLoopData = $services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <!-- Feature Card #1 -->
             <div class="col-sm-12 col-md-6 col-lg-3">
                 <div class="feature-card text-center">
                     <div class="feature-card-icon ">
-                        @if($service->img)
-                        <i class="{{$service->img}}"></i>
-                        @else
+                        <?php if($service->img): ?>
+                        <i class="<?php echo e($service->img); ?>"></i>
+                        <?php else: ?>
                         <i class="icon-presentation"></i>
-                        @endif
+                        <?php endif; ?>
                     </div>
                     <div class="feature-card-content text-center">
                         <h3 class="feature-card-title">
-                            @if(App::getLocale() == 'ar')
-                            <a href="{{route('service',$service->slogen_en)}}"> {{$service->title_ar}} </a>
-                            @else
-                            <a href="{{route('service',$service->slogen_ar)}}">{{$service->title_en}}</a>
-                            @endif
+                            <?php if(App::getLocale() == 'ar'): ?>
+                            <a href="<?php echo e(route('service',$service->slogen_en)); ?>"> <?php echo e($service->title_ar); ?> </a>
+                            <?php else: ?>
+                            <a href="<?php echo e(route('service',$service->slogen_ar)); ?>"><?php echo e($service->title_en); ?></a>
+                            <?php endif; ?>
                         </h3>
                         <p class="feature-card-desc">
-                            @if(App::getLocale() == 'en')
-                            {!! str_limit(strip_tags($service->description_en), $limit = 80, $end = '...') !!}
-                            @else
-                            {!! str_limit(strip_tags($service->description_ar) , $limit = 80, $end = '...') !!}
-                            @endif
+                            <?php if(App::getLocale() == 'en'): ?>
+                            <?php echo str_limit(strip_tags($service->description_en), $limit = 80, $end = '...'); ?>
+
+                            <?php else: ?>
+                            <?php echo str_limit(strip_tags($service->description_ar) , $limit = 80, $end = '...'); ?>
+
+                            <?php endif; ?>
                         </p>
                     </div>
                 </div>
             </div>
             <!-- .col-lg-3 end -->
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
         <!-- .row end -->
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-                <a href="{{url('services')}}" class="btn btn--gradient btn--rounded">@lang('massege.All Services')</a>
+                <a href="<?php echo e(url('services')); ?>" class="btn btn--gradient btn--rounded"><?php echo app('translator')->getFromJson('massege.All Services'); ?></a>
             </div>
-            <!-- .col-lg-12 end {{--route('service',$servicesss->slogen_en)--}}-->
+            <!-- .col-lg-12 end -->
         </div>
         <!-- .row end -->
     </div>
     <!-- .container end -->
 </section>
 <!-- #featured1 end -->
-@endif
+<?php endif; ?>
 
 
 <!-- about  #1
     ============================================= -->
 <section id="about1" class="about about-1 bg-gray pt-110 pb-50">
     <div class="container">
-        @if(isset($about))
+        <?php if(isset($about)): ?>
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-6">
                 <div class="heading">
-                    <p class="heading--subtitle">@lang('massege.All About Us')</p>
+                    <p class="heading--subtitle"><?php echo app('translator')->getFromJson('massege.All About Us'); ?></p>
                     <h2 class="heading--title">
-                        @if(App::getLocale() == 'en')
-                        {!! $about->title_en !!}
-                        @else
-                        {!! $about->title_ar !!}
-                        @endif
+                        <?php if(App::getLocale() == 'en'): ?>
+                        <?php echo $about->title_en; ?>
+
+                        <?php else: ?>
+                        <?php echo $about->title_ar; ?>
+
+                        <?php endif; ?>
                     </h2>
                 </div>
                 <div class="about--text">
-                    @if(App::getLocale() == 'en')
-                    {!! str_limit(strip_tags($about->description_en), $limit = 250, $end = '...') !!}
-                    @else
-                    {!! str_limit(strip_tags($about->description_ar) , $limit = 250, $end = '...') !!}
-                    @endif
+                    <?php if(App::getLocale() == 'en'): ?>
+                    <?php echo str_limit(strip_tags($about->description_en), $limit = 250, $end = '...'); ?>
+
+                    <?php else: ?>
+                    <?php echo str_limit(strip_tags($about->description_ar) , $limit = 250, $end = '...'); ?>
+
+                    <?php endif; ?>
                 </div>
                 <a href="#" class="btn btn--secondary btn--rounded mb-30-xs mb-30-sm">More About Us</a>
             </div>
             <!-- .col-lg-6 end -->
             <div class="col-sm-12 col-md-12 col-lg-6">
                 <div class="about--img">
-                    <img src="{{asset($about->img)}}" alt="img" class="img-fluid">
+                    <img src="<?php echo e(asset($about->img)); ?>" alt="img" class="img-fluid">
                 </div>
             </div>
             <!-- .col-lg-6 end -->
         </div>
-        @endif
+        <?php endif; ?>
         <!-- .row end -->
         <div class="counter counter-1">
             <div class="row">
                 <!-- count #1 -->
                 <div class="col-6 col-sm-6 col-md-6 col-lg-3">
                     <div class="count-box text-center">
-                        <div class="counting">{{$videocount}}</div>
-                        <div class="count-title">@lang('massege.Videos')</div>
+                        <div class="counting"><?php echo e($videocount); ?></div>
+                        <div class="count-title"><?php echo app('translator')->getFromJson('massege.Videos'); ?></div>
                     </div>
                 </div>
                 <!-- .col-md-3 end -->
                 <!-- count #2 -->
                 <div class="col-6 col-sm-6 col-md-6 col-lg-3">
                     <div class="count-box text-center">
-                        <div class="counting">{{$trainingcount}}</div>
-                        <div class="count-title">@lang('massege.Training')</div>
+                        <div class="counting"><?php echo e($trainingcount); ?></div>
+                        <div class="count-title"><?php echo app('translator')->getFromJson('massege.Training'); ?></div>
                     </div>
                 </div>
                 <!-- .col-md-3 end -->
                 <!-- count #3 -->
                 <div class="col-6 col-sm-6 col-md-6 col-lg-3">
                     <div class="count-box text-center">
-                        <div class="counting">{{$productcount}}</div>
-                        <div class="count-title">@lang('massege.Products')</div>
+                        <div class="counting"><?php echo e($productcount); ?></div>
+                        <div class="count-title"><?php echo app('translator')->getFromJson('massege.Products'); ?></div>
                     </div>
                 </div>
                 <!-- .col-md-3 end -->
                 <!-- count #4 -->
                 <div class="col-6 col-sm-6 col-md-6 col-lg-3">
                     <div class="count-box text-center">
-                        <div class="counting">{{$projectscount}}</div>
-                        <div class="count-title">@lang('massege.Projects')</div>
+                        <div class="counting"><?php echo e($projectscount); ?></div>
+                        <div class="count-title"><?php echo app('translator')->getFromJson('massege.Projects'); ?></div>
                     </div>
                 </div>
                 <!-- .col-md-3 end -->
@@ -234,7 +245,7 @@
 <!-- video  #2
 ============================================= -->
 <section id="video2" class="video-2 bg-overlay bg-overlay-dark2 text-center pb-0">
-    <div class="bg-section"><img src="{{asset('/')}}/assetfront/images/background/4.jpg" alt="background"></div>
+    <div class="bg-section"><img src="<?php echo e(asset('/')); ?>/assetfront/images/background/4.jpg" alt="background"></div>
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-10 offset-lg-1">
@@ -251,12 +262,12 @@
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <div class="video--content text-center">
                     <div class="bg-section">
-                        <img src="{{asset('/')}}/assetfront/images/video/2.jpg" alt="Background" />
+                        <img src="<?php echo e(asset('/')); ?>/assetfront/images/video/2.jpg" alt="Background" />
                     </div>
                     <div class="video--button">
                         <div class="video-overlay">
                             <div class="pos-vertical-center">
-                                <a class="popup-video" href="{{$about->video}}">
+                                <a class="popup-video" href="https://www.youtube.com/watch?v=nrJtHemSPW4">
                                     <span class="btn--animation"></span>
                                     <i class="fa fa-play"></i>
                                 </a>
@@ -282,8 +293,8 @@
         <div class="row flipInX" data-wow-delay="100ms">
             <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
                 <div class="heading heading-2 mb-30 text--center">
-                    <p class="heading--subtitle">@lang('massege.Our Products')</p>
-                    <h2 class="heading--title">@lang('massege.Products')</h2>
+                    <p class="heading--subtitle"><?php echo app('translator')->getFromJson('massege.Our Products'); ?></p>
+                    <h2 class="heading--title"><?php echo app('translator')->getFromJson('massege.Products'); ?></h2>
                     <p class="heading--desc mb-0">We monitor the spectrum of available business investment and alert
                         our users to market moving events as and when it happens.</p>
                 </div>
@@ -296,29 +307,31 @@
             <div class="col-12 col-md-12 col-md-12 gallery-filter">
                 <ul class="list-inline mb-0">
                     <li><a class="active-filter" href="#" data-filter="*">All</a></li>
-                    @foreach($categories as $catefilter)
+                    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $catefilter): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-                    <li><a href="#" data-filter=".{{str_replace(' ', '', $catefilter->name_en)}}">
-                            @if(App::getLocale() == 'en')
-                            {!! $catefilter->name_en !!}
-                            @else
-                            {!! $catefilter->name_ar !!}
-                            @endif
+                    <li><a href="#" data-filter=".<?php echo e(str_replace(' ', '', $catefilter->name_en)); ?>">
+                            <?php if(App::getLocale() == 'en'): ?>
+                            <?php echo $catefilter->name_en; ?>
+
+                            <?php else: ?>
+                            <?php echo $catefilter->name_ar; ?>
+
+                            <?php endif; ?>
                         </a></li>
 
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </ul>
             </div>
             <!-- .gallery-filter end -->
         </div>
         <div id="gallery-all" class="row">
 
-            @foreach($product as $pro_cat )
+            <?php $__currentLoopData = $product; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pro_cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <!-- gallery #1 -->
-            <div class="col-12 col-md-4 col-lg-3 gallery-item {{str_replace(' ', '', $pro_cat->category->name_en)}}">
+            <div class="col-12 col-md-4 col-lg-3 gallery-item <?php echo e(str_replace(' ', '', $pro_cat->category->name_en)); ?>">
                 <div class="product-item">
                     <div class="product--img">
-                        <img src="{{asset($pro_cat->images->first()->img)}}" alt="Product" />
+                        <img src="<?php echo e(asset($pro_cat->images->first()->img)); ?>" alt="Product" />
                         <div class="product--action">
 
                         </div>
@@ -326,11 +339,11 @@
                     <div class="product--content">
                         <div class="product--title">
                             <h3>
-                                @if(app()->getLocale() == 'ar')
-                                <a href="{{route('product.name',$pro_cat->slogen_ar)}}"> {{$pro_cat->name_ar}} </a>
-                                @else
-                                <a href="{{route('product.name',$pro_cat->slogen_en)}}"> {{$pro_cat->name_en}} </a>
-                                @endif
+                                <?php if(app()->getLocale() == 'ar'): ?>
+                                <a href="<?php echo e(route('product.name',$pro_cat->slogen_ar)); ?>"> <?php echo e($pro_cat->name_ar); ?> </a>
+                                <?php else: ?>
+                                <a href="<?php echo e(route('product.name',$pro_cat->slogen_en)); ?>"> <?php echo e($pro_cat->name_en); ?> </a>
+                                <?php endif; ?>
                             </h3>
                         </div><!-- .product-title end -->
 
@@ -338,7 +351,7 @@
                 </div><!-- .product end -->
             </div><!-- . gallery-item end -->
 
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
             <!-- .row end -->
             <!-- <div class="row">
@@ -366,7 +379,7 @@
             <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
                 <div class="heading heading-2 mb-30 text--center">
                     <p class="heading--subtitle">Our Projects</p>
-                    <h2 class="heading--title">@lang('massege.Projects')</h2>
+                    <h2 class="heading--title"><?php echo app('translator')->getFromJson('massege.Projects'); ?></h2>
                     <p class="heading--desc mb-0">We monitor the spectrum of available business investment and alert
                         our users to market moving events as and when it happens.</p>
                 </div>
@@ -378,24 +391,24 @@
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <div class="carousel owl-carousel carousel-dots" data-slide="1" data-slide-rs="1" data-autoplay="true"
                     data-nav="false" data-dots="true" data-space="0" data-loop="true" data-speed="800">
-                    @if(isset($projects))
+                    <?php if(isset($projects)): ?>
                             <!-- Case #1 -->
-                 @foreach($projects as $projecthome)
-                   @if($x < 3)
+                 <?php $__currentLoopData = $projects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $projecthome): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                   <?php if($x < 3): ?>
                     <div class="case-carousel-grid">
                         <div class="row">
                          
                             <div class="col-sm-12 col-md-6 col-lg-4 case-item filter-customer filter-tips">
                                 <div class="case-item-container">
                                     <div class="case--img">
-                                        <img src="{{asset($projecthome->image)}}" alt="case Item">
+                                        <img src="<?php echo e(asset($projecthome->image)); ?>" alt="case Item">
                                         <div class="case--hover">
                                             <div class="case--action">
-                                                @if(App::getLocale() == 'en')
-                                                <a href="{{route('Project',$projecthome->slogen_en)}}"></a>
-                                                @else
-                                                <a href="{{route('Project',$projecthome->slogen_ar)}}"></a>
-                                                @endif</h4>
+                                                <?php if(App::getLocale() == 'en'): ?>
+                                                <a href="<?php echo e(route('Project',$projecthome->slogen_en)); ?>"></a>
+                                                <?php else: ?>
+                                                <a href="<?php echo e(route('Project',$projecthome->slogen_ar)); ?>"></a>
+                                                <?php endif; ?></h4>
 
                                             </div>
                                             <!-- .case-action end -->
@@ -404,31 +417,33 @@
                                     </div>
                                     <!-- .case-img end -->
                                     <div class="case--content">
-                                        @if(isset($projecthome->tag_ar))
+                                        <?php if(isset($projecthome->tag_ar)): ?>
                                         <div class="case--cat">
-                                            @foreach(explode(',',$projecthome->tag_ar) as $tags_ar)
+                                            <?php $__currentLoopData = explode(',',$projecthome->tag_ar); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tags_ar): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <a href="#">
-                                                {{$tags_ar}}
+                                                <?php echo e($tags_ar); ?>
+
                                             </a>
-                                            @endforeach
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </div>
-                                        @elseif(isset($projecthome->tag_en))
+                                        <?php elseif(isset($projecthome->tag_en)): ?>
                                         <div class="case--cat">
-                                            @foreach(explode(',',$projecthome->tag_en) as $tags_en)
+                                            <?php $__currentLoopData = explode(',',$projecthome->tag_en); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tags_en): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <a href="#">
-                                                {{$tags_en}}
+                                                <?php echo e($tags_en); ?>
+
                                             </a>
-                                            @endforeach
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </div>
-                                        @endif
+                                        <?php endif; ?>
                                         <div class="case--title">
-                                            <h4> @if(App::getLocale() == 'en')
+                                            <h4> <?php if(App::getLocale() == 'en'): ?>
                                                 <a
-                                                    href="{{route('Project',$projecthome->slogen_en)}}">{{$projecthome->name_en}}</a>
-                                                @else
-                                                <a href="{{route('Project',$projecthome->slogen_ar)}}">
-                                                    {{$projecthome->name_ar}}</a>
-                                                @endif</h4>
+                                                    href="<?php echo e(route('Project',$projecthome->slogen_en)); ?>"><?php echo e($projecthome->name_en); ?></a>
+                                                <?php else: ?>
+                                                <a href="<?php echo e(route('Project',$projecthome->slogen_ar)); ?>">
+                                                    <?php echo e($projecthome->name_ar); ?></a>
+                                                <?php endif; ?></h4>
                                             </h4>
                                         </div>
                                     </div>
@@ -437,7 +452,7 @@
                          
                         </div>
                     </div>
-                   @else
+                   <?php else: ?>
                     <div class="case-carousel-grid">
                         <div class="row">
                           
@@ -445,14 +460,14 @@
                             <div class="col-sm-12 col-md-6 col-lg-4 case-item filter-customer filter-tips">
                                 <div class="case-item-container">
                                     <div class="case--img">
-                                        <img src="{{asset($projecthome->image)}}" alt="case Item">
+                                        <img src="<?php echo e(asset($projecthome->image)); ?>" alt="case Item">
                                         <div class="case--hover">
                                             <div class="case--action">
-                                                @if(App::getLocale() == 'en')
-                                                <a href="{{route('Project',$projecthome->slogen_en)}}"></a>
-                                                @else
-                                                <a href="{{route('Project',$projecthome->slogen_ar)}}"></a>
-                                                @endif</h4>
+                                                <?php if(App::getLocale() == 'en'): ?>
+                                                <a href="<?php echo e(route('Project',$projecthome->slogen_en)); ?>"></a>
+                                                <?php else: ?>
+                                                <a href="<?php echo e(route('Project',$projecthome->slogen_ar)); ?>"></a>
+                                                <?php endif; ?></h4>
 
                                             </div>
                                             <!-- .case-action end -->
@@ -461,31 +476,33 @@
                                     </div>
                                     <!-- .case-img end -->
                                     <div class="case--content">
-                                        @if(isset($projecthome->tag_ar))
+                                        <?php if(isset($projecthome->tag_ar)): ?>
                                         <div class="case--cat">
-                                            @foreach(explode(',',$projecthome->tag_ar) as $tags_ar)
+                                            <?php $__currentLoopData = explode(',',$projecthome->tag_ar); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tags_ar): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <a href="#">
-                                                {{$tags_ar}}
+                                                <?php echo e($tags_ar); ?>
+
                                             </a>
-                                            @endforeach
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </div>
-                                        @elseif(isset($projecthome->tag_en))
+                                        <?php elseif(isset($projecthome->tag_en)): ?>
                                         <div class="case--cat">
-                                            @foreach(explode(',',$projecthome->tag_en) as $tags_en)
+                                            <?php $__currentLoopData = explode(',',$projecthome->tag_en); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tags_en): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <a href="#">
-                                                {{$tags_en}}
+                                                <?php echo e($tags_en); ?>
+
                                             </a>
-                                            @endforeach
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </div>
-                                        @endif
+                                        <?php endif; ?>
                                         <div class="case--title">
-                                            <h4> @if(App::getLocale() == 'en')
+                                            <h4> <?php if(App::getLocale() == 'en'): ?>
                                                 <a
-                                                    href="{{route('Project',$projecthome->slogen_en)}}">{{$projecthome->name_en}}</a>
-                                                @else
-                                                <a href="{{route('Project',$projecthome->slogen_ar)}}">
-                                                    {{$projecthome->name_ar}}</a>
-                                                @endif</h4>
+                                                    href="<?php echo e(route('Project',$projecthome->slogen_en)); ?>"><?php echo e($projecthome->name_en); ?></a>
+                                                <?php else: ?>
+                                                <a href="<?php echo e(route('Project',$projecthome->slogen_ar)); ?>">
+                                                    <?php echo e($projecthome->name_ar); ?></a>
+                                                <?php endif; ?></h4>
                                             </h4>
                                         </div>
                                     </div>
@@ -494,12 +511,12 @@
                            
                         </div>
                     </div>
-                    @endif
-                    @php
+                    <?php endif; ?>
+                    <?php
                     $x++;
-                    @endphp
-                    @endforeach
-                    @endif
+                    ?>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -514,15 +531,16 @@
     <div class="container">
 
         <div class="owl-carousel owl-theme owl-brand p-30">
-            @foreach($brands as $brand)
+            <?php $__currentLoopData = $brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="item">
                 <a href="#">
-                    <img src="{{asset($brand->img)}}" class="img-responsive">
+                    <img src="<?php echo e(asset($brand->img)); ?>" class="img-responsive">
                 </a>
             </div>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
     </div>
 </section>
 <!-- end brand -->
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.front.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

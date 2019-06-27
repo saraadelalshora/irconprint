@@ -85,7 +85,7 @@
                                             </div>
                                             <div class="contact-box-info">
                                                 <p class="text-capitalize ">@lang('massege.address'):</p>
-                                                <p class="font-heading"> {{ucwords($setting->address)}} </p>
+                                                @if(isset($setting->address)) <p class="font-heading"> {{ucwords($setting->address)}} </p> @endif
                                             </div>
                                         </div>
 
@@ -95,7 +95,7 @@
                                             </div>
                                             <div class="contact-box-info">
                                                 <p class="text-capitalize ">@lang('massege.email')</p>
-                                                <p class="font-heading">{{$setting->email}}</p>
+                                                @if(isset($setting->email)) <p class="font-heading">{{$setting->email}}</p> @endif
                                             </div>
                                         </div>
 
@@ -105,18 +105,17 @@
                                             </div>
                                             <div class="contact-box-info">
                                                 <p class="text-capitalize">@lang('massege.phone')</p>
-                                                <p class="text-capitalize font-heading">{{$setting->phone}}</p>
+                                              @if(isset($setting->phone))  <p class="text-capitalize font-heading">{{$setting->phone}}</p> @endif
                                             </div>
                                         </div>
 
                                         <!-- Module Social -->
                                         <div class="module module-social pull-left">
-                                            <!--  @if($social->fb) href="{{"https://".$social->fb}}"@else href="#" @endif target="_blank" -->
-                                            @if($social->fb) <a href="{{'https://'.$social->fb}}"><i
+                                            @if(isset($social->fb)) <a href="{{'https://'.$social->fb}}"><i
                                                     class="fab fa-facebook-f"></i></a> @endif
-                                            @if($social->tw)<a href="{{'https://'.$social->tw}}"><i
+                                            @if(isset($social->tw))<a href="{{'https://'.$social->tw}}"><i
                                                     class="fab fa-twitter"></i></a>@endif
-                                            @if($social->linkedin)<a href="{{'https://'.$social->linkedin}}"><i
+                                            @if(isset($social->linkedin))<a href="{{'https://'.$social->linkedin}}"><i
                                                     class="fab fa-linkedin-in"></i></a>@endif
                                         </div><!-- .module-social end -->
                                     </div>
@@ -390,6 +389,7 @@
                         <!-- li end -->
 
                         <!-- Blog Menu-->
+                        @if(isset($eshop_page))
                         <li class="has-dropdown">
 
                             @if(App::getLocale() == 'en')
@@ -412,6 +412,7 @@
                             </ul>
                             @endif
                         </li>
+                        @endif
                         <!-- li end -->
 
                         <!-- shop Menu -->
@@ -592,23 +593,25 @@
                         <div class="widget-content">
                             <img class="footer-logo" src="{{asset('/')}}/assetfront/images/logo/logo-small.png"
                                 alt="logo">
+                            @if(isset($setting))
                             @if(App::getLocale() == 'ar')
                             <p>{{$setting->description_ar}}</p>
                             @else
                             <p>{{$setting->description_en}}</p>
                             @endif
+                            @endif
                             <div class="social-icons">
-                                @if($social->fb) <a href="{{'https://'.$social->fb}}" class="facebook"> <i
+                                @if(isset($social->fb)) <a href="{{'https://'.$social->fb}}" class="facebook"> <i
                                         class="fab fa-facebook-f"></i></a> @endif
-                                @if($social->tw)<a href="{{'https://'.$social->tw}}" class="twitter"><i
+                                @if(isset($social->tw))<a href="{{'https://'.$social->tw}}" class="twitter"><i
                                         class="fab fa-twitter"></i></a>@endif
-                                @if($social->linkedin)<a href="{{'https://'.$social->linkedin}}" class="linkedin"><i
+                                @if(isset($social->linkedin))<a href="{{'https://'.$social->linkedin}}" class="linkedin"><i
                                         class="fab fa-linkedin-in"></i></a>@endif
-                                @if($social->instegram)<a href="{{'https://'.$social->instegram}}" class="linkedin"><i
+                                @if(isset($social->instegram))<a href="{{'https://'.$social->instegram}}" class="linkedin"><i
                                         class="fab fa-linkedin-in"></i></a>@endif
-                                @if($social->youtube)<a href="{{'https://'.$social->youtube}}" class="linkedin"><i
+                                @if(isset($social->youtube))<a href="{{'https://'.$social->youtube}}" class="linkedin"><i
                                         class="fab fa-linkedin-in"></i></a>@endif
-                                @if($social->pinterest)<a href="{{'https://'.$social->pinterest}}" class="linkedin"><i
+                                @if(isset($social->pinterest))<a href="{{'https://'.$social->pinterest}}" class="linkedin"><i
                                         class="fab fa-linkedin-in"></i></a>@endif
 
                             </div>
@@ -633,7 +636,7 @@
                         </div>
                         <div class="contact-box-info">
                             <p class="text-capitalize ">@lang('massege.address'):</p>
-                            <p class="font-heading"> {{ucwords($setting->address)}} </p>
+                           @if(isset($setting->address)) <p class="font-heading"> {{ucwords($setting->address)}} </p>@endif
                         </div>
                     </div><!-- .col-md-4 end -->
 
@@ -641,12 +644,12 @@
 
                         <div class="contact-box-info">
                             <p class="text-capitalize ">@lang('massege.email')</p>
-                            <p class="font-heading">{{$setting->email}}</p>
+                            @if(isset($setting->email))<p class="font-heading">{{$setting->email}}</p>@endif
                         </div>
 
                         <div class="contact-box-info">
                             <p class="text-capitalize">@lang('massege.phone')</p>
-                            <p class="text-capitalize font-heading">{{$setting->phone}}</p>
+                            @if(isset($setting->phone))<p class="text-capitalize font-heading">{{$setting->phone}}</p>@endif
                         </div>
                     </div>
                     <!-- .col-md-3 end -->
