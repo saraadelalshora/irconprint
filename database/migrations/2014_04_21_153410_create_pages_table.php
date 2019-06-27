@@ -23,6 +23,7 @@ class CreatePagesTable extends Migration
             $table->enum('status', ['0', '1'])->default('1');
             $table->enum('type', ['0', '1','2','3','4'])->default('4');
             $table->string('slogen_ar');
+            $table->string('video')->nullable();
             $table->string('slogen_en')->nullable();
 
             $table->timestamps();

@@ -194,6 +194,13 @@
     /* ------------------ OWL CAROUSEL ------------------ */
 
     $(".carousel").each(function() {
+        var dirval = $("html").css("direction");
+        var rtlval;
+       if (dirval == 'rtl') {
+           rtlval = true;
+       } else {
+           rtlval = false;
+       }
         var $Carousel = $(this);
         $Carousel.owlCarousel({
             loop: $Carousel.data('loop'),
@@ -203,6 +210,7 @@
             dots: $Carousel.data('dots'),
             center: $Carousel.data('center'),
             dotsSpeed: $Carousel.data('speed'),
+            rtl:rtlval,
             responsive: {
                 0: {
                     items: 1,
@@ -251,8 +259,7 @@
                 }
             },
             srcAction: 'iframe_src',
-        },
-       
+        }
     });
 
     /* ------------------  ROUNDED SKILL ------------------ */
@@ -313,12 +320,19 @@
     }
 
     /* ------------------ gallery FLITER ------------------ */
-
+     var mydir = $("html").css("direction");
+     var filterDir;
+    if (mydir == 'rtl') {
+        filterDir = false;
+    } else {
+        filterDir = true;
+    }
+    
     var $galleryFilter = $(".gallery-filter"),
         galleryLength = $galleryFilter.length,
         galleryFinder = $galleryFilter.find("a"),
         $galleryAll = $("#gallery-all");
-
+      
     // init Isotope For gallery
     galleryFinder.on("click", function(e) {
         e.preventDefault();
@@ -328,13 +342,15 @@
     if (galleryLength > 0) {
         $galleryAll.imagesLoaded().progress(function() {
             $galleryAll.isotope({
+                isOriginLeft: filterDir,
                 filter: "*",
                 animationOptions: {
                     duration: 750,
                     itemSelector: ".gallery-item",
                     easing: "linear",
                     queue: false,
-                }
+                },
+               
             });
         });
     }
@@ -344,11 +360,13 @@
         $galleryAll.imagesLoaded().progress(function() {
             $galleryAll.isotope({
                 filter: $selector,
+                isOriginLeft: filterDir,
                 animationOptions: {
                     duration: 750,
                     itemSelector: ".gallery-item",
                     easing: "linear",
                     queue: false,
+                    
                 }
             });
             return false;

@@ -68,7 +68,8 @@ class AboutController extends Controller
         $page->slogen_ar=$this->make_slug($request->input('ar_name'));
         $page->slogen_en=$this->make_slug($request->input('en_name'));
         $page->type='0';
-
+        $page->video=$request->video;
+       
         $page->save();
         return  redirect('admin/About')->with('success','تم اضافة الصفحة   بنجاح');
     }
@@ -133,6 +134,8 @@ class AboutController extends Controller
             }
             $page->slogen_ar=$this->make_slug($request->input('ar_name'));
             $page->slogen_en=$this->make_slug($request->input('en_name'));
+            $page->video=$request->video;
+
             $page->save();
             return  redirect('admin/About')->with('success','تم تعديل الصفحة بنجاح');
     }

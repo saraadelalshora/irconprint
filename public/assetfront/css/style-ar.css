@@ -1,0 +1,129 @@
+.header-full .contact-bar .contact-box-icon,.navbar-nav > li > .menu-item::before, .navbar-nav > li > .menu-item:hover::before {
+  left: auto;
+    right: 0;
+}
+.header-full .contact-bar .contact-box {
+   margin-right: 0;
+    margin-left: 48px;
+}
+.header-full .contact-bar .contact-box-info {
+    padding-right: 25px;
+    padding-left: 0;
+}
+.module-social a {
+    margin-right: 19px;
+    margin-left: 0;
+}
+.header-full .navbar {
+    padding-left: 0;
+    padding-right: 25px;
+}
+.module .module-icon,.navbar-nav > li  {
+    margin-right: 0;
+    margin-left: 17px;
+}
+li.has-dropdown > ul.dropdown-menu > li.dropdown-submenu > a:before, ul.dropdown-menu > li.has-dropdown > a:before{
+    right: auto;
+    left: 25px;
+    content: "\f104";
+
+}
+
+.rev_slider_wrapper, .rev_slider_wrapper *{direction:ltr;}
+
+
+.gallery-filter li a{
+    margin-left: 24px;
+margin-right: 0;
+}
+.video--content .video--button .popup-video span:before{
+    left:auto;
+    right: -14px;
+
+}
+.featured-left .feature-card-icon {
+    
+    right: 0;
+    left: auto;
+}
+footer .widget-links ul {
+    padding-right: 0;
+}
+.social-icons a{
+    float: right;
+    margin-left: 24px;
+    margin-right: 0;
+
+}
+.featured-left .feature-card-content {
+    padding-right: 74px;
+    padding-left: 0;
+}
+footer .widget-newsletter .form-control{
+    float: right;
+    padding-left: 0;
+    padding-right: 15px;
+
+}
+.fa-long-arrow-alt-right:before {
+    content: "\f30a";
+}
+.blog-entry .entry--more a i {
+    margin-left: 7px;
+    margin-right: 0;
+}
+.widget-recent-products .product .product-desc {
+    padding-right: 80px;
+    padding-left: 0;
+}
+.widget-recent-products .product img,.widget-recent-posts .entry--img ,.single-product .product-details h5:after, .single-product .product-share h5:after{
+    right: 0;
+    left: auto;
+}
+.widget-search .form-search .form-control{
+    padding-right: 15px;
+    padding-left: 0;
+}
+.form-control{
+    padding: 0 20px 0 0 ;
+
+}
+.blog-standard .blog-entry .entry--meta {
+    margin-left: 20px;
+    margin-right: 0;
+}
+.blog-single .entry--tags a{
+    margin-left: 7px;
+    margin-right: 0;
+
+}
+.widget-recent-posts .entry .entry--desc {
+    margin-left: 0;
+    margin-right: 100px;
+}
+.widget-categories li a:before{
+    right: 20px;
+    left: auto;
+}
+.ml-30 {
+    margin-right: 30px !important;
+    margin-left: 0 !important;
+}
+@media only screen and (max-width: 991px){
+    .navbar-nav .has-dropdown:after{
+        right: auto;
+        left: 0;
+        content: "\f104";
+    }
+}
+@media only screen and (min-width: 992px){
+.navbar-nav > li.has-dropdown > ul.dropdown-menu, .navbar-nav > li.has-dropdown > ul.mega-menu, li.dropdown-submenu > ul.mega-menu {
+
+    left: auto;
+    right: 0;
+}
+li.dropdown-submenu > ul.mega-menu, li.has-dropdown > ul.dropdown-menu > li.dropdown-submenu > ul.dropdown-menu,li.dropdown-submenu > ul.dropdown-menu > li.has-dropdown > ul.dropdown-menu{
+    right: 100%;
+    left: auto;
+}
+}

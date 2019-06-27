@@ -1,3 +1,8 @@
+<?php $__env->startSection('meta'); ?>
+
+<title><?php echo app('translator')->getFromJson('massege.news'); ?></title>
+
+<?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 
 

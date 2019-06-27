@@ -361,6 +361,13 @@
                             </ul>
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
+                                    class="ti-layout-grid2"></i><span class="hide-menu">منتجات المتجر</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="{{url('admin/eshop/Category')}}">الأقسام الرئيسية</a></li>
+                                <li><a href="{{route('eshop.index')}}">المنتجات</a></li>
+                            </ul>
+                        </li>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i
                                     class="fa fa-file-video-o"></i><span class="hide-menu">الفيديو</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{url('admin/video/Category')}}">الأقسام الرئيسية</a></li>

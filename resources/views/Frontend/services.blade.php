@@ -1,4 +1,9 @@
 @extends('layouts.front.master')
+@section('meta')
+
+<title>@lang('massege.services')</title>
+
+@endsection
 @section('content')
 <section id="page-title" class="page-title bg-overlay bg-overlay-dark bg-parallax">
     <div class="bg-section">

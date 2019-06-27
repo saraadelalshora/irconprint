@@ -157,8 +157,8 @@
                     <div class="case--content">
                         <div class="case--cat ">
                             <ul class="list-inline">
-                                <li> <i class="far fa-calendar-alt"></i> <span>starts : june 12,2019</span></li>
-                                <li class="ml-30"> <i class="far fa-clock"></i> <span>15 hour</span> </li>
+                            <li> <i class="far fa-calendar-alt"></i> <span><?php echo app('translator')->getFromJson('massege.starts'); ?> <?php echo e(\Carbon\Carbon::parse($categorytraining->course_date)->format('d M  Y')); ?></span></li>
+                                <li class="ml-30"> <i class="far fa-clock"></i> <span><?php echo e($categorytraining->course_hour); ?> <?php echo app('translator')->getFromJson('massege.hour'); ?></span> </li>
                             </ul>
 
                         </div>

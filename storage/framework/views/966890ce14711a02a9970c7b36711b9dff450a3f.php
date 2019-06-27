@@ -267,7 +267,7 @@
                     <div class="video--button">
                         <div class="video-overlay">
                             <div class="pos-vertical-center">
-                                <a class="popup-video" href="https://www.youtube.com/watch?v=nrJtHemSPW4">
+                                <a class="popup-video" href="<?php echo e($about->video); ?>">
                                     <span class="btn--animation"></span>
                                     <i class="fa fa-play"></i>
                                 </a>

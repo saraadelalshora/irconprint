@@ -18,6 +18,10 @@ class Category extends Model
     public function products(){
         return $this->hasMany('App\Product');
     }
+    public function eshops(){
+        return $this->hasMany('App\ShopProducts','category_id','id');
+    }
+    // 
     public function videos(){
         return $this->hasMany('App\Video');
     }

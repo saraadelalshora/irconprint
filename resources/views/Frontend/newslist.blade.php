@@ -1,4 +1,9 @@
 @extends('layouts.front.master')
+@section('meta')
+
+<title>@lang('massege.news')</title>
+
+@endsection
 @section('content')
 
 

@@ -61,6 +61,10 @@ class AppServiceProvider extends ServiceProvider
         if(isset($product_categories)){
             View::share('product_categories',$product_categories);
         }
+        $eshop_categories=Category::where([['status','1'],['type','eshop']])->take(5)->get();
+        if(isset($eshop_categories)){
+            View::share('eshop_categories',$eshop_categories);
+        }
         $video_categories=Category::where([['status','1'],['type','video']])->take(5)->get();
         if(isset($video_categories)){
             View::share('video_categories',$video_categories);

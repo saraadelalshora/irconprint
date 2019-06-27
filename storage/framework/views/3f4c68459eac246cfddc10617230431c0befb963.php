@@ -37,10 +37,10 @@
                         <li class="breadcrumb-item"><a href="<?php echo e(url('projects')); ?>"><?php echo app('translator')->getFromJson('massege.Projects'); ?></a></li>
                         <li class="breadcrumb-item active" aria-current="page">
                             <?php if(App::getLocale() == 'en'): ?>
-                            <?php echo e($projects->name_ar); ?>
+                            <?php echo e($projects->name_en); ?>
 
                             <?php else: ?>
-                            <?php echo e($projects->name_en); ?>
+                            <?php echo e($projects->name_ar); ?>
 
                             <?php endif; ?>
                     </ol>

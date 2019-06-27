@@ -81,10 +81,7 @@
                                                 <select name="status" class="form-control">
                                                     <option value="1"
                                                         <?php echo e($page->status == 1 ? 'selected="selected"' : ''); ?>>تفعيل
-                                                    </option>
-                                                    <option value="0"
-                                                        <?php echo e($page->status == 0 ? 'selected="selected"' : ''); ?>>ايقاف
-                                                    </option>
+                                                    </option>                                               
                                                 </select>
                                             </div>
                                             <div class="form-group">
@@ -92,7 +89,12 @@
                                         <p>555x263</p>
                                         <br>
                                         <input type="file" id="input-file-now" name="img"  <?php if(!empty($page->img)): ?> data-default-file="<?php echo e(asset($page->img)); ?>" <?php endif; ?> class="dropify" />
-                                    </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label class="control-label">لينك فيديو الصفحة الرئيسية  </label>
+                                             
+                                                <input type="text"  name="video" class="form-control"  value="<?php echo e($page->video); ?>"/>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="lang_en" role="tabpanel">

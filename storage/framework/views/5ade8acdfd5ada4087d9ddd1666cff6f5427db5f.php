@@ -9,9 +9,10 @@
     <?php echo $__env->yieldContent('meta'); ?>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="<?php echo e(asset('/')); ?>/assetfront/css/bootstrap.min.css">
+    
     <!-- bootstrap ar  -->
     <?php if(app()->getLocale() == 'ar'): ?>
-    <link rel="stylesheet" href="<?php echo e(asset('/')); ?>/assetfront/css/bootstrap-rtl.min.css">
+    <link rel="stylesheet" href="<?php echo e(asset('/')); ?>/assetfront/css/bootstrap-rtl.css">
     <?php endif; ?>
     <!-- <link rel="stylesheet" href="css/bootstrap-rtl.min.css"> -->
     <link rel="stylesheet" href="<?php echo e(asset('/')); ?>/assetfront/css/animate.min.css">
@@ -24,7 +25,11 @@
         rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="<?php echo e(asset('/')); ?>/assetfront/css/et-line.css">
     <!-- <link rel="stylesheet" href="<?php echo e(asset('/')); ?>/assetfront/css/external.css"> -->
+    <link rel="stylesheet" href="<?php echo e(asset('/')); ?>/assetfront/css/xzoom.css">
     <link rel="stylesheet" href="<?php echo e(asset('/')); ?>/assetfront/css/style.css">
+    <?php if(app()->getLocale() == 'ar'): ?>
+    <link rel="stylesheet" href="<?php echo e(asset('/')); ?>/assetfront/css/style-ar.css">
+    <?php endif; ?>
     <!-- style ar -->
     <!-- <link rel="stylesheet" href="<?php echo e(asset('/')); ?>/assetfront/css/style.css"> -->
     <!-- RS5.0 Main Stylesheet -->
@@ -393,37 +398,31 @@
                             <?php else: ?>
                             <a href="<?php echo e(route('page',$eshop_page->slogen_ar)); ?>"><?php echo e($eshop_page->title_ar); ?> </a>
                             <?php endif; ?>
-
+                            <?php if(isset($eshop_categories)): ?>
                             <ul class="dropdown-menu">
+                               <?php $__currentLoopData = $eshop_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $eshop_cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <li>
-                                    <a href="category.html">consumables Prepress</a>
+                                <?php if(App::getLocale() == 'en'): ?>
+                            <a href="<?php echo e(route('shop.name',$eshop_cat->slogen_en)); ?>"><?php echo e($eshop_cat->name_en); ?> </a>
+                            <?php else: ?>
+                            <a href="<?php echo e(route('shop.name',$eshop_cat->slogen_ar)); ?>"><?php echo e($eshop_cat->name_ar); ?> </a>
+                            <?php endif; ?>
                                 </li>
-                                <li>
-                                    <a href="category.html">consumables Press</a>
-                                </li>
-                                <li>
-                                    <a href="category.html">Digital </a>
-                                </li>
-                                <li>
-                                    <a href="category.html">consumables Post Press</a>
-                                </li>
-                                <li>
-                                    <a href="category.html">Service Parts </a>
-                                </li>
-
+                               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                             </ul>
+                            <?php endif; ?>
                         </li>
                         <!-- li end -->
 
                         <!-- shop Menu -->
                         <li class="has-dropdown">
-                            <a href="projects.html" class="dropdown-toggle menu-item"
+                            <a href="<?php echo e(url('projects')); ?>" class="dropdown-toggle menu-item"
                                 data-hover="shop"><?php echo app('translator')->getFromJson('massege.Projects'); ?></a>
                         </li>
                         <!-- li end -->
                         <li class="has-dropdown">
-                            <a href="security.html" class="dropdown-toggle menu-item"
+                            <a href="#" class="dropdown-toggle menu-item"
                                 data-hover="shop"><?php echo app('translator')->getFromJson('massege.Security Printing'); ?> </a>
                             <ul class="dropdown-menu">
                                 <?php if(isset($secure_page)): ?>
@@ -471,7 +470,32 @@
                                 <a class="module-cancel" href="#"><i class="fas fa-times"></i></a>
                             </div>
                         </div><!-- .module-search end -->
+                        <div class="module module-cart pull-left">
+                                <div class="module-icon cart-icon">
+                                <?php if(App::isLocale('en')): ?>
+                                  
+                                        <a href="<?php echo e(URL::to('setlang/ar')); ?>" >
+                                        <img src="<?php echo e(asset('/')); ?>/assetfront/images/icons/egypt.png" class="mr-5" alt="">
+                                       
+                                        <?php echo e(trans('massege.ar')); ?>
 
+                                        </a>
+                                  
+                                    <?php else: ?>
+                                   
+                                        <a href="<?php echo e(URL::to('setlang/en')); ?>" >
+                                        <img src="<?php echo e(asset('/')); ?>/assetfront/images/icons/united-states-of-america.png" class="mr-5" alt=""> 
+                                       
+                                        <?php echo e(trans('massege.en')); ?>
+
+                                        </a>
+                                   
+                                    <?php endif; ?>
+
+        
+                                </div>
+                            </div>
+                            
                         <!-- Module Consultation  -->
                         <div class="module module-consultation pull-left">
                             <a class="btn" href="<?php echo e(url('contact-us')); ?>"><?php echo app('translator')->getFromJson('massege.contact'); ?></a>
@@ -665,6 +689,9 @@
     <script src="<?php echo e(asset('/')); ?>/assetfront/js/popper.min.js"></script>
     <script src="<?php echo e(asset('/')); ?>/assetfront/js/bootstrap.min.js"></script>
     <script src="<?php echo e(asset('/')); ?>/assetfront/js/plugins.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assetfront/inc/carousel/owl.carousel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.1/jquery.fancybox.min.js"></script>
+    <script src="<?php echo e(asset('/')); ?>/assetfront/js/xzoom.min.js"></script>
     <script src="<?php echo e(asset('/')); ?>/assetfront/js/custom.js"></script>
     <!-- RS5.0 Core JS Files -->
     <script src="<?php echo e(asset('/')); ?>/assetfront/inc/revolution/js/jquery.themepunch.tools.min.js?rev=5.0"></script>
@@ -682,7 +709,8 @@
     <script src="<?php echo e(asset('/')); ?>/assetfront/inc/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
     <!-- RS Configration JS Files -->
     <script src="<?php echo e(asset('/')); ?>/assetfront/js/rsconfig.js"></script>
-
+    
+    <?php echo $__env->yieldContent('js'); ?>
 </body>
 
 </html>

@@ -25,7 +25,7 @@ class CreateCategoriesTable extends Migration
             $table->string('slogen_ar');
             $table->string('slogen_en')->nullable();
             $table->enum('status', ['0', '1'])->default('1');
-            $table->enum('type', ['product', 'video','training'])->default('product');
+            $table->enum('type', ['product', 'video','training','eshop'])->default('product');
             $table->timestamps();
         });
     }

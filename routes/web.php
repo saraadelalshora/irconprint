@@ -37,7 +37,10 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 Route::group(['prefix' => 'admin', 'middleware'=>'Admin'],function () {
 Route::get('/', 'Admin\AdminController@index')->name('admin');
 Route::resource('User','Admin\UserController');
-
+//eshop
+Route::resource('eshop/Category','Admin\eshop\CategoryController');
+Route::resource('eshop','Admin\eshop\ProductController');
+//product
 Route::resource('product/Category','Admin\product\CategoryController');
 Route::resource('product/SubCategory','Admin\product\SubCategoryController');
 Route::resource('product/SubtwoCategory','Admin\product\SubtwoCategoryController');
@@ -148,12 +151,11 @@ Route::group([
      Route::get('Video/subcategorytwo/{slug}', 'Front\VideoController@subcategorytwo')->name('Subcategorytwo.Videos');
      Route::get('Video', 'Front\VideoController@All_Video')->name('Video.name');
  
-    // show_profile
-    Route::get('profile', 'Front\AccountController@show_profile')->name('Profile');
-    Route::match(['put', 'patch'],'profile/{id}','Front\AccountController@update_profile')->name('account.update');
-    // Route::get('products', 'Front\ProductController@index')->name('products')categoryproduct;
-    // product_details
-   Route::get('products/{slug}', 'Front\ProductController@product_details')->name('product.name');
+  
+    // eshop 
+    Route::get('shop/{slug}', 'Front\ProductController@eshop')->name('shop.name');
+    Route::get('productshop/{slug}', 'Front\ProductController@product_product_details')->name('productshop.name');
+
   //  subcategorylist
    //================Method/Shopping===================== /search//
 Route::get('/Shopping-Cart-Show', 'Front\CartController@CartShow');

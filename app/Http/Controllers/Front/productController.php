@@ -14,7 +14,7 @@ use App\Manufactor;
 use App\Filter;
 use App\Comment;
 use App\Wishlist;
-use App\Order_product;
+use App\ShopProducts;
 use Auth;
 class productController extends Controller
 {
@@ -57,5 +57,15 @@ class productController extends Controller
         $all_product=Category::where([['status','1'],['type','product']])->paginate(12);
         return view('Frontend.product.allcategory', compact('all_product'));
     }
- 
+    public function eshop(Request $request){
+
+        $category=Category::where([['slogen_ar',$request->slug],['type','eshop']])->orwhere([['slogen_en',$request->slug],['type','eshop']])->get()->first();
+    //   dd($category);
+        return view('Frontend.eshop.eshop', compact('category'));
+    }
+    public function product_product_details(Request $request)
+    {   
+        $product = ShopProducts::where('slogen_ar',$request->slug)->orwhere('slogen_en',$request->slug)->first();
+        return view('Frontend.product.productdetails', compact('product'));
+    }
 }

@@ -138,5 +138,63 @@
     <!-- .container end -->
 </section>
 <!-- #shop end -->
+<?php $__env->startSection('js'); ?>
+<script>
+    (function ($) {
+    $(document).ready(function () {
+        var dirval = $("html").css("direction");
+        var rtlval;
+       if (dirval == 'rtl') {
+           rtlval = true;
+       } else {
+           rtlval = false;
+       }
+        $('.owl-xzoom').owlCarousel({
+        loop: false,
+        margin: 20,
+        nav: false,
+        dots: false,
+        rtl:rtlval,
+        responsive: {
+            0: {
+                items: 3
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 5
+            }
+        }
+    });
+        $('.xzoom, .xzoom-gallery').xzoom({
+        //     zoomWidth: 400,
+        //   zoomHeight: 400,
+            tint: '#fff',
+            Xoffset: 20,
+            // position: right,
+            // defaultScale: .7
+        });
+        $(".xzoom:first").bind('click', function (event) {
+            var xzoom = $(this).data('xzoom');
+            xzoom.closezoom();
+            var i, images = new Array();
+            var gallery = xzoom.gallery().ogallery;
+            var index = xzoom.gallery().index;
+            for (i in gallery) {
+                images[i] = {
+                    src: gallery[i]
+                };
+            }
+            $.fancybox.open(images, {
+                loop: false
+            }, index);
+            event.preventDefault();
+        });
+    });
+})(jQuery);
+</script>
+
+<?php $__env->stopSection(); ?>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.front.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

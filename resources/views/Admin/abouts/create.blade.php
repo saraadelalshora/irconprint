@@ -87,6 +87,11 @@
                                                 <br>
                                                 <input type="file" id="input-file-now" name="img" class="dropify" />
                                             </div>
+                                            <div class="form-group">
+                                                <label class="control-label">لينك فيديو الصفحة الرئيسية  </label>
+                                             
+                                                <input type="text"  name="video" class="form-control"  />
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="lang_en" role="tabpanel">

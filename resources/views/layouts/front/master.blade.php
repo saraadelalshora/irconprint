@@ -9,9 +9,10 @@
     @yield('meta')
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{asset('/')}}/assetfront/css/bootstrap.min.css">
+    
     <!-- bootstrap ar  -->
     @if(app()->getLocale() == 'ar')
-    <link rel="stylesheet" href="{{asset('/')}}/assetfront/css/bootstrap-rtl.min.css">
+    <link rel="stylesheet" href="{{asset('/')}}/assetfront/css/bootstrap-rtl.css">
     @endif
     <!-- <link rel="stylesheet" href="css/bootstrap-rtl.min.css"> -->
     <link rel="stylesheet" href="{{asset('/')}}/assetfront/css/animate.min.css">
@@ -24,7 +25,11 @@
         rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{asset('/')}}/assetfront/css/et-line.css">
     <!-- <link rel="stylesheet" href="{{asset('/')}}/assetfront/css/external.css"> -->
+    <link rel="stylesheet" href="{{asset('/')}}/assetfront/css/xzoom.css">
     <link rel="stylesheet" href="{{asset('/')}}/assetfront/css/style.css">
+    @if(app()->getLocale() == 'ar')
+    <link rel="stylesheet" href="{{asset('/')}}/assetfront/css/style-ar.css">
+    @endif
     <!-- style ar -->
     <!-- <link rel="stylesheet" href="{{asset('/')}}/assetfront/css/style.css"> -->
     <!-- RS5.0 Main Stylesheet -->
@@ -392,37 +397,31 @@
                             @else
                             <a href="{{route('page',$eshop_page->slogen_ar)}}">{{$eshop_page->title_ar}} </a>
                             @endif
-
+                            @if(isset($eshop_categories))
                             <ul class="dropdown-menu">
+                               @foreach($eshop_categories as $eshop_cat)
                                 <li>
-                                    <a href="category.html">consumables Prepress</a>
+                                @if(App::getLocale() == 'en')
+                            <a href="{{route('shop.name',$eshop_cat->slogen_en)}}">{{$eshop_cat->name_en}} </a>
+                            @else
+                            <a href="{{route('shop.name',$eshop_cat->slogen_ar)}}">{{$eshop_cat->name_ar}} </a>
+                            @endif
                                 </li>
-                                <li>
-                                    <a href="category.html">consumables Press</a>
-                                </li>
-                                <li>
-                                    <a href="category.html">Digital </a>
-                                </li>
-                                <li>
-                                    <a href="category.html">consumables Post Press</a>
-                                </li>
-                                <li>
-                                    <a href="category.html">Service Parts </a>
-                                </li>
-
+                               @endforeach
 
                             </ul>
+                            @endif
                         </li>
                         <!-- li end -->
 
                         <!-- shop Menu -->
                         <li class="has-dropdown">
-                            <a href="projects.html" class="dropdown-toggle menu-item"
+                            <a href="{{url('projects')}}" class="dropdown-toggle menu-item"
                                 data-hover="shop">@lang('massege.Projects')</a>
                         </li>
                         <!-- li end -->
                         <li class="has-dropdown">
-                            <a href="security.html" class="dropdown-toggle menu-item"
+                            <a href="#" class="dropdown-toggle menu-item"
                                 data-hover="shop">@lang('massege.Security Printing') </a>
                             <ul class="dropdown-menu">
                                 @if(isset($secure_page))
@@ -470,7 +469,30 @@
                                 <a class="module-cancel" href="#"><i class="fas fa-times"></i></a>
                             </div>
                         </div><!-- .module-search end -->
+                        <div class="module module-cart pull-left">
+                                <div class="module-icon cart-icon">
+                                @if (App::isLocale('en'))
+                                  
+                                        <a href="{{URL::to('setlang/ar')}}" >
+                                        <img src="{{asset('/')}}/assetfront/images/icons/egypt.png" class="mr-5" alt="">
+                                       
+                                        {{trans('massege.ar')}}
+                                        </a>
+                                  
+                                    @else
+                                   
+                                        <a href="{{URL::to('setlang/en')}}" >
+                                        <img src="{{asset('/')}}/assetfront/images/icons/united-states-of-america.png" class="mr-5" alt=""> 
+                                       
+                                        {{trans('massege.en')}}
+                                        </a>
+                                   
+                                    @endif
 
+        
+                                </div>
+                            </div>
+                            
                         <!-- Module Consultation  -->
                         <div class="module module-consultation pull-left">
                             <a class="btn" href="{{url('contact-us')}}">@lang('massege.contact')</a>
@@ -660,6 +682,9 @@
     <script src="{{asset('/')}}/assetfront/js/popper.min.js"></script>
     <script src="{{asset('/')}}/assetfront/js/bootstrap.min.js"></script>
     <script src="{{asset('/')}}/assetfront/js/plugins.js"></script>
+    <script src="{{asset('/')}}/assetfront/inc/carousel/owl.carousel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.1/jquery.fancybox.min.js"></script>
+    <script src="{{asset('/')}}/assetfront/js/xzoom.min.js"></script>
     <script src="{{asset('/')}}/assetfront/js/custom.js"></script>
     <!-- RS5.0 Core JS Files -->
     <script src="{{asset('/')}}/assetfront/inc/revolution/js/jquery.themepunch.tools.min.js?rev=5.0"></script>
@@ -677,7 +702,8 @@
     <script src="{{asset('/')}}/assetfront/inc/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
     <!-- RS Configration JS Files -->
     <script src="{{asset('/')}}/assetfront/js/rsconfig.js"></script>
-
+    
+    @yield('js')
 </body>
 
 </html>
